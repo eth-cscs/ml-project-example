@@ -51,7 +51,7 @@ Built and maintained by CSCS for Alps.
 
 Runs your job **inside a Linux container**, so you bring the userspace you already know.
 
-Described by an **EDF**, an environment definition file.
+Described by an **EDF**, an Environment Definition File.
 
 </div>
 </div>
@@ -68,7 +68,7 @@ SAY:
 - A uenv is a CSCS-built environment, one Squashfs file containing the software and its modules.
 - The Container Engine runs your job inside a container you describe with a small file.
 - For PyTorch specifically, the docs recommend the container route, and that is what most of you will use.
-- The honest difference: uenv is tuned for Alps by us, containers are what you already know from your laptop.
+- The honest difference: uenv is focused on Alps, containers allow to use portable environments built by 3rd parties.
 NEXT: uenv first, because it is three commands.
 DOCS: docs.cscs.ch/software/uenv/ · docs.cscs.ch/software/container-engine/
 -->
@@ -126,7 +126,7 @@ confirm the PyTorch uenv names and versions against docs.cscs.ch/software/ml/pyt
 
 # A container is described by one small file
 
-The EDF is TOML. This is the whole idea.
+The EDF uses the TOML format: minimal and straightforward.
 
 ```toml
 image = "library/ubuntu:24.04"
@@ -136,22 +136,30 @@ workdir = "${SCRATCH}"
 
 <div class="cols">
 <div>
-
-Then one flag, everywhere:
+Save them in `$HOME/.edf`:
 
 ```bash
-srun --environment=ubuntu echo "Hello"
-srun --environment=ubuntu --pty bash
+$ ls $HOME/.edf
+ubuntu.toml
+```
+
+Then one flag on `srun` commands:
+
+```bash
+$ srun --environment=ubuntu cat /etc/os-release | grep PRETTY
+PRETTY_NAME="Ubuntu 24.04 LTS"
+
+$ srun --environment=ubuntu --pty bash
 ```
 
 </div>
 <div class="card">
 
-### What the three keys do
+### Three of the most used keys
 
-- `image` — what to run
+- `image` — the container image to use (the only strictly required parameter)
 - `mounts` — what of Alps to make visible inside
-- `workdir` — where you land
+- `workdir` — where you land when the job step starts
 
 </div>
 </div>
@@ -170,7 +178,7 @@ DOCS: docs.cscs.ch/software/container-engine/
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/software/ml/pytorch/' -->
 <div class="audience all">Everyone</div>
 
-# A real PyTorch EDF, annotated
+# A realistic PyTorch EDF
 
 The NGC PyTorch container is a good base image: PyTorch is pre-installed with an optimised build.
 
@@ -178,36 +186,37 @@ The NGC PyTorch container is a good base image: PyTorch is pre-installed with an
 <div class="code-sm">
 
 ```toml
-image = "${SCRATCH}/ce-images/ngc-pytorch-my-app+25.06.sqsh"
+image = "nvcr.io/nvidia/pytorch:26.06-py3"
 
 mounts = [
-    "/capstor",
-    "/iopsstor",
-    "/users/${USER}/my-app"
+    "/capstor:/capstor",
+    "/iopsstor:/iopsstor"
 ]
 
-workdir = "${HOME}/my-app"
+workdir = "${SCRATCH}/my-project"
+
+[env]
+OMP_NUM_THREADS = "72"
+TORCH_NCCL_ASYNC_ERROR_HANDLING = "1"
+#NCCL_DEBUG = "INFO"
 
 [annotations]
 com.hooks.aws_ofi_nccl.enabled = "true"
-com.hooks.aws_ofi_nccl.variant = "cuda12"
-
-# [env] follows: NCCL_DEBUG, CUDA_CACHE_DISABLE,
-# TORCH_NCCL_ASYNC_ERROR_HANDLING, MPICH_GPU_SUPPORT_ENABLED
 ```
 
 </div>
 <div class="stack">
 <div class="card">
 
-### The image is a local file
+### The EDF as a blueprint
 
-Not a registry reference. A `.sqsh` on **your** scratch.
+- Declaratively expresses the characteristics of your job environment. The Container Engine takes care of instantiating it.
+- Separates the *description* of the container (reusable) from the *commands* you want to run inside it.
 
 </div>
 <div class="card">
 
-### The annotations are the Alps part
+### The annotations introduce HPC features
 
 The **aws-ofi-nccl** hook is what makes multi-node NCCL use the Slingshot network properly.
 
@@ -220,17 +229,20 @@ Skip it and your multi-node training is quietly slow.
 <!--
 This is the slide to spend time on.
 SAY:
-- This is a real one, from the PyTorch page.
-- Top line: the image is a file on your scratch, not a registry address. You import it once.
-- The mounts bring in both scratch filesystems and your code directory.
+- This is a realistic EDF to run generic PyTorch tasks.
+- Top line: Enter the image by registry reference. The Container Engine downloads and caches it.
+- The mounts bring in both scratch filesystems.
+- Highlight the abstractions enabled by the EDF: user intent from container tool management; container description from job script command
 - Now the part that is specific to this machine, and the reason a laptop container is not enough.
 POINT AT THE ANNOTATIONS BLOCK:
-- That hook connects NCCL to the Slingshot network through libfabric.
+- Annotations are arbitrary metadata for the container. We use them to request custom features to the Container Engine.
+- The AWS OFI NCCL hook connects NCCL to the Slingshot network through libfabric.
 - If you leave it out, multi-node training still works. It is just quietly, badly slow.
 - That is the single most common performance bug we see.
+- Refer to documentation for more annotations and features
 THE [env] BLOCK, only if asked:
-- NCCL_DEBUG=INFO so you can see what the network actually did.
-- CUDA_CACHE_DISABLE=1, TORCH_NCCL_ASYNC_ERROR_HANDLING=1, MPICH_GPU_SUPPORT_ENABLED=0.
+- OMP_NUM_THREADS aligns with the number of cores of Grace CPU
+- NCCL_DEBUG=INFO so you can see what the network actually did. EDF supports comments: comment out for cleaner outputs.
 - The full block is on the PyTorch documentation page. Do not read it out.
 NEXT: Where the images come from.
 DOCS: docs.cscs.ch/software/ml/pytorch/
@@ -240,52 +252,58 @@ DOCS: docs.cscs.ch/software/ml/pytorch/
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/software/ml/pytorch/' -->
 <div class="audience all">Everyone</div>
 
-# Where images come from
+# Where to get images
 
 <!-- PLACEHOLDER — module 3 owner: this is the slide most in need of your real workflow. -->
 
 <div class="cols-3">
 <div class="card">
 
+### Alps Extended Images
+
+CSCS-curated ML/AI images, specifically customized for Alps.
+
+Robust and straightforward to use.
+
+Use carefully as base for new images: they depend on host software compatibility.
+
+</div>
+<div class="card">
+
 ### NGC
 
 NVIDIA GPU Cloud. PyTorch pre-installed, optimised build, most dependencies included.
 
-The recommended starting point.
+A great all-around option for NVIDIA GPU systems.
 
 </div>
 <div class="card">
 
-### Your own layer
+### Build your own
 
-Extend the base image with a **virtual environment** for your own packages.
+Extend a base image for specific needs.
 
-Keeps the base image reusable.
+Build on Alps with Podman: ARM64 arch, fast nodes, caching options through CSCS JFrog registry.
 
-</div>
-<div class="card">
-
-### Import once
-
-Pull and convert to a `.sqsh` on scratch, then reference that file from the EDF.
+Push the image to a registry or convert it to a local SquashFS file.
 
 </div>
 </div>
 
 <div class="accent">
 
-Build on top of a working base. Do not start from `FROM ubuntu` on this machine.
+Build on top of a base image that most suits your use case.
 
 </div>
 
 <!--
 SAY:
 - Three things to know about images.
-- Start from NGC. PyTorch is already there, already built well for these GPUs.
-- Put your own packages in a virtual environment layered on top, rather than rebuilding the base.
-- And import once: convert to a squashfs file on scratch, then point the EDF at that file.
+- Alps extended images
+- NGC as the all-arounder. PyTorch is already there, already built well for these GPUs.
+- Point out possibility to build on Alps.
 READ THE RED BAR:
-- Build on top of something that works. Starting from a bare Ubuntu on this machine is a week of your life.
+- Build on top of something that works. Starting from a bare Ubuntu on this machine is a huge effort (CUDA, DL libs, PyTorch, network...).
 NEXT: The mistakes we see.
 DOCS: docs.cscs.ch/software/ml/pytorch/ · docs.cscs.ch/software/container-engine/
 -->
@@ -307,8 +325,7 @@ slide is advice, not instruction. -->
 
 - **No NCCL hook** — multi-node training falls back and crawls
 - **Dataset on the wrong scratch** — random reads from spinning disk
-- **Image on home** — 50 GB, and you will hit it
-- **Rebuilding the image every job** — import once, reuse
+- **Imported image on home** — quickly eats into 50 GB quota
 
 </div>
 <div class="card">
@@ -346,6 +363,7 @@ NEXT: Where to read more.
 
 - **uenv** — docs.cscs.ch/software/uenv/
 - **Container Engine** — docs.cscs.ch/software/container-engine/
+- **Building container images on Alps** - docs.cscs.ch/build-install/containers/
 - **ML software stack** — docs.cscs.ch/software/ml/
 - **PyTorch** — docs.cscs.ch/software/ml/pytorch/
 
@@ -358,7 +376,7 @@ NEXT: Where to read more.
 
 ### If you remember one thing
 
-The **EDF** is your environment, and it is three lines to start with.
+The **EDF** is your environment, and it can be just one line.
 
 Commit it next to your code.
 
