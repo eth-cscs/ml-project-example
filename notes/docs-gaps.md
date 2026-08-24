@@ -90,10 +90,11 @@ of the lifecycle. Both ends are missing.
       that. This is wrong information rather than missing information, so it matters
       more: someone will plan around a filesystem they think they do not have.
 
-- [ ] **Ritom's cleanup policy "is being finalised".** This one is not just a merge:
-      until there is a number, nobody can plan a workflow on that filesystem, and the
-      slide has to say "being finalised" out loud. Worth closing before people start
-      using it and discover the policy afterwards.
+- [ ] **Ritom's cleanup policy "is being finalised".** Everything else about Ritom is
+      documented — `docs.cscs.ch/guides/storage/` says what it is and which workloads
+      benefit — so this is the one missing number. Users can and should use it; they
+      just cannot yet know how long anything survives there. Worth closing before people
+      discover the policy after the fact.
 
 ## ML Platform policies — pending merge
 
