@@ -345,7 +345,7 @@ DOCS: docs.cscs.ch/platforms/mlp/
 
 - Open-weight models, served and managed for you — **Apertus 70B** and **8B**, among others
 - The **PI or deputy PI** creates the inference resource in `portal.cscs.ch`; then **any project member** can create API keys
-- **Set a token budget on every key.** Today it is the only limit there is
+- Each key can carry a token budget — but **any member can make another key**
 
 ```bash
 curl -X POST https://api.inference.cscs.ch/v1/chat/completions \
@@ -360,7 +360,7 @@ curl -X POST https://api.inference.cscs.ch/v1/chat/completions \
 
 > "The credit for the inference resource is taken from your project's credit."
 
-The same credit as module 1. Inference spends it, like any job.
+**There is no project-level cap.** A PI who wants a ceiling on inference has to ask for one by Service Desk ticket.
 
 </div>
 </div>
@@ -382,20 +382,16 @@ SAY:
 HOW YOU GET IT, and note the split:
 - The PI or the deputy PI creates an inference resource in the portal. The same portal as module 1.
 - After that, any member of the project can create their own API keys.
-- And this is the part to dwell on if you are a PI.
-- Each key can carry its own token budget, a period after which that budget resets, and a list of allowed models.
-- An API key is a spending instrument, because the credit comes out of the project.
+- Each key can carry its own token budget, a reset period, and a list of allowed models.
 - The key is shown once when it is created. Put it in a password manager.
-THE HONEST VERSION. Decide in the room how far you go:
-- Today there is NO project-level cap on how much of the credit inference can consume.
-- So if no key has a budget, a single key can spend the entire project credit.
-- Aim it at the PIs as an instruction — "put a budget on every key" — rather than as an
-  announcement that the guardrail is missing. Same fact, but one lands as an action.
-- If a PI asks you directly whether there is a cap, answer directly. Do not imply there
-  is one.
 BE HONEST ABOUT THE COST. Read the quotation out loud:
 - The credit comes out of the project credit. It is not a free extra.
-- So it lands on the same budget as the linear consumption slide in module 1.
+- So it lands on the same budget as the linear consumption slide.
+- And be precise about the limit, because this is what a PI needs to hear.
+- Each API key can carry a token budget, but any project member can create another key.
+- So a per-key budget does not cap the project. Today there is no project-level cap at all.
+- If you want a ceiling on how much of your credit can go to inference, that is a Service Desk ticket.
+- Say it as an instruction to the PIs, not as an announcement that the guardrail is missing. But if a PI asks directly, answer directly.
 POINT AT THE CURL:
 - Three lines. That is the whole thing. Endpoint, bearer token, model name.
 - If you have written against the OpenAI API, you have already written this.
