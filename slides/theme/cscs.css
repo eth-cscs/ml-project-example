@@ -42,8 +42,10 @@ section {
   background-color: var(--bg-white);
   background-image: url('../../assets/logos/cscs.png'), url('../../assets/logos/eth.png');
   background-repeat: no-repeat, no-repeat;
-  background-position: 48px 26px, calc(100% - 48px) 34px;
-  background-size: 132px auto, 110px auto;
+  /* Sized to fill the 86px header band: the CSCS mark carries small sub-text that is
+     unreadable from the back of a room at anything less than this. */
+  background-position: 48px 19px, calc(100% - 48px) 32px;
+  background-size: 172px auto, 122px auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
