@@ -190,6 +190,10 @@ support contact — so Andrea can move quickly on stage and say "it is all on th
   pre-recorded asciinema/GIF, and keep the real demo as a fallback for the Q&A.
 - Every module's final slide is "Where to read more" with 3–5 `docs.cscs.ch` links.
 - Footer on every slide: session name + `docs.cscs.ch`.
+- **Marp clips whatever does not fit; it does not warn you.** A slide that overflows looks
+  fine in the source, builds without error, and quietly puts the accent bar on top of the
+  footer. After adding anything to a slide, look at that page in `build/deck.pdf`. Adding
+  a kicker above the title costs a whole row and is the usual culprit.
 - Do not use CSCS/ETH logos or brand colours you have not been given — put a
   `TODO(brand)` marker instead.
 - **Never say or show "Waldur"** to this audience. They know the tool as

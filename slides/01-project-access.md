@@ -59,11 +59,11 @@ You choose which one to apply for. The Swiss AI Initiative decides. CSCS opens t
 
 ### Before asking for a large one
 
-- A GPU-hour number you **measured**
-- The efficiency you expect to reach
+- GPU hours you **measured**
+- The efficiency you expect
 - The **data footprint**, and how long it stays
 
-A large proposal can be **cut down to a small grant** rather than rejected.
+A weak large proposal is usually **made smaller**, not rejected.
 
 </div>
 </div>
@@ -114,7 +114,7 @@ An account can belong to several projects. It closes only when the last one clos
 <div class="cols">
 <div>
 
-### Three roles in the portal
+### Three roles
 
 - **Project administrator** — the PI
 - **Project manager** — the deputy PI
@@ -128,18 +128,12 @@ Administrators and managers **invite people** and **assign roles**.
 ### One account, many projects
 
 - Your **email address** identifies you — one address, one account
-- **Institutional addresses only.** Always use the same one
+- **Institutional addresses only** — and always the same one
 - Open while **at least one** project is open
-- An end date stops the **compute**, not the project: **90 days** of grace follow
+- An end date stops the **compute**, not the project — **90 days** of grace follow
 - A later invitation **re-enables** the same account
 
 </div>
-</div>
-
-<div class="accent">
-
-If you are a PI and you have never opened `portal.cscs.ch`, this module is the one to stay awake for.
-
 </div>
 
 <!--
@@ -198,6 +192,7 @@ Anonymise real names.
 </div>
 
 <!--
+- If you are a PI and you have never opened this, the next few minutes are the ones to stay awake for.
 - This is a tour, not a tutorial. One sentence per step.
 - Log in — the same login as every other CSCS web application — then pick your organisation and your project.
 - Then four things, and most PIs have seen none of them.
@@ -319,11 +314,9 @@ DOCS: docs.cscs.ch/platforms/mlp/
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/services/inference/api/' -->
 <div class="audience all">Everyone</div>
 
-<span class="tag">New — since 24 July</span>
-
 # You can use a model without training one
 
-`https://api.inference.cscs.ch/v1` — **OpenAI and Anthropic compatible**. Change a base URL and your existing code works.
+`api.inference.cscs.ch/v1` — **new since 24 July**, OpenAI and Anthropic compatible. Change a base URL and your code works.
 
 <div class="cols-wide">
 <div class="code-sm">

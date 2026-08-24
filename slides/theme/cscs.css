@@ -326,7 +326,13 @@ thead:not(:has(th:not(:empty))) { display: none; }
 .card.red li { color: #FFE7E7; }
 .card.red li::before { background: rgba(255, 255, 255, 0.6); }
 
-/* Accent bar — the one takeaway of the slide. */
+/* Accent bar — the one takeaway of the slide.
+   margin-top:auto pushes it to the bottom of the slide, but when the content above is
+   tall that margin collapses to zero and the bar ends up touching the card above it.
+   Give whatever precedes it a real bottom margin, so the gap has a floor and grows from
+   there when there is room to spare. */
+section > *:has(+ .accent) { margin-bottom: 18px; }
+
 .accent {
   background: var(--cscs-red-light);
   border-left: 4px solid var(--cscs-red);
