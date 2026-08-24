@@ -79,7 +79,13 @@ NEXT: How to ask for GH200 nodes properly.
 DOCS: docs.cscs.ch/running/slurm/
 -->
 
-<!-- TODO(verify): --account=a-csstaff is a placeholder. Module 4 owner: replace with a
+<!-- TODO(verify): docs.cscs.ch/access/jupyterlab/ never states that a session is a
+Slurm job charged to the project. It says notebook servers run on compute nodes and
+references slurm-<jobid>.out, which strongly implies it, but the accounting is not
+written down. Confirm, then say it plainly — it changes whether people leave sessions
+open overnight.
+
+TODO(verify): --account=a-csstaff is a placeholder. Module 4 owner: replace with a
 realistic Swiss AI project account string, and confirm the partition table against
 docs.cscs.ch/running/slurm/ for the ML Platform specifically — the partitions listed
 there may differ per cluster. -->
@@ -185,7 +191,7 @@ Console job view) and put a real number on this slide, or cut it to a spoken lin
 
 - One URL per cluster: **`jupyter-clariden.cscs.ch`**
 - The spawner form asks for node type and count, wall time, **project account**, and **uenv or container image**
-- It is a Slurm job. It is charged like one
+- It runs on a compute node, so it spends project credit while it is open
 - Startup should be under a few minutes
 
 </div>
@@ -204,7 +210,7 @@ SAY:
 - If you would rather not think about sbatch, this is the way in.
 - One URL per cluster. Clariden is jupyter dash clariden dot cscs dot ch.
 - You get a form. Node type, how many, wall time, which project pays, and which environment — the same uenv or container from module 3.
-- Two things people get wrong. It is a real Slurm job, so it is charged like one. And "disk I/O error" when saving a notebook almost always means you are out of quota, not that Jupyter is broken.
+- Two things people get wrong. It runs on a compute node, so leaving it open costs credit — close it when you stop. And "disk I/O error" when saving a notebook almost always means you are out of quota, not that Jupyter is broken.
 NEXT: And for automation, there is an API.
 DOCS: docs.cscs.ch/access/jupyterlab/
 -->

@@ -67,6 +67,41 @@ Four pages under `/storage/`, plus one guide outside it. Verified quotations:
   `https://rgw.cscs.ch`. Works with the AWS CLI, s3cmd and Cyberduck; quota via the
   `/_quota` endpoint.
 
+## Audit of 24 August 2026 — what was checked, and what was wrong
+
+Triggered by a real error: the container module claimed the EDF `image` key was a local
+squashfs on scratch rather than a registry reference, which is the opposite of what
+`docs.cscs.ch/software/container-engine/` says. That was caught by Alberto Madonna's
+pull request, not by us, so the rest of the deck was audited claim by claim.
+
+**Wrong, now fixed:**
+
+- **Kubernetes.** Both the wrap-up and module 1 offered it as a topic. The documentation
+  says "Kubernetes is only available for specific partners" and "Kubernetes is not
+  available for normal users on Alps". Removed from the slides; the honest answer lives
+  in the speaker notes in case someone asks. It came from `CLAUDE.md`, not from the
+  documentation — a reminder that the brief is not a source.
+- **uenv commands.** `uenv image find` was shown with no argument and images were named
+  without a version (`prgenv-gnu` rather than `prgenv-gnu/25.6:v2`). Neither form appears
+  in the documentation. Now uses the PyTorch uenv, which is documented exactly.
+- **PyTorch uenv versions.** v2.6.0 was listed as available on Santis. The Versioning
+  table gives it for Clariden and Daint only.
+- **JupyterLab accounting.** "It is a Slurm job. It is charged like one" is not stated
+  anywhere. Softened, and recorded as a `TODO(verify)`.
+
+**Checked and correct** — quoted verbatim where they appear: the Slurm partitions table,
+`--ntasks-per-node=4` with `--gpus-per-task=1`, `--exclusive --mem=450G`, the JupyterLab
+URL and its disk-quota error message, the Alps and platform descriptions, the Clariden
+and Bristen roles, and all of module 2's storage figures.
+
+**Sourced, but not from docs.cscs.ch** — legitimate, and labelled at the point of use:
+
+- `service-desk@cscs.ch` comes from the ML Platform drop-in deck. There is no contact or
+  support page on `docs.cscs.ch` — both `/contact/` and `/support/` return 404 — so this
+  address cannot be verified from the documentation at all. Worth a page.
+- The HPC Console behaviour comes from the CUG 2026 deck.
+- Everything in the section below comes from Andrea.
+
 ## Not documented anywhere yet — Andrea, as ML Platform service manager
 
 These are load-bearing claims in module 1 that no public page currently backs. They are

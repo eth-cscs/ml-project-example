@@ -25,7 +25,7 @@ See notes/sources.md.
 
 # Backup slides
 
-Kubernetes · post-training · multi-node scaling · GPU efficiency · the HPC Console
+Post-training · multi-node scaling · GPU efficiency · the HPC Console
 
 <!--
 Only put this up if somebody asks. Then jump straight to the block they asked for.
@@ -223,7 +223,7 @@ NEXT: back to the discussion.
 
 # Still to write
 
-Kubernetes · post-training and RLHF · advanced multi-node scaling · GPU efficiency in depth
+Post-training and RLHF · advanced multi-node scaling · GPU efficiency in depth
 
 <!--
 PLACEHOLDER. These four were listed in CLAUDE.md as backup topics but have no slides yet.

@@ -630,7 +630,7 @@ DOCS: docs.cscs.ch/access/ssh/ · /clusters/clariden/ · /clusters/bristen/
 <div>
 
 - **Service accounts** — for pipelines. Scoped to one project, grant access to all its resources. The **PI** requests one by Service Desk ticket
-- **Kubernetes and the HPC Console** — a pointer only, see the wrap-up
+- **The HPC Console** — a pointer only, see module 4
 - **Everything you do once you are in** — modules 2 to 4
 
 </div>
@@ -649,7 +649,8 @@ SAY:
 - The old SSH service was switched off in May 2026. Some people still have it in their notes. Say the date out loud.
 - Service accounts exist. They are for pipelines. One service account belongs to one project.
 - The PI asks for one with a Service Desk ticket. It is not a self-service button.
-- Kubernetes and the HPC Console: only a pointer today. See the wrap up.
+- The HPC Console: only a pointer here. Module 4 shows it.
+- If anyone asks about Kubernetes: it exists at CSCS but the documentation says it is only for specific partners and is not available for normal users on Alps. Do not promise it.
 READ THE RED BAR:
 - You now have an account, a project and a shell.
 NEXT, hand over to module 2:

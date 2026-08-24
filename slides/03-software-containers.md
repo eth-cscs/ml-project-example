@@ -82,10 +82,10 @@ DOCS: docs.cscs.ch/software/uenv/ · docs.cscs.ch/software/container-engine/
 Find, pull, start.
 
 ```bash
-uenv image find                 # what exists
-uenv image pull prgenv-gnu      # download it
-uenv start prgenv-gnu           # interactive session inside it
-uenv run  prgenv-gnu -- ./my.sh # or run one command and exit
+uenv image find pytorch                        # what is available
+uenv image pull pytorch/v2.8.0:v1              # download it
+uenv start pytorch/v2.8.0:v1                   # a shell inside it
+uenv run pytorch/v2.8.0:v1 -- python train.py  # or one command, then exit
 ```
 
 <div class="cols">
@@ -100,14 +100,14 @@ uenv run  prgenv-gnu -- ./my.sh # or run one command and exit
 
 ### PyTorch is available as a uenv
 
-Versions include **v2.9.1**, **v2.8.0**, **v2.6.0**, for **GH200** nodes on Clariden, Daint and Santis.
+**v2.9.1** and **v2.8.0** for **GH200** on Clariden, Daint and Santis. **v2.6.0** on Clariden and Daint.
 
 </div>
 </div>
 
 <!--
 SAY:
-- Three commands. Find, pull, start.
+- Four commands, and note the shape: an image is always name, version and tag.
 - Find shows you what exists. Pull downloads it. Start drops you into a shell inside it.
 - If you want to run one thing and get out, uenv run.
 - The whole environment is one file. That is why it starts fast on a parallel filesystem.
@@ -116,9 +116,10 @@ NEXT: Now the container route, which is the one the PyTorch docs recommend.
 DOCS: docs.cscs.ch/software/uenv/
 -->
 
-<!-- TODO(verify): the uenv example on docs.cscs.ch uses NAMD, not prgenv-gnu. Module 3
-owner: replace the image name above with one you have actually pulled on Clariden, and
-confirm the PyTorch uenv names and versions against docs.cscs.ch/software/ml/pytorch/. -->
+<!-- Verified against docs.cscs.ch/software/uenv/ and /software/uenv/using/: images are
+always referenced as name/version:tag, `uenv image find` is shown with an argument,
+`uenv run` takes `--` before the command. The versions and their clusters come from the
+Versioning table on docs.cscs.ch/software/ml/pytorch/. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/software/container-engine/' -->

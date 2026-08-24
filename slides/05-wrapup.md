@@ -35,7 +35,6 @@ An hour is an hour. These exist, and we have slides on them if you ask.
 <div class="cols">
 <div>
 
-- **Kubernetes on Alps**
 - **Post-training and RLHF workflows**
 - **Advanced multi-node scaling**
 - **GPU efficiency, in depth**
@@ -55,7 +54,8 @@ If two of you want the same one, we will show it.
 
 <!--
 SAY:
-- Five things we deliberately left out. They all exist and they all matter to somebody in this room.
+- Four things we deliberately left out. They all exist and they all matter to somebody in this room.
+- If somebody asks about Kubernetes: it is only for specific partners, and the documentation says it is not available for normal users on Alps.
 - We have backup slides for each. If you want one, say so in the discussion and we will put it up.
 - The HPC Console one is short and worth seeing if you have never used it.
 NEXT: Where to get help.
