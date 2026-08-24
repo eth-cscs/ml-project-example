@@ -4,10 +4,16 @@
 Slot: 90 minutes, around 13:30 (may shift slightly).
 Structure: ~60 min presentation + ~30 min open discussion.
 
-**The slot is 90 minutes.** The presentation aims for about 60 and the open discussion
-takes whatever is left, so running a little over is acceptable — it costs discussion time
-rather than breaking the schedule. What is not acceptable is leaving too little time to
-talk. `make check` prints the minutes that would remain; keep it above 20.
+**The slot is 90 minutes.** The presentation aims for about 60 and the discussion takes
+whatever is left. Sixty is a target, not a rule.
+
+**We invite the audience to interrupt**, which makes overrunning the normal case rather
+than the failure case. So the estimates — roughly a minute a slide — are the
+*uninterrupted* time, and the real clock will be behind them. Absorb it with the
+pre-agreed cut for your module rather than by talking faster: a rushed slide teaches
+nobody anything, and the question that caused the delay was worth more than it was.
+
+`make check` prints the minutes that would be left for discussion. Keep it above 20.
 
 ## Running story
 

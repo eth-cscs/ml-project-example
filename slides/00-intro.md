@@ -197,9 +197,9 @@ We follow **Anna**, a PI, and **Ben**, a PhD student who joins her project.
 
 ### How to follow this
 
-Each slide says in the top right corner who it is for — **PIs and deputies**, or **Everyone**.
+**Interrupt us.** Ask as the question occurs to you, not at the end.
 
-Every module ends with **where to read more**.
+Each slide says in the top right corner who it is for — **PIs and deputies**, or **Everyone**.
 
 There is a **handout**. Every command is on it.
 
@@ -212,6 +212,8 @@ SAY:
 - Two people carry it. Anna is a PI who has just been granted a project. Ben is a PhD student who joins her.
 - Three modules. The middle one is the hour's centre: one worked example, start to finish.
 - Then thirty minutes of open discussion, which is honestly the part we want most.
+- One thing we actually mean: interrupt us. If something does not make sense, say so then and there, not at the end.
+- We would rather answer three good questions and drop a slide than get through everything and lose you at minute ten.
 - Two practical things. Every slide says in the corner who it is for. And there is a handout with every command, so do not type.
 NEXT: Module 1. How do you get a project at all?
 -->

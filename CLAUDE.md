@@ -110,10 +110,12 @@ in the story*.
 
 Rules for the agenda:
 
-- **The slot is 90 minutes.** The presentation aims for about 60 and the open discussion
-  takes the rest. Running a little over 60 is acceptable; leaving too little time to talk
-  is not. `make check` reports what would be left for the discussion — keep it above 20
-  minutes, and say so explicitly if a module grows rather than letting it drift.
+- **The slot is 90 minutes.** The presentation aims for about 60 and the discussion takes
+  the rest. Sixty is a target, not a ceiling.
+- **The audience is invited to interrupt**, so overrunning is expected. Slide estimates are
+  the uninterrupted time. Each module carries a pre-agreed `CUT IF LATE:` line in its
+  divider notes — absorb the delay by dropping that slide, not by speaking faster.
+  `make check` reports what would be left for the discussion; keep it above 20 minutes.
 - Topics that do **not** fit the main line go to **backup slides** after the wrap-up:
   Kubernetes, post-training/RLHF workflows, advanced multi-node scaling, GPU-efficiency
   deep dive. Mention they exist, show them only if asked in the discussion.

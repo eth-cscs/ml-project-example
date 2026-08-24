@@ -81,6 +81,12 @@ def main() -> int:
         "Start the timer in the presenter view (press `p`, then click the timer on the "
         "right) at the moment module 0 begins. Everything below is measured from there.",
         "",
+        "**These times assume nobody asks anything.** We are inviting the audience to "
+        "interrupt, so expect to run behind them — that is the design working, not "
+        "failing. The pre-agreed cuts below are how you absorb it: drop a slide rather "
+        "than speed up, because a rushed slide teaches nobody anything and the questions "
+        "were worth more than it was.",
+        "",
         "| # | Module | Budget | Starts | Ends | Clock | Slides |",
         "|---|---|---|---|---|---|---|",
     ]
@@ -103,7 +109,8 @@ def main() -> int:
         "",
         "Check the timer at your own hand-off, not at the end. A module that overruns "
         "steals from the next presenter, who has no way to get it back. Each module has "
-        "one pre-agreed cut, so the decision is made now and not on stage:",
+        "one pre-agreed cut, so the decision is made now, cold, and not on stage with "
+        "forty people waiting:",
         "",
     ]
     for m, _, _ in rows:
