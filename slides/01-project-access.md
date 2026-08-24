@@ -7,7 +7,7 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 
 <!-- _class: divider -->
 
-<span class="tag">Module 1 · 12 min</span>
+<span class="tag">Module 1 · 14 min</span>
 
 # Project lifecycle and access
 
@@ -22,9 +22,9 @@ Anna gets a project. Anna adds Ben. Ben logs in. Both watch the budget.
 
 <!--
 START AT T+05:00. Check the presenter timer now.
-CUT IF LATE: Cut "What this module deliberately skipped". Say those five lines over the hand-off.
+CUT IF LATE: Cut "What this module deliberately skipped", and "What a Swiss AI project comes with" if you must — the inference slide carries the point.
 SAY:
-- This module is 12 minutes. It is the plumbing part.
+- This module is 14 minutes. It is the plumbing part.
 - The interesting part of the hour is modules 2 to 4.
 TELL THEM WHEN TO PAY ATTENTION. This is the point of this slide:
 - The first half is for PIs and deputy PIs. Getting a project, adding people, watching the budget.

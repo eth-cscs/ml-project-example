@@ -12,7 +12,7 @@ This module has one job: land the audience somewhere, and open the discussion.
 
 <!-- _class: divider -->
 
-<span class="tag">Module 5 · 3 min</span>
+<span class="tag">Module 3 · 3 min</span>
 
 # Where to go from here
 

@@ -187,11 +187,9 @@ We follow **Anna**, a PI, and **Ben**, a PhD student who joins her project.
 
 | # | Module | Time |
 |---|---|---|
-| **1** | Project and access | 12 min |
-| **2** | Data and storage | 13 min |
-| **3** | Software and containers | 15 min |
-| **4** | Running and automating | 12 min |
-| **5** | Wrap-up | 3 min |
+| **1** | Project and access | 14 min |
+| **2** | A concrete ML use case | 40 min |
+| **3** | Wrap-up | 3 min |
 | | **Open discussion** | **30 min** |
 
 </div>
@@ -212,7 +210,7 @@ There is a **handout**. Every command is on it.
 SAY:
 - The hour is one story. One project, from "we need compute" to "the model is trained and being served".
 - Two people carry it. Anna is a PI who has just been granted a project. Ben is a PhD student who joins her.
-- Five modules. Here are the times, so you know when your part is coming.
+- Three modules. The middle one is the hour's centre: one worked example, start to finish.
 - Then thirty minutes of open discussion, which is honestly the part we want most.
 - Two practical things. Every slide says in the corner who it is for. And there is a handout with every command, so do not type.
 NEXT: Module 1. How do you get a project at all?

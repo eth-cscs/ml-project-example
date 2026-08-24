@@ -22,17 +22,32 @@ Every module should be able to say where we are in that story.
 | # | Module | Budget | Owner | Slides | Drafted | Status |
 |---|---|---|---|---|---|---|
 | 0 | Welcome — what Alps and the ML Platform are, what this hour covers | 5 min | TBD | `slides/00-intro.md` | 6 | scaffold |
-| 1 | **Project lifecycle and access** — request, portal, invites, resources, first login | **12 min** | **Andrea** | `slides/01-project-access.md` | 12 | **on budget** |
-| 2 | Data and storage lifecycle — filesystems, quotas, moving data in, where training data lives | 13 min | TBD | `slides/02-data-storage.md` | 8 | scaffold, 5 min spare |
-| 3 | Software and containers — uenv, Container Engine, Alps-extended images, best practices | 15 min | TBD | `slides/03-software-containers.md` | 8 | scaffold, 7 min spare |
-| 4 | Running and automating — Slurm, job efficiency, JupyterLab, FirecREST | 12 min | TBD | `slides/04-running-jobs.md` | 7 | scaffold, 5 min spare |
-| 5 | Wrap-up — support channels, User Day (28 Aug), what we did not cover | 3 min | TBD | `slides/05-wrapup.md` | 4 | scaffold |
+| 1 | **Project lifecycle and access** — request, portal, invites, what a project comes with, inference, budget, first login | **14 min** | **Andrea** | `slides/01-project-access.md` | 14 | **on budget** |
+| 2 | **A concrete ML use case** — one worked example from raw data to a trained model | **38 min** | Fawzi + owners per subsection | `slides/02-ml-use-case.md` | 24 | restructured, 14 min spare |
+| 3 | Wrap-up — support channels, User Day (28 Aug), what we did not cover | 3 min | TBD | `slides/03-wrapup.md` | 4 | scaffold |
 | — | Open discussion — planned work, suggestions, requests | 30 min | all | — | — | — |
-| — | Backup, shown on request only | — | — | `slides/06-backup.md` | 7 | HPC Console block done |
+| — | Backup, shown on request only | — | — | `slides/04-backup.md` | 7 | HPC Console block done |
 
-**46 of 60 minutes drafted.** The slack is deliberate: modules 2 to 4 are scaffolding, and
-their owners should spend it on the one worked example they know best, not on more
-bullets. `make check` reports the split and excludes backup slides from the budget.
+**60 minutes exactly, no slack.** Module 2 carries 24 slides against 38 minutes, so the
+room to grow is there and it belongs to whoever writes the missing subsections.
+
+### Module 2's subsections
+
+Reviewed with Fawzi on 24 August. The old modules 2, 3 and 4 — storage, software and
+containers, running jobs — are now one section built as a single worked example. The
+subsections are marked with a kicker above the slide title rather than with divider
+slides, which would have cost eight minutes of the thirty-eight.
+
+| Subsection | State |
+|---|---|
+| Import your data | six slides, from the old storage module |
+| Prepare it with inference | **new** — vetting, building the training set, coding agents |
+| Set up your workflow | FirecREST and JupyterLab |
+| Watch it from a browser | the HPC Console |
+| Train your own model | nine slides, from the old software and running modules |
+| Serving at scale | **placeholder** — inference service or Slurm job is still undecided |
+| Post-training | **placeholder** — nothing written |
+| Kubernetes | **new** — a dedicated Swiss AI cluster, access through Imanol |
 
 ### What "scaffold" means
 
