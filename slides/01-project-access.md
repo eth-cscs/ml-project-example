@@ -25,7 +25,7 @@ START AT T+05:00. Check the presenter timer now.
 CUT IF LATE: Cut "What this module deliberately skipped", and "What a Swiss AI project comes with" if you must — the inference slide carries the point.
 SAY:
 - This module is 14 minutes. It is the plumbing part.
-- The interesting part of the hour is modules 2 to 4.
+- The interesting part of the hour is modules 2 and 3.
 TELL THEM WHEN TO PAY ATTENTION. This is the point of this slide:
 - The first half is for PIs and deputy PIs. Getting a project, adding people, watching the budget.
 - The second half is for everybody who has to log in. Account, MFA, keys, the jump host.
@@ -759,7 +759,7 @@ DOCS: docs.cscs.ch/access/ssh/ · /clusters/clariden/ · /clusters/bristen/
 
 - **Service accounts** — for pipelines. Scoped to one project, grant access to all its resources. The **PI** requests one by Service Desk ticket
 - **The HPC Console** — a pointer only, see module 4
-- **Everything you do once you are in** — modules 2 to 4
+- **Everything you do once you are in** — modules 2 and 3
 
 </div>
 </div>

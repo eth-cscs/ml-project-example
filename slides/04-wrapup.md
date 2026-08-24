@@ -12,12 +12,12 @@ This module has one job: land the audience somewhere, and open the discussion.
 
 <!-- _class: divider -->
 
-<span class="tag">Module 3 · 3 min</span>
+<span class="tag">Module 4 · 3 min</span>
 
 # Where to go from here
 
 <!--
-START AT T+57:00. Check the presenter timer now.
+START AT T+62:00. Check the presenter timer now.
 CUT IF LATE: Cut nothing. If you are late here, you are late into the discussion, and that is fine.
 SAY:
 - That is the hour. One project, from nothing to a trained model.

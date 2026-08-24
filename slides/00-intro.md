@@ -188,8 +188,9 @@ We follow **Anna**, a PI, and **Ben**, a PhD student who joins her project.
 | # | Module | Time |
 |---|---|---|
 | **1** | Project and access | 14 min |
-| **2** | A concrete ML use case | 40 min |
-| **3** | Wrap-up | 3 min |
+| **2** | Data and storage | 13 min |
+| **3** | A concrete ML use case | 30 min |
+| **4** | Wrap-up | 3 min |
 | | **Open discussion** | **30 min** |
 
 </div>
@@ -210,7 +211,7 @@ There is a **handout**. Every command is on it.
 SAY:
 - The hour is one story. One project, from "we need compute" to "the model is trained and being served".
 - Two people carry it. Anna is a PI who has just been granted a project. Ben is a PhD student who joins her.
-- Three modules. The middle one is the hour's centre: one worked example, start to finish.
+- Four modules. The third is the centre of the hour: one worked example, start to finish.
 - Then thirty minutes of open discussion, which is honestly the part we want most.
 - One thing we actually mean: interrupt us. If something does not make sense, say so then and there, not at the end.
 - We would rather answer three good questions and drop a slide than get through everything and lose you at minute ten.

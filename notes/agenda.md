@@ -29,19 +29,19 @@ Every module should be able to say where we are in that story.
 
 | # | Module | Budget | Owner | Slides | Drafted | Status |
 |---|---|---|---|---|---|---|
-| 0 | Welcome — what Alps and the ML Platform are, what this hour covers | 5 min | TBD | `slides/00-intro.md` | 6 | scaffold |
+| 0 | Welcome — Alps, the ML Platform, what this hour covers | 5 min | TBD | `slides/00-intro.md` | 6 | scaffold |
 | 1 | **Project lifecycle and access** — request, portal, invites, what a project comes with, inference, budget, first login | **14 min** | **Andrea** | `slides/01-project-access.md` | 14 | **on budget** |
-| 2 | **A concrete ML use case** — one worked example from raw data to a trained model | **38 min** | Fawzi + owners per subsection | `slides/02-ml-use-case.md` | 24 | restructured, 14 min spare |
-| 3 | Wrap-up — support channels, User Day (28 Aug), what we did not cover | 3 min | TBD | `slides/03-wrapup.md` | 4 | scaffold |
-| — | Open discussion — planned work, suggestions, requests | 30 min | all | — | — | — |
-| — | Backup, shown on request only | — | — | `slides/04-backup.md` | 7 | HPC Console block done |
+| 2 | Data and storage — mount points, the three scratches, project store, `datacache`, inodes, moving data in | 13 min | TBD | `slides/02-data-storage.md` | 8 | scaffold |
+| 3 | **A concrete ML use case** — one worked example, raw data to a trained model | **30 min** | Fawzi + owners per subsection | `slides/03-ml-use-case.md` | 19 | restructured, two placeholders |
+| 4 | Wrap-up — support, User Day (28 Aug), what we did not cover | 3 min | TBD | `slides/04-wrapup.md` | 4 | scaffold |
+| — | Open discussion | 25 min | all | — | — | — |
+| — | Backup, shown on request only | — | — | `slides/05-backup.md` | 7 | HPC Console block done |
 
-**62 minutes budgeted, leaving 28 for discussion.** Module 2 carries 24 slides against
-40 minutes, so the room to grow is there and it belongs to whoever writes the missing
-subsections — spending it costs discussion time, which is a real trade rather than a
-forbidden one.
+**65 minutes budgeted, 25 left for discussion.** Storage stays a module of its own before
+the worked example; inside the example, importing data is a fifteen-second recap that
+points back at it rather than repeating it.
 
-### Module 2's subsections
+### Module 3's subsections
 
 Reviewed with Fawzi on 24 August. The old modules 2, 3 and 4 — storage, software and
 containers, running jobs — are now one section built as a single worked example. The
@@ -50,7 +50,7 @@ slides, which would have cost eight minutes of the thirty-eight.
 
 | Subsection | State |
 |---|---|
-| Import your data | six slides, from the old storage module |
+| Import your data | one recap slide — the content is module 2 |
 | Prepare it with inference | **new** — vetting, building the training set, coding agents |
 | Set up your workflow | FirecREST and JupyterLab |
 | Watch it from a browser | the HPC Console |

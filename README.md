@@ -39,8 +39,9 @@ Press `p` in the deck for presenter view: speaker notes, next slide and a timer.
 |---|---|---|---|---|
 | 0 | Alps, the ML Platform, and the next hour | 5 min | TBD | scaffold |
 | 1 | Project lifecycle and access | 14 min | **Andrea Ceriani** | on budget |
-| 2 | A concrete ML use case | 38 min | Fawzi + owners per subsection | restructured, two subsections still placeholders |
-| 3 | Where to go from here | 3 min | TBD | scaffold |
+| 2 | Data and storage | 13 min | TBD | scaffold |
+| 3 | A concrete ML use case | 30 min | Fawzi + owners per subsection | restructured, two subsections still placeholders |
+| 4 | Where to go from here | 3 min | TBD | scaffold |
 | — | Backup, shown on request | — | — | HPC Console block ready |
 
 Budgets, hand-offs between modules and the pre-agreed cuts are in
