@@ -4,35 +4,63 @@
 Slot: 90 minutes, around 13:30 (may shift slightly).
 Structure: ~60 min presentation + ~30 min open discussion.
 
-**60 minutes is a hard ceiling.** If a module grows, another one shrinks — say so
-explicitly rather than overrunning.
+**The slot is 90 minutes.** The presentation aims for about 60 and the discussion takes
+whatever is left. Sixty is a target, not a rule.
+
+**We invite the audience to interrupt**, which makes overrunning the normal case rather
+than the failure case. So the estimates — roughly a minute a slide — are the
+*uninterrupted* time, and the real clock will be behind them. Absorb it with the
+pre-agreed cut for your module rather than by talking faster: a rushed slide teaches
+nobody anything, and the question that caused the delay was worth more than it was.
+
+`make check` prints the minutes that would be left for discussion. Keep it above 20.
 
 ## Running story
 
-One Swiss AI project, from "we need compute" to "the model is trained and being
-served", carried by two personas:
+One Swiss AI project, from "we need compute" to a model that is trained and being used.
 
-- **Anna** — the PI. Requests the project, runs the team, watches the budget.
-- **Ben** — a PhD student who joins her project partway through.
+The invented personas that used to carry this — a PI and a PhD student — were dropped on
+24 August. They did two jobs and neither is theirs any more: the audience marker in the
+corner of every slide says who a slide is for, and module 3 is a real worked example,
+which is a far stronger thread than two people who do not exist. With several presenters,
+characters also have to be maintained by everyone or they read as inconsistent.
 
-Every module should be able to say where we are in that story.
+Every module should still be able to say where we are in the story. Just say it in the
+second person.
 
 ## Modules
 
 | # | Module | Budget | Owner | Slides | Drafted | Status |
 |---|---|---|---|---|---|---|
-| 0 | Welcome — what Alps and the ML Platform are, what this hour covers | 5 min | TBD | `slides/00-intro.md` | 6 | scaffold |
-| 1 | **Project lifecycle and access** — request, portal, invites, resources, first login | **12 min** | **Andrea** | `slides/01-project-access.md` | 12 | **on budget** |
-| 2 | Data and storage lifecycle — filesystems, quotas, moving data in, where training data lives | 13 min | TBD | `slides/02-data-storage.md` | 8 | scaffold, 5 min spare |
-| 3 | Software and containers — uenv, Container Engine, Alps-extended images, best practices | 15 min | TBD | `slides/03-software-containers.md` | 8 | scaffold, 7 min spare |
-| 4 | Running and automating — Slurm, job efficiency, JupyterLab, FirecREST | 12 min | TBD | `slides/04-running-jobs.md` | 7 | scaffold, 5 min spare |
-| 5 | Wrap-up — support channels, User Day (28 Aug), what we did not cover | 3 min | TBD | `slides/05-wrapup.md` | 4 | scaffold |
-| — | Open discussion — planned work, suggestions, requests | 30 min | all | — | — | — |
-| — | Backup, shown on request only | — | — | `slides/06-backup.md` | 7 | HPC Console block done |
+| 0 | Welcome — Alps, the ML Platform, what this hour covers | 5 min | TBD | `slides/00-intro.md` | 6 | scaffold |
+| 1 | **Project lifecycle and access** — request, portal, invites, what a project comes with, inference, budget, first login | **14 min** | **Andrea** | `slides/01-project-access.md` | 14 | **on budget** |
+| 2 | Data and storage — mount points, the three scratches, project store, `datacache`, inodes, moving data in | 13 min | TBD | `slides/02-data-storage.md` | 8 | scaffold |
+| 3 | **A concrete ML use case** — one worked example, raw data to a trained model | **30 min** | Fawzi + owners per subsection | `slides/03-ml-use-case.md` | 19 | restructured, two placeholders |
+| 4 | Wrap-up — support, User Day (28 Aug), what we did not cover | 3 min | TBD | `slides/04-wrapup.md` | 4 | scaffold |
+| — | Open discussion | 25 min | all | — | — | — |
+| — | Backup, shown on request only | — | — | `slides/05-backup.md` | 7 | HPC Console block done |
 
-**46 of 60 minutes drafted.** The slack is deliberate: modules 2 to 4 are scaffolding, and
-their owners should spend it on the one worked example they know best, not on more
-bullets. `make check` reports the split and excludes backup slides from the budget.
+**65 minutes budgeted, 25 left for discussion.** Storage stays a module of its own before
+the worked example; inside the example, importing data is a fifteen-second recap that
+points back at it rather than repeating it.
+
+### Module 3's subsections
+
+Reviewed with Fawzi on 24 August. The old modules 2, 3 and 4 — storage, software and
+containers, running jobs — are now one section built as a single worked example. The
+subsections are marked with a kicker above the slide title rather than with divider
+slides, which would have cost eight minutes of the thirty-eight.
+
+| Subsection | State |
+|---|---|
+| Import your data | one recap slide — the content is module 2 |
+| Prepare it with inference | **new** — vetting, building the training set, coding agents |
+| Set up your workflow | FirecREST and JupyterLab |
+| Watch it from a browser | the HPC Console |
+| Train your own model | nine slides, from the old software and running modules |
+| Serving at scale | **placeholder** — inference service or Slurm job is still undecided |
+| Post-training | **placeholder** — nothing written |
+| Kubernetes | **new** — a dedicated Swiss AI cluster, access through Imanol |
 
 ### What "scaffold" means
 
@@ -45,8 +73,8 @@ freely rather than treat this as a draft to defend.
 
 ## Hand-offs between modules
 
-- **1 → 2**: Ben has a shell on Clariden and an empty home directory. His first
-  question is where to put two terabytes of training data.
+- **1 → 2**: you have a shell on Clariden and an empty home directory. The first
+  question is where two terabytes of training data go.
 - **2 → 3**: the data is on the right filesystem — including the new `datacache`, which
   goes live the morning of the session. Now it needs an environment that can read it.
 - **3 → 4**: the environment exists. Now it has to run at scale, repeatedly.
@@ -54,7 +82,7 @@ freely rather than treat this as a draft to defend.
 
 ## Backup slides (after the wrap-up)
 
-In `slides/06-backup.md`. Mentioned on the wrap-up slide, shown only if the discussion
+In `slides/05-backup.md`. Mentioned on the wrap-up slide, shown only if the discussion
 asks for them:
 
 - **HPC Console** — drafted, 5 slides, about 5 minutes. Ready.

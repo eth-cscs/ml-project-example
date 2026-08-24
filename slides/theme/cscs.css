@@ -42,8 +42,10 @@ section {
   background-color: var(--bg-white);
   background-image: url('../../assets/logos/cscs.png'), url('../../assets/logos/eth.png');
   background-repeat: no-repeat, no-repeat;
-  background-position: 48px 26px, calc(100% - 48px) 34px;
-  background-size: 132px auto, 110px auto;
+  /* Sized to fill the 86px header band: the CSCS mark carries small sub-text that is
+     unreadable from the back of a room at anything less than this. */
+  background-position: 48px 19px, calc(100% - 48px) 32px;
+  background-size: 172px auto, 122px auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -326,7 +328,13 @@ thead:not(:has(th:not(:empty))) { display: none; }
 .card.red li { color: #FFE7E7; }
 .card.red li::before { background: rgba(255, 255, 255, 0.6); }
 
-/* Accent bar — the one takeaway of the slide. */
+/* Accent bar — the one takeaway of the slide.
+   margin-top:auto pushes it to the bottom of the slide, but when the content above is
+   tall that margin collapses to zero and the bar ends up touching the card above it.
+   Give whatever precedes it a real bottom margin, so the gap has a floor and grows from
+   there when there is room to spare. */
+section > *:has(+ .accent) { margin-bottom: 18px; }
+
 .accent {
   background: var(--cscs-red-light);
   border-left: 4px solid var(--cscs-red);
