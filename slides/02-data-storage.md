@@ -112,9 +112,9 @@ TODO(verify): two things the preview does not settle.
 
 # NVMe for reading data, HDD for writing checkpoints
 
-The two scratch filesystems are built from different hardware. Match the workload.
+The three scratch filesystems are built from different hardware. Match the workload.
 
-<div class="cols">
+<div class="cols-3">
 <div class="card">
 
 ### `iopsstor` — NVMe
@@ -139,6 +139,17 @@ Use it for:
 Cleaned after **30 days**.
 
 </div>
+<div class="card">
+
+### `ritom` — VAST
+
+A third scratch, on different hardware again.
+
+**No recommended use yet** — its cleanup policy is still being finalised, so do not plan a workflow around it.
+
+The storage guide has parallel-I/O tuning for it.
+
+</div>
 </div>
 
 <div class="accent">
@@ -149,14 +160,17 @@ After the job: move anything you care about to project storage. Nothing on scrat
 
 <!--
 SAY:
-- Both are called scratch. They are different hardware and they behave differently.
+- All three are called scratch. They are different hardware and they behave differently.
 - iopsstor is NVMe. It is good at IOPS. Put your dataset there, the thing you read from constantly in random order.
 - capstor is spinning disks, optimised for large sequential reads and writes. Put your checkpoints there.
-- Get this backwards and your training is slower for no reason at all.
+- Get those two backwards and your training is slower for no reason at all.
+- Then be straight about the third one, because they just saw it in the table.
+- Ritom is a VAST filesystem. We are not recommending a workload for it yet, because its cleanup policy is not finalised.
+- If you are doing parallel MPI-IO there, the storage guide has tuning settings. Otherwise leave it alone for now.
 READ THE RED BAR:
 - And when the job finishes, move what you care about to project storage. Say it every time.
 NEXT: How much have you actually used?
-DOCS: docs.cscs.ch/platforms/mlp/ (Scratch Usage Recommendations)
+DOCS: docs.cscs.ch/platforms/mlp/ (Scratch Usage Recommendations) · docs.cscs.ch/guides/storage/
 -->
 
 ---
