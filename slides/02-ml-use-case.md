@@ -7,7 +7,7 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 
 <!-- _class: divider -->
 
-<span class="tag">Module 2 · 38 min</span>
+<span class="tag">Module 2 · 40 min</span>
 
 # A concrete ML use case
 

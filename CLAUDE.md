@@ -110,8 +110,10 @@ in the story*.
 
 Rules for the agenda:
 
-- **60 min is a hard ceiling.** If a module grows, something else shrinks — say so
-  explicitly rather than silently overrunning.
+- **The slot is 90 minutes.** The presentation aims for about 60 and the open discussion
+  takes the rest. Running a little over 60 is acceptable; leaving too little time to talk
+  is not. `make check` reports what would be left for the discussion — keep it above 20
+  minutes, and say so explicitly if a module grows rather than letting it drift.
 - Topics that do **not** fit the main line go to **backup slides** after the wrap-up:
   Kubernetes, post-training/RLHF workflows, advanced multi-node scaling, GPU-efficiency
   deep dive. Mention they exist, show them only if asked in the discussion.

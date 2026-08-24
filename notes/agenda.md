@@ -4,8 +4,10 @@
 Slot: 90 minutes, around 13:30 (may shift slightly).
 Structure: ~60 min presentation + ~30 min open discussion.
 
-**60 minutes is a hard ceiling.** If a module grows, another one shrinks — say so
-explicitly rather than overrunning.
+**The slot is 90 minutes.** The presentation aims for about 60 and the open discussion
+takes whatever is left, so running a little over is acceptable — it costs discussion time
+rather than breaking the schedule. What is not acceptable is leaving too little time to
+talk. `make check` prints the minutes that would remain; keep it above 20.
 
 ## Running story
 
@@ -28,8 +30,10 @@ Every module should be able to say where we are in that story.
 | — | Open discussion — planned work, suggestions, requests | 30 min | all | — | — | — |
 | — | Backup, shown on request only | — | — | `slides/04-backup.md` | 7 | HPC Console block done |
 
-**60 minutes exactly, no slack.** Module 2 carries 24 slides against 38 minutes, so the
-room to grow is there and it belongs to whoever writes the missing subsections.
+**62 minutes budgeted, leaving 28 for discussion.** Module 2 carries 24 slides against
+40 minutes, so the room to grow is there and it belongs to whoever writes the missing
+subsections — spending it costs discussion time, which is a real trade rather than a
+forbidden one.
 
 ### Module 2's subsections
 

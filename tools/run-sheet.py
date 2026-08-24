@@ -2,8 +2,10 @@
 """Generate the run sheet: when each module should start, and what to cut if late.
 
 Marp's presenter view already shows elapsed time. What it cannot know is whether that
-elapsed time is good or bad. With five presenters sharing a hard 60-minute ceiling, the
-useful number is not "23 minutes have passed" but "you should have handed over at 22".
+elapsed time is good or bad. With several presenters sharing a 90-minute slot, the useful
+number is not "23 minutes have passed" but "you should have handed over at 22". The
+presentation aims for about 60 and whatever is left of the 90 becomes the discussion, so
+overrunning a little costs discussion time rather than breaking anything.
 
 The budget is read from the module divider of each slide file, from the tag the audience
 also sees — `<span class="tag">Module 1 · 12 min</span>` — so the run sheet cannot drift
@@ -89,12 +91,13 @@ def main() -> int:
             f"{hhmm(begins, start_hour, start_minute)} | {m['slides']} |"
         )
     out += [
-        f"| — | **Open discussion** | 30 min | T+{presented:02d}:00 | "
-        f"T+{presented + 30:02d}:00 | {hhmm(presented, start_hour, start_minute)} | — |",
+        f"| — | **Open discussion** | {90 - presented} min | T+{presented:02d}:00 | "
+        f"T+90:00 | {hhmm(presented, start_hour, start_minute)} | — |",
         "",
-        f"**Presentation total: {presented} minutes.** "
-        + ("Over the 60-minute ceiling — fix this before the session."
-           if presented > 60 else f"{60 - presented} minutes of slack against the ceiling."),
+        f"**Presentation total: {presented} minutes**, leaving "
+        f"**{90 - presented} minutes** of the 90-minute slot for discussion."
+        + ("" if 90 - presented >= 20 else
+           " That is too little — cut something before the session."),
         "",
         "## If you are running late",
         "",
