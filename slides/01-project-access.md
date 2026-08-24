@@ -175,22 +175,16 @@ Confirm, then get them written into the docs page. -->
 
 # The portal is where the project lives
 
-`portal.cscs.ch` — organisation, then project, then Team, then Invitations.
+`portal.cscs.ch` — your team, your resources, and what they have spent.
 
 <div class="cols-narrow">
 <div>
 
-- Log in with your CSCS account and MFA
-- Pick your **organisation**
-- Pick the **project**
-- **Team** lists everyone and their role
-- **Invitations** is where you add people
-
-<div class="accent quiet">
-
-Same login as every other CSCS web application.
-
-</div>
+- Log in with your CSCS account and MFA. Pick your **organisation**, then the **project**
+- **Team** — everyone on the project and their role
+- **Invitations** — where you add people
+- **Resources** — what the project was granted, and where a PI adds an inference resource
+- **Usage** — what has been spent, project-wide and inside each resource
 
 </div>
 <div class="shot">
@@ -205,10 +199,12 @@ Anonymise real names.
 
 <!--
 - This is a tour, not a tutorial. One sentence per step.
-- Log in. Pick your organisation. Pick your project.
-- Two tabs matter: Team, and Invitations.
-- Team answers the question "who is on my project and what can they do".
-- That is the question PIs email us about most.
+- Log in — the same login as every other CSCS web application — then pick your organisation and your project.
+- Then four things, and most PIs have seen none of them.
+- Team: everyone on the project and what they can do. That is the question you email us about most.
+- Invitations: where you add people, and we will do that on the next slide.
+- Resources: what the project was actually granted. This is also where you add an inference resource.
+- Usage: what has been spent, for the project as a whole and inside each resource. There is a slide on that shortly.
 - Look at the roles column here.
 - Next: your team is listed, but the new student is not on it yet. Let us add them.
 DOCS: docs.cscs.ch/accounts/ (portal section)

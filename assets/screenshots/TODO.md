@@ -13,10 +13,8 @@ portal rather than a real one:
 
 - No anonymisation. Nothing to blur, nothing to leak, no chance of a real colleague's
   address appearing on a projector in Bern.
-- Name the members after the personas — **Anna** as project administrator, **Ben** as
-  project member. The screenshots then show the same two names the story uses, on every
-  slide. That coherence is worth more than it sounds when the audience is following a
-  narrative.
+- Invent the members. Two accounts are enough: one project administrator and one project
+  member, so the roles column has something to show.
 - It stays available afterwards, for the drop-in sessions and for the next edition.
 
 One thing a demo project **cannot** give you: a consumption history. See capture 2.
@@ -25,7 +23,7 @@ One thing a demo project **cannot** give you: a consumption history. See capture
 
 | # | Filename | Source | View to capture |
 |---|---|---|---|
-| 1 | `portal-team-tab.png` | demo project | The **Team** tab with the roles column visible and legible: Anna as project administrator, Ben as project member. Slide: "The portal is where the project lives". |
+| 1 | `portal-team-tab.png` | demo project | The **Team** tab with the roles column visible and legible — one project administrator and one project member. Slide: "The portal is where the project lives". That slide now also names the **Resources** and **Usage** views, so if the left navigation is visible in the same capture, all the better. |
 | 2 | `portal-consumption.png` | **a real project** | The single most important capture. See below. |
 | 3 | `portal-invite-dialog.png` | demo project | The **Invite Users** dialog with the role dropdown open, so the three role names are readable. Optional — use it if slide "Adding Ben takes one email address" feels too abstract on the day. |
 | 4 | `user-account-sign-key.png` | own account | `user-account.cscs.ch` → SSH Keys → **Sign Key**, the paste-and-download step. Optional. |
