@@ -90,11 +90,12 @@ of the lifecycle. Both ends are missing.
       that. This is wrong information rather than missing information, so it matters
       more: someone will plan around a filesystem they think they do not have.
 
-- [ ] **Ritom's cleanup policy "is being finalised".** Everything else about Ritom is
-      documented — `docs.cscs.ch/guides/storage/` says what it is and which workloads
-      benefit — so this is the one missing number. Users can and should use it; they
-      just cannot yet know how long anything survives there. Worth closing before people
-      discover the policy after the fact.
+- [ ] **Ritom's cleanup policy is 30 days, and nowhere says so.** The preview still
+      reads "is being finalised"; per Andrea it has been settled at 30 days, the same as
+      capstor. Everything else about Ritom is documented — `docs.cscs.ch/guides/storage/`
+      says what it is and which workloads benefit — so this is a single number that
+      exists and is simply not written down. The session has to say it out loud, which
+      is exactly the situation this file is for.
 
 ## ML Platform policies — pending merge
 

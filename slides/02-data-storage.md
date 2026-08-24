@@ -46,7 +46,7 @@ Putting data in the wrong one is the most common and most expensive mistake here
 | **Home** | `/users/$USER` | code, scripts, config — 50 GB | none |
 | **Scratch** `iopsstor` | `/iopsstor/scratch/cscs/$USER` | training data, random I/O | **14 days** |
 | **Scratch** `capstor` | `/capstor/scratch/cscs/$USER` | checkpoints, sequential I/O | **30 days** |
-| **Scratch** `ritom` | `/ritom/scratch/cscs/$USER` | VAST — a third scratch | **being finalised** |
+| **Scratch** `ritom` | `/ritom/scratch/cscs/$USER` | VAST — parallel, shared-file I/O | **30 days** |
 | **Project store** | `/capstor/store/cscs/swissai/<project>` | shared, medium term, backed up | none |
 | **Project** `datacache` | `/iopsstor/datacache/cscs/swissai/<project>` | shared fast datasets — **on request** | none |
 
@@ -63,7 +63,9 @@ SAY:
 - Three groups. Home, scratch, and project.
 - Home is small. 50 gigabytes. Code and configuration, nothing else.
 - Three scratch filesystems. The difference between the first two is the next slide.
-- Ritom is newer, Clariden only, and its cleanup policy is still being finalised. Do not build a workflow on it yet.
+- Ritom is the third, on VAST, for parallel I/O into a shared file.
+- Its cleanup is also 30 days. Say it out loud, because it is not in the documentation
+  yet — anyone who checks will not find it there.
 - Then two project areas: the store, which is backed up, and datacache, which is not and which you have to ask for.
 GIVE THEM THE MODEL FIRST. Two words, two properties:
 - Scratch is yours. Per user. Not backed up.
@@ -80,7 +82,7 @@ THEN POINT AT THE CLEANUP COLUMN:
 - A file nobody has read for 14 days on iopsstor is deleted. 30 days on capstor.
 - So a dataset you keep reading survives. A checkpoint you wrote and forgot does not.
 - Not archived. Deleted.
-- Ritom is the exception: its policy is still being finalised, so do not assume anything there yet.
+- Ritom's cleanup is 30 days too, but that is not in the documentation yet.
 NEXT: So which scratch, for what?
 DOCS: docs.cscs.ch/storage/filesystems/ · docs.cscs.ch/platforms/mlp/
 -->
@@ -97,7 +99,9 @@ DOCS: docs.cscs.ch/storage/filesystems/ · docs.cscs.ch/platforms/mlp/
   store    "There is no cleanup policy on Store"; "the three most recent copies of every
            file backed up to tape every 24 hours"; quota from the initial resource
            request; retained three months after the project ends.
-  ritom    cleanup "is being finalised". Nothing else stated.
+  ritom    the preview says the cleanup policy "is being finalised". Per Andrea it is
+           30 days, the same as capstor. The slide states 30 days; the documentation
+           does not, so it must be said out loud.
 Note the criterion is LAST ACCESS, not age or modification time.
 
 TODO(verify): THIS SLIDE'S FOOTER DOES NOT YET BACK IT. docs.cscs.ch/storage/filesystems/
@@ -163,7 +167,7 @@ Little benefit for file-per-rank I/O.
 
 <div class="accent">
 
-After the job: move anything you care about to project storage. Nothing on scratch survives.
+Nothing on scratch survives. Shared project data goes on the **store** or on **`datacache`** — next two slides.
 
 </div>
 
@@ -178,12 +182,127 @@ SAY:
 - Collective MPI-IO, parallel HDF5 or NetCDF, and checkpoints written from many ranks into a small number of files.
 - The documentation is clear that file-per-rank I/O sees little benefit there, so it is not a general-purpose replacement for the other two.
 - If you do use it, read the tuning settings in the storage guide first — locking, collective buffering, data sieving. VAST behaves differently from Lustre and MPI-IO can get it wrong by default.
-- One honest caveat, and it is on the table two slides back: its cleanup policy is still being finalised, so do not assume a retention window.
+- Its cleanup is 30 days, same as capstor. That is not documented yet, so say it rather than letting them look for it.
 READ THE RED BAR:
 - And when the job finishes, move what you care about to project storage. Say it every time.
 NEXT: How much have you actually used?
 DOCS: docs.cscs.ch/guides/storage/ · docs.cscs.ch/platforms/mlp/ (Scratch Usage Recommendations)
 -->
+
+---
+<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/storage/filesystems/' -->
+<div class="audience">PIs and deputies</div>
+
+# Project storage is what you asked for in the proposal
+
+`/capstor/store/cscs/swissai/<project>` — the only durable place, and the only backed-up one.
+
+<div class="cols">
+<div>
+
+- Quota comes from the **initial resource request**
+- Small projects: **1 TB, 1M inodes** by default
+- Large projects: **no default** — you state it in the proposal
+- **Backed up** to tape: three most recent copies, every 24 hours
+- No cleanup policy
+
+</div>
+<div class="card">
+
+### At the end
+
+Contents are retained for **three months** after the project finishes.
+
+Home is retained for three months after your **last** project finishes.
+
+</div>
+</div>
+
+<div class="accent">
+
+This is why the proposal asks for a data footprint. Storage is not elastic.
+
+</div>
+
+<!--
+SAY:
+- Project storage is the only place that is neither small nor temporary.
+- The quota is not negotiable after the fact. It is what you asked for in the proposal.
+- Small projects get a terabyte by default. Large projects get no default at all, you state it.
+- It is backed up to tape, three copies, every 24 hours. Scratch is not.
+- And at the end, three months, then it goes.
+- That connects back to module 1: this is why we ask for a data footprint up front.
+NEXT: And from today there is a second project area, which is new.
+DOCS: docs.cscs.ch/storage/filesystems/
+-->
+
+---
+<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/platforms/mlp/' -->
+<div class="audience all">Everyone</div>
+
+<span class="tag">New — from 26 August</span>
+
+# `datacache` is fast, shared, and does not disappear
+
+Available from today, after the maintenance. It fills the gap between scratch and project store.
+
+<div class="cols-wide">
+<div>
+
+| | Fast? | Survives? | Shared by the project? |
+|---|---|---|---|
+| Scratch `iopsstor` | **yes** | no — 14 days | no, per user |
+| Project store | medium | **yes** | **yes** |
+| **`datacache`** | **yes** | **yes** | **yes** |
+
+`/iopsstor/datacache/cscs/swissai/<project>`
+
+</div>
+<div class="card">
+
+### How to get one
+
+It is **not** provisioned by default.
+
+Your **PI** opens a Service Desk ticket with the use case, and the space and inodes needed. CSCS reviews it before creating the area.
+
+</div>
+</div>
+
+<div class="accent">
+
+Project-level like the store, but **not backed up**, like scratch. And nothing is ever deleted for you.
+
+</div>
+
+<!--
+This is new. Nobody in the room has used it. Spend a moment.
+SAY, start from the problem it solves:
+- Until today you had two bad options for a dataset the whole team reads.
+- Put it on scratch: fast, but it is per user, and it is deleted after 14 days.
+- Put it on project store: shared and durable, but it is medium-performance, so random reads are slow.
+- So teams kept a copy each, on scratch, and re-staged it every two weeks.
+- datacache is the third option. Fast NVMe, shared across the project, and never cleaned automatically.
+- One copy of the dataset. The whole project reads it. It is still there next month.
+POINT AT THE RED BAR:
+- Place it against the model from two slides ago. Scratch is yours and not backed up. Store is the project's and is backed up.
+- datacache is the odd one: it belongs to the project, like the store, but it is not backed up, like scratch.
+- And unlike both, nothing is ever deleted for you.
+- Within your quota on capacity and inodes, the project owns its own space hygiene. That is a real responsibility.
+HOW TO GET IT:
+- It is not created by default. Your PI opens a Service Desk ticket saying what it is for and how much space and how many inodes.
+- We review it before creating the area.
+NEXT: Where to read more.
+DOCS: docs.cscs.ch/platforms/mlp/
+-->
+
+<!-- TODO(verify): THIS SLIDE'S FOOTER DOES NOT YET BACK IT. The live
+docs.cscs.ch/platforms/mlp/ does not mention datacache at all.
+datacache is documented only on the preview at
+cscs-docs-preview.svc.cscs.ch/442/platforms/mlp/ and goes live on 26 August after the
+maintenance. Confirm on the morning of the session that it is actually available — if
+the maintenance slips, this slide says "from today" and would be wrong on stage.
+Re-point the DOCS line once the page is merged. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/guides/storage/' -->
@@ -306,121 +425,6 @@ DOCS: docs.cscs.ch/storage/transfer/
 
 <!-- TODO(verify): the transfer guidance and the rclone flags come from the preview
 cscs-docs-preview.svc.cscs.ch/442/storage/transfer/. Re-check once merged. -->
-
----
-<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/storage/filesystems/' -->
-<div class="audience">PIs and deputies</div>
-
-# Project storage is what you asked for in the proposal
-
-`/capstor/store/cscs/swissai/<project>` — the only durable place, and the only backed-up one.
-
-<div class="cols">
-<div>
-
-- Quota comes from the **initial resource request**
-- Small projects: **1 TB, 1M inodes** by default
-- Large projects: **no default** — you state it in the proposal
-- **Backed up** to tape: three most recent copies, every 24 hours
-- No cleanup policy
-
-</div>
-<div class="card">
-
-### At the end
-
-Contents are retained for **three months** after the project finishes.
-
-Home is retained for three months after your **last** project finishes.
-
-</div>
-</div>
-
-<div class="accent">
-
-This is why the proposal asks for a data footprint. Storage is not elastic.
-
-</div>
-
-<!--
-SAY:
-- Project storage is the only place that is neither small nor temporary.
-- The quota is not negotiable after the fact. It is what you asked for in the proposal.
-- Small projects get a terabyte by default. Large projects get no default at all, you state it.
-- It is backed up to tape, three copies, every 24 hours. Scratch is not.
-- And at the end, three months, then it goes.
-- That connects back to module 1: this is why we ask for a data footprint up front.
-NEXT: And from today there is a second project area, which is new.
-DOCS: docs.cscs.ch/storage/filesystems/
--->
-
----
-<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/platforms/mlp/' -->
-<div class="audience all">Everyone</div>
-
-<span class="tag">New — from 26 August</span>
-
-# `datacache` is fast, shared, and does not disappear
-
-Available from today, after the maintenance. It fills the gap between scratch and project store.
-
-<div class="cols-wide">
-<div>
-
-| | Fast? | Survives? | Shared by the project? |
-|---|---|---|---|
-| Scratch `iopsstor` | **yes** | no — 14 days | no, per user |
-| Project store | medium | **yes** | **yes** |
-| **`datacache`** | **yes** | **yes** | **yes** |
-
-`/iopsstor/datacache/cscs/swissai/<project>`
-
-</div>
-<div class="card">
-
-### How to get one
-
-It is **not** provisioned by default.
-
-Your **PI** opens a Service Desk ticket with the use case, and the space and inodes needed. CSCS reviews it before creating the area.
-
-</div>
-</div>
-
-<div class="accent">
-
-Project-level like the store, but **not backed up**, like scratch. And nothing is ever deleted for you.
-
-</div>
-
-<!--
-This is new. Nobody in the room has used it. Spend a moment.
-SAY, start from the problem it solves:
-- Until today you had two bad options for a dataset the whole team reads.
-- Put it on scratch: fast, but it is per user, and it is deleted after 14 days.
-- Put it on project store: shared and durable, but it is medium-performance, so random reads are slow.
-- So teams kept a copy each, on scratch, and re-staged it every two weeks.
-- datacache is the third option. Fast NVMe, shared across the project, and never cleaned automatically.
-- One copy of the dataset. The whole project reads it. It is still there next month.
-POINT AT THE RED BAR:
-- Place it against the model from two slides ago. Scratch is yours and not backed up. Store is the project's and is backed up.
-- datacache is the odd one: it belongs to the project, like the store, but it is not backed up, like scratch.
-- And unlike both, nothing is ever deleted for you.
-- Within your quota on capacity and inodes, the project owns its own space hygiene. That is a real responsibility.
-HOW TO GET IT:
-- It is not created by default. Your PI opens a Service Desk ticket saying what it is for and how much space and how many inodes.
-- We review it before creating the area.
-NEXT: Where to read more.
-DOCS: docs.cscs.ch/platforms/mlp/
--->
-
-<!-- TODO(verify): THIS SLIDE'S FOOTER DOES NOT YET BACK IT. The live
-docs.cscs.ch/platforms/mlp/ does not mention datacache at all.
-datacache is documented only on the preview at
-cscs-docs-preview.svc.cscs.ch/442/platforms/mlp/ and goes live on 26 August after the
-maintenance. Confirm on the morning of the session that it is actually available — if
-the maintenance slips, this slide says "from today" and would be wrong on stage.
-Re-point the DOCS line once the page is merged. -->
 
 ---
 <!-- _class: ref -->

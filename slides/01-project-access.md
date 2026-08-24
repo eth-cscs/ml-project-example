@@ -133,6 +133,7 @@ Administrators and managers **invite people** and **assign roles**.
 ### One account, many projects
 
 - Your **email address** identifies you — one address, one account
+- **Institutional addresses only.** Always use the same one
 - Open while **at least one** project is open
 - An end date stops the **compute**, not the project: **90 days** of grace follow
 - A later invitation **re-enables** the same account
@@ -155,6 +156,9 @@ SAY:
 - Only the first two can invite people and set roles.
 NOW THE IMPORTANT PART. Say it slowly:
 - Your account is identified by your email address. One address, one account.
+- We only accept institutional addresses. Not a personal one.
+- And because the address IS the identity, always use the same one. If you sign up
+  again with a different address you get a second account, not access to your old one.
 - Your account belongs to projects, and it can belong to several at the same time.
 - It stays open while at least one of those projects is open.
 - Be precise about the end, because this is the part people get wrong.
@@ -276,6 +280,134 @@ the invitation is NOT documented — docs.cscs.ch/accounts/waldur/ covers only t
 invitation flow. Andrea's expectation is that a PI and a deputy PI can both do it from
 the Team tab. Click it in the portal, then either put one line on this slide or get it
 into the docs page. Until then the slide claims nothing either way. -->
+
+---
+<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/platforms/mlp/' -->
+<div class="audience">PIs and deputies</div>
+
+# What a Swiss AI project comes with
+
+Compute and storage arrive with the project. One more resource is opt-in.
+
+<div class="cols">
+<div>
+
+### By default
+
+- **Compute** on **Clariden** and **Bristen**
+- **Storage** — home, scratch, project store
+
+### On request
+
+- **`datacache`** — fast shared storage, by Service Desk ticket
+- **Inference** — an API resource the **PI or deputy** adds in the portal
+
+</div>
+<div class="card">
+
+### They all draw on one credit
+
+There is no separate inference budget and no separate storage budget you can overspend independently.
+
+It is **one project credit**, and everything spends it.
+
+</div>
+</div>
+
+<div class="accent">
+
+The next slide is the one nobody expects: you can use a model without running a job at all.
+
+</div>
+
+<!--
+SAY:
+- Quick inventory, because people do not know what they already have.
+- By default a Swiss AI project comes with compute on both clusters, Clariden and Bristen, and storage.
+- Two things are opt-in. A datacache area, which module 2 covers, by Service Desk ticket.
+- And an inference resource, which the PI or the deputy adds themselves in the portal.
+POINT AT THE CARD:
+- The thing to take away is that these are not separate pots.
+- One project credit, and all of it spends the same credit.
+NEXT: And that last one deserves its own slide.
+DOCS: docs.cscs.ch/platforms/mlp/
+-->
+---
+<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/services/inference/api/' -->
+<div class="audience all">Everyone</div>
+
+# You can use a model without training one
+
+`https://api.inference.cscs.ch/v1` — **OpenAI and Anthropic compatible**. Change a base URL and your existing code works.
+
+<div class="cols-wide">
+<div class="code-sm">
+
+- Open-weight models, served and managed for you — **Apertus 70B** and **8B**, among others
+- The **PI or deputy PI** creates the inference resource in `portal.cscs.ch`; then **any project member** can create API keys
+- **Set a token budget on every key.** Today it is the only limit there is
+
+```bash
+curl -X POST https://api.inference.cscs.ch/v1/chat/completions \
+  -H "Authorization: Bearer $CSCS_INFERENCE_API_KEY" \
+  -d '{"model": "swiss-ai/Apertus-70B-Instruct-2509", "messages": [...]}'
+```
+
+</div>
+<div class="card">
+
+### It is not free, it is yours
+
+> "The credit for the inference resource is taken from your project's credit."
+
+The same credit as module 1. Inference spends it, like any job.
+
+</div>
+</div>
+
+<div class="accent">
+
+The docs also show how to point **Claude Code** and **OpenCode** at it.
+
+</div>
+
+<!--
+This one is for a Swiss AI room specifically. Do not rush it.
+SAY:
+- Last thing, and it does not involve a cluster, a container or Slurm at all.
+- There is a managed inference API. Open-weight models, served for you, behind a public endpoint.
+- It is OpenAI and Anthropic compatible, so whatever you already wrote works if you change the base URL.
+- And it serves Apertus, which is your own model.
+- Many of you want to use a model rather than train one. This is that, and until today we were not telling you about it.
+HOW YOU GET IT, and note the split:
+- The PI or the deputy PI creates an inference resource in the portal. The same portal as module 1.
+- After that, any member of the project can create their own API keys.
+- And this is the part to dwell on if you are a PI.
+- Each key can carry its own token budget, a period after which that budget resets, and a list of allowed models.
+- An API key is a spending instrument, because the credit comes out of the project.
+- The key is shown once when it is created. Put it in a password manager.
+THE HONEST VERSION. Decide in the room how far you go:
+- Today there is NO project-level cap on how much of the credit inference can consume.
+- So if no key has a budget, a single key can spend the entire project credit.
+- Aim it at the PIs as an instruction — "put a budget on every key" — rather than as an
+  announcement that the guardrail is missing. Same fact, but one lands as an action.
+- If a PI asks you directly whether there is a cap, answer directly. Do not imply there
+  is one.
+BE HONEST ABOUT THE COST. Read the quotation out loud:
+- The credit comes out of the project credit. It is not a free extra.
+- So it lands on the same budget as the linear consumption slide in module 1.
+POINT AT THE CURL:
+- Three lines. That is the whole thing. Endpoint, bearer token, model name.
+- If you have written against the OpenAI API, you have already written this.
+POINT AT THE RED BAR:
+- And the documentation shows how to wire it into Claude Code and OpenCode, if that is how you work.
+NEXT: Where to read more.
+DOCS: docs.cscs.ch/services/inference/api/
+-->
+
+<!-- TODO(verify): model names and pricing move. Re-check the model list and the
+"Available models and pricing" section the week before the session, and confirm the
+Apertus tag swiss-ai/Apertus-70B-Instruct-2509 is still current if you quote it. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/accounts/' -->
