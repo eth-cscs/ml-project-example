@@ -4,10 +4,19 @@ The goal of this project is to create a presentation/demo of the project lifetim
 Yearly Meeting of 26 Aug 2026 in Bern ([Program](https://docs.google.com/document/d/10WrRF5sDXxmHqD3sa7UVBTItCRBj2lt4zXMKkfiFsl4/edit?usp=sharing))
 as discussed in [confluence](https://confluence.cscs.ch/spaces/SRM/pages/1062307901/SwissAI+Initiative+Annual+Meeting) and in our slack [#swissai-annual-meeting-coordination](https://cscs-lugano.slack.com/archives/C0B2QUYJFNK).
 
+# How to get resource at CSCS
+## SwissAI
+- small projects (6 months ≤ 32k GPUh)
+- large project (12 months >= 500'000GPUh)
+- large project must be *ready* to run on alps
+- require tests on real HW and expected size
+- GPU Scorer should be used to check their efficiency 
+- data requirements should be defined
+## User Lab
+## CSCS2go
+
 - project request hints
   - large projects need to be ready to use (small project first)
-  - checking efficiency GPU Scorer
-  - define data requirements
 - when you get access to the project,
   - invite others
   - resources
@@ -22,7 +31,9 @@ as discussed in [confluence](https://confluence.cscs.ch/spaces/SRM/pages/1062307
 - prepare training data (where to put it)
 - training
   - alps extended images
-- inference l2 or slurm to test model
+- inference
+    - https://servingdev.swissai.svc.cscs.ch
+    - https://github.com/swiss-ai/model-launch
 - post training
 - kubernetes
 
