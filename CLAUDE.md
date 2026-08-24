@@ -61,7 +61,7 @@ personally have to take. We are not teaching everything — we are building a ma
 
 | Path | What |
 |---|---|
-| `slides/00-intro.md` … `slides/05-wrapup.md` | One Marp Markdown file per module |
+| `slides/00-intro.md` … `slides/04-wrapup.md` | One Marp Markdown file per module, plus `05-backup.md` |
 | `slides/theme/cscs.css` | Shared Marp theme (CSCS colours, footer with docs link) |
 | `handout/quickstart.md` | One-page cheat sheet, exported to PDF, given to attendees |
 | `assets/` | Images, diagrams, screenshots |

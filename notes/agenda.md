@@ -82,7 +82,7 @@ freely rather than treat this as a draft to defend.
 
 ## Backup slides (after the wrap-up)
 
-In `slides/06-backup.md`. Mentioned on the wrap-up slide, shown only if the discussion
+In `slides/05-backup.md`. Mentioned on the wrap-up slide, shown only if the discussion
 asks for them:
 
 - **HPC Console** — drafted, 5 slides, about 5 minutes. Ready.
