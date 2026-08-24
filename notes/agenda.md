@@ -17,13 +17,16 @@ nobody anything, and the question that caused the delay was worth more than it w
 
 ## Running story
 
-One Swiss AI project, from "we need compute" to "the model is trained and being
-served", carried by two personas:
+One Swiss AI project, from "we need compute" to a model that is trained and being used.
 
-- **Anna** — the PI. Requests the project, runs the team, watches the budget.
-- **Ben** — a PhD student who joins her project partway through.
+The invented personas that used to carry this — a PI and a PhD student — were dropped on
+24 August. They did two jobs and neither is theirs any more: the audience marker in the
+corner of every slide says who a slide is for, and module 3 is a real worked example,
+which is a far stronger thread than two people who do not exist. With several presenters,
+characters also have to be maintained by everyone or they read as inconsistent.
 
-Every module should be able to say where we are in that story.
+Every module should still be able to say where we are in the story. Just say it in the
+second person.
 
 ## Modules
 
@@ -70,8 +73,8 @@ freely rather than treat this as a draft to defend.
 
 ## Hand-offs between modules
 
-- **1 → 2**: Ben has a shell on Clariden and an empty home directory. His first
-  question is where to put two terabytes of training data.
+- **1 → 2**: you have a shell on Clariden and an empty home directory. The first
+  question is where two terabytes of training data go.
 - **2 → 3**: the data is on the right filesystem — including the new `datacache`, which
   goes live the morning of the session. Now it needs an environment that can read it.
 - **3 → 4**: the environment exists. Now it has to run at scale, repeatedly.

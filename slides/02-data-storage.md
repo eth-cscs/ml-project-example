@@ -5,32 +5,23 @@ paginate: true
 footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch'
 ---
 
-<!--
-DRAFT — owner TBD. Written as scaffolding so module 2 does not start from a blank page.
-Budget: 13 minutes, so about 13 slides including the divider. Currently under that on
-purpose: there is room for the owner to add the one thing they care about most.
-
-Every claim is traceable, but several come from the storage documentation that is still
-a preview at cscs-docs-preview.svc.cscs.ch/442 — see the TODO(verify) markers.
--->
-
 <!-- _class: divider -->
 
 <span class="tag">Module 2 · 13 min</span>
 
 # Data and storage
 
-Ben has a shell and an empty home directory. Where do two terabytes of training data go?
+You have a shell and an empty home directory. Where do two terabytes of training data go?
 
 <!--
 START AT T+19:00. Check the presenter timer now.
 CUT IF LATE: Cut "Inodes run out before terabytes do". Say it in one line over the mount-point table.
-SAY:
-- Ben is in. He has a shell on Clariden and an empty home directory.
+
+- You are in, with a shell on Clariden and an empty home directory.
 - His first real question is where to put his data.
 - Getting this wrong is the most expensive mistake on this platform.
 - Wrong filesystem means slow training. Or deleted data.
-NEXT: There are four places, and they are not interchangeable.
+- Next: There are four places, and they are not interchangeable.
 -->
 
 ---
@@ -57,8 +48,6 @@ Putting data in the wrong one is the most common and most expensive mistake here
 </div>
 
 <!--
-This is the slide of the module. Do not rush it.
-SAY:
 - Six mount points. Read the table, do not read it out loud.
 - Three groups. Home, scratch, and project.
 - Home is small. 50 gigabytes. Code and configuration, nothing else.
@@ -67,15 +56,15 @@ SAY:
 - Its cleanup is also 30 days. Say it out loud, because it is not in the documentation
   yet — anyone who checks will not find it there.
 - Then two project areas: the store, which is backed up, and datacache, which is not and which you have to ask for.
-GIVE THEM THE MODEL FIRST. Two words, two properties:
+
 - Scratch is yours. Per user. Not backed up.
 - Store belongs to the project. Shared. Backed up.
 - Everything else on this slide hangs off those two.
-HOME SITS BETWEEN THEM, if anyone asks:
+- If anyone asks about home:
 - No cleanup, and there are daily snapshots of the last seven days in $HOME/.snapshot.
 - That has saved people who deleted their own code. Worth knowing it exists.
 - Tape backups for Home are being implemented, so do not promise them yet.
-THEN POINT AT THE CLEANUP COLUMN:
+
 - This is the column that hurts people.
 - Say the mechanism precisely, because it is not what they assume.
 - It is not age. It is last access time.
@@ -83,7 +72,7 @@ THEN POINT AT THE CLEANUP COLUMN:
 - So a dataset you keep reading survives. A checkpoint you wrote and forgot does not.
 - Not archived. Deleted.
 - Ritom's cleanup is 30 days too, but that is not in the documentation yet.
-NEXT: So which scratch, for what?
+- Next: So which scratch, for what?
 DOCS: docs.cscs.ch/storage/filesystems/ · docs.cscs.ch/platforms/mlp/
 -->
 
@@ -172,7 +161,6 @@ Nothing on scratch survives. Shared project data goes on the **store** or on **`
 </div>
 
 <!--
-SAY:
 - All three are called scratch. They are different hardware and they behave differently.
 - iopsstor is NVMe. It is good at IOPS. Put your dataset there, the thing you read from constantly in random order.
 - capstor is spinning disks, optimised for large sequential reads and writes. Put your checkpoints there.
@@ -183,9 +171,9 @@ SAY:
 - The documentation is clear that file-per-rank I/O sees little benefit there, so it is not a general-purpose replacement for the other two.
 - If you do use it, read the tuning settings in the storage guide first — locking, collective buffering, data sieving. VAST behaves differently from Lustre and MPI-IO can get it wrong by default.
 - Its cleanup is 30 days, same as capstor. That is not documented yet, so say it rather than letting them look for it.
-READ THE RED BAR:
+- Let me read the red bar.
 - And when the job finishes, move what you care about to project storage. Say it every time.
-NEXT: How much have you actually used?
+- Next: How much have you actually used?
 DOCS: docs.cscs.ch/guides/storage/ · docs.cscs.ch/platforms/mlp/ (Scratch Usage Recommendations)
 -->
 
@@ -225,14 +213,13 @@ This is why the proposal asks for a data footprint. Storage is not elastic.
 </div>
 
 <!--
-SAY:
 - Project storage is the only place that is neither small nor temporary.
 - The quota is not negotiable after the fact. It is what you asked for in the proposal.
 - Small projects get a terabyte by default. Large projects get no default at all, you state it.
 - It is backed up to tape, three copies, every 24 hours. Scratch is not.
 - And at the end, three months, then it goes.
 - That connects back to module 1: this is why we ask for a data footprint up front.
-NEXT: And from today there is a second project area, which is new.
+- Next: And from today there is a second project area, which is new.
 DOCS: docs.cscs.ch/storage/filesystems/
 -->
 
@@ -276,23 +263,21 @@ Project-level like the store, but **not backed up**, like scratch. And nothing i
 </div>
 
 <!--
-This is new. Nobody in the room has used it. Spend a moment.
-SAY, start from the problem it solves:
 - Until today you had two bad options for a dataset the whole team reads.
 - Put it on scratch: fast, but it is per user, and it is deleted after 14 days.
 - Put it on project store: shared and durable, but it is medium-performance, so random reads are slow.
 - So teams kept a copy each, on scratch, and re-staged it every two weeks.
 - datacache is the third option. Fast NVMe, shared across the project, and never cleaned automatically.
 - One copy of the dataset. The whole project reads it. It is still there next month.
-POINT AT THE RED BAR:
+- Look at RED BAR.
 - Place it against the model from two slides ago. Scratch is yours and not backed up. Store is the project's and is backed up.
 - datacache is the odd one: it belongs to the project, like the store, but it is not backed up, like scratch.
 - And unlike both, nothing is ever deleted for you.
 - Within your quota on capacity and inodes, the project owns its own space hygiene. That is a real responsibility.
-HOW TO GET IT:
+
 - It is not created by default. Your PI opens a Service Desk ticket saying what it is for and how much space and how many inodes.
 - We review it before creating the area.
-NEXT: Where to read more.
+- Next: Where to read more.
 DOCS: docs.cscs.ch/platforms/mlp/
 -->
 
@@ -341,7 +326,6 @@ Millions of small training files hurt the metadata servers, not just your quota.
 </div>
 
 <!--
-SAY:
 - A quota has two numbers and people only remember the gigabytes.
 - Space, and inodes. An inode is roughly a file.
 - Home gives you 50 gigabytes and five hundred thousand files.
@@ -352,7 +336,7 @@ SAY:
 - The fix is on the right, and it is the same trick module 3 will show you.
 - Squash the whole environment into one squashfs image. One file, not twenty-two thousand.
 - That is literally what a uenv is. Module 3 picks this up.
-NEXT: Now get the data in.
+- Next: Now get the data in.
 DOCS: docs.cscs.ch/guides/storage/ · docs.cscs.ch/storage/filesystems/
 -->
 
@@ -409,7 +393,6 @@ For a directory with many files, or a few very large checkpoints, `rclone` copie
 </div>
 
 <!--
-SAY:
 - Two directions, two tools.
 - From outside CSCS, use Globus. It handles restarts, which matters when the transfer takes hours.
 - Between CSCS filesystems, use the xfer partition. It is a Slurm partition dedicated to this.
@@ -419,7 +402,7 @@ SAY:
 - Give them the concrete number: a one terabyte directory from store to scratch takes about five minutes. Roughly three gigabytes a second.
 - Start with those values and raise the parallelism gradually, watching the effect on the metadata servers.
 - If you need to chain transfers, xfer jobs take --dependency=afterok like any other Slurm job.
-NEXT: What about data that has to outlive the project?
+- Next: What about data that has to outlive the project?
 DOCS: docs.cscs.ch/storage/transfer/
 -->
 
@@ -463,10 +446,10 @@ After every job, move the results off scratch.
 </div>
 
 <!--
-Do not read this slide out loud.
-SAY only:
+- I will not read this slide out.
+
 - Three rules. Home is for code. Scratch is yours and gets cleaned. The project areas are shared and do not.
 - Of the two project areas, only the store is backed up.
 - And the habit: after every job, move results off scratch.
-NEXT: hand over to module 3. Ben knows where his data goes. Now he needs software that can read it.
+- Next: you know where your data goes. Now you need software that can read it.
 -->

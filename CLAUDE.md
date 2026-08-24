@@ -94,9 +94,10 @@ Build entry point: a `Makefile` at the repo root with `make pptx`, `make html`, 
 ## 5. Agenda and module ownership (60 min)
 
 The spine is a **single running story**: one Swiss AI project, from "we need compute" to
-"the model is trained and being served". Use two recurring personas — **Anna, the PI**,
-and **Ben, a PhD student who joins her project** — so every module can say *where we are
-in the story*.
+a model that is trained and being used. Address the audience in the **second person** —
+"you have a shell and an empty home directory" — rather than through invented characters.
+Module 3 is a real worked example and carries the continuity; the audience marker in the
+corner of each slide says who it is for.
 
 | # | Module | Budget | Owner |
 |---|---|---|---|
@@ -128,7 +129,7 @@ interesting part of the session — the value of the hour is in modules 2–4. M
 **fast, screenshot-driven and confident**, and push detail into backup slides and the handout.
 Do not let it grow.
 
-Storyline: *Anna gets a project → Anna adds Ben → Ben logs in → both watch the budget.*
+Storyline: *a project is granted → the PI adds the team → a member logs in → both watch the budget.*
 
 1. **What a "project" is at CSCS** and who is who — Project Administrator (PI),
    Project Manager (deputy PI), Project Member. What each role can and cannot do.
@@ -168,16 +169,20 @@ support contact — so Andrea can move quickly on stage and say "it is all on th
   first language. Short sentences, plain words, no idioms. Use these markers so a
   presenter can find their place instantly:
 
+  **Every line must be a line you can say out loud.** No stage directions, no notes to
+  yourself, no headers. "Look at the red bar" is fine because you would say it; "READ THE
+  RED BAR:" is not. The last spoken line is the hand-off to the next slide, written as
+  "Next: ...". Only two things are allowed not to be speech:
+
   ```
-  SAY:
-  - One short line per idea.
-  POINT AT / READ OUT LOUD / EXPECT THIS QUESTION:   (physical cues, only when needed)
-  NEXT: the one-line hand-off to the following slide.
-  DOCS: docs.cscs.ch/...
+  - One short line per idea, in simple English, all the way down.
+  - Next: the hand-off to the following slide.
+  DOCS: docs.cscs.ch/...          (a reference, not speech)
   ```
 
-  Every note block ends with `NEXT:` and `DOCS:`. See `slides/01-project-access.md`
-  for the reference implementation.
+  On a module divider only, two operational lines come first: `START AT T+mm:00` and
+  `CUT IF LATE:` — the run sheet parses the second one. See
+  `slides/01-project-access.md` for the reference implementation.
 - Slide titles are statements, not labels: "Signed keys expire after one day", not "SSH keys".
 - Prefer a diagram or an annotated screenshot over a bullet list for anything spatial
   (storage layout, login path, portal navigation).

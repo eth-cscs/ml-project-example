@@ -16,12 +16,12 @@ Raw data in, a trained model out. Every step is something you will actually type
 <!--
 START AT T+32:00. Check the presenter timer now.
 CUT IF LATE: Cut "Four ways to make this slow" and "The data is already here". Both are one spoken line.
-SAY:
+
 - The rest of the hour is one worked example, not four topics.
 - We start with raw data on your laptop and end with a trained model you can serve.
 - Each step names the thing you type and the page that documents it.
 - Owners of the subsections take over from here.
-NEXT: The first problem is where the data goes.
+- Next: The first problem is where the data goes.
 -->
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/storage/transfer/' -->
@@ -53,13 +53,11 @@ Everything from here is what you do with it.
 </div>
 
 <!--
-Fifteen seconds. Do not re-teach the previous module.
-SAY:
 - Step one is already done, because we just spent a module on it.
 - From outside, Globus. Between our own filesystems, the xfer partition, and rclone if it is large.
 - It lands on iopsstor scratch, because the next thing you do is read it in random order.
 - So: raw data on scratch, nothing else. That is the starting point.
-NEXT: And the first useful thing is not training.
+- Next: And the first useful thing is not training.
 DOCS: docs.cscs.ch/storage/transfer/
 -->
 ---
@@ -98,14 +96,13 @@ You have raw data and no model yet. This is the step most people skip.
 </div>
 
 <!--
-SAY:
 - You have just landed raw data on scratch. You do not have a model yet.
 - The inference resource from module 1 is already useful here, and this is the step most people skip.
 - Vetting: run the raw data past a model to classify it, filter it, find what is broken.
 - Building the training set: rewriting, synthesising, labelling.
 - And writing the job scripts themselves — you can point a coding agent at the same endpoint.
 - It is the same API and the same project credit. Nothing new to request.
-NEXT: Now set up a place to work.
+- Next: Now set up a place to work.
 DOCS: docs.cscs.ch/services/inference/api/
 -->
 
@@ -148,13 +145,12 @@ No passwords in a pipeline. This is what a **service account** is for.
 </div>
 
 <!--
-SAY:
 - If the work has to repeat, drive it over HTTP instead of by hand.
 - One endpoint per platform. Yours is the ml one.
 - List files, make directories, submit and cancel Slurm jobs, move data.
 - Authentication is a client ID and secret exchanged for a five-minute token. No passwords in a pipeline.
 - That is what the service accounts from module 1 are for.
-NEXT: Or a notebook, if you would rather not script it.
+- Next: Or a notebook, if you would rather not script it.
 DOCS: docs.cscs.ch/access/firecrest/ · eth-cscs.github.io/firecrest-v2/
 -->
 ---
@@ -185,12 +181,11 @@ and account fields visible.
 </div>
 
 <!--
-SAY:
 - If you would rather not think about sbatch, this is the way in.
 - One URL per cluster. Clariden is jupyter dash clariden dot cscs dot ch.
 - You get a form. Node type, how many, wall time, which project pays, and which environment — the same uenv or container we come to in a moment.
 - Two things people get wrong. It runs on a compute node, so leaving it open costs credit — close it when you stop. And "disk I/O error" when saving a notebook almost always means you are out of quota, not that Jupyter is broken.
-NEXT: And for automation, there is an API.
+- Next: And for automation, there is an API.
 DOCS: docs.cscs.ch/access/jupyterlab/
 -->
 
@@ -233,17 +228,16 @@ Same login as everything else. Longer version in the backup slides, if you want 
 </div>
 
 <!--
-SAY:
 - Third way in, and the one fewest of you will have seen.
 - A browser pointed at the cluster. Nothing to install, and no agent running as you on the cluster.
 - The dashboard shows cluster health, and it will refuse to submit to a degraded cluster. That alone saves a failed overnight run.
 - Jobs: list, filter, submit, read the logs.
 - The feature I would highlight is the shareable per-job URL. It replaces the screenshot-in-Slack workflow that most debugging conversations start with.
-POINT AT THE CARD:
+- Look at CARD.
 - It runs on FirecREST, and that is the useful part: anything the console can do, your script can do, because it is the same API.
 - Client ID and secret for five-minute tokens. No passwords in a pipeline. That is what the service accounts from module 1 are for.
 - We have five more slides on this in backup if the discussion wants them.
-NEXT: One last thing, and it does not involve a cluster at all.
+- Next: One last thing, and it does not involve a cluster at all.
 DOCS: docs.cscs.ch/access/firecrest/ · eth-cscs.github.io/firecrest-v2/
 -->
 
@@ -283,13 +277,12 @@ For PyTorch, the documentation recommends the **Container Engine** route. Both a
 </div>
 
 <!--
-SAY:
 - Two supported mechanisms. People ask which one is correct. Both are.
 - A uenv is a CSCS-built environment, one Squashfs file containing the software and its modules.
 - The Container Engine runs your job inside a container you describe with a small file.
 - For PyTorch specifically, the docs recommend the container route, and that is what most of you will use.
 - The honest difference: uenv is built for Alps; containers let you use portable environments built by third parties.
-NEXT: uenv first, because it is three commands.
+- Next: uenv first, because it is three commands.
 DOCS: docs.cscs.ch/software/uenv/ · docs.cscs.ch/software/container-engine/
 -->
 
@@ -326,13 +319,12 @@ uenv run pytorch/v2.8.0:v1 -- python train.py  # or one command, then exit
 </div>
 
 <!--
-SAY:
 - Four commands, and note the shape: an image is always name, version and tag.
 - Find shows you what exists. Pull downloads it. Start drops you into a shell inside it.
 - If you want to run one thing and get out, uenv run.
 - The whole environment is one file. That is why it starts fast on a parallel filesystem.
 - And yes, PyTorch is available this way, several versions, for the Grace-Hopper nodes.
-NEXT: Now the container route, which is the one the PyTorch docs recommend.
+- Next: Now the container route, which is the one the PyTorch docs recommend.
 DOCS: docs.cscs.ch/software/uenv/
 -->
 
@@ -387,12 +379,11 @@ $ srun --environment=ubuntu --pty bash
 </div>
 
 <!--
-SAY:
 - This is the entire concept. A small TOML file names an image, says what to mount, says where to start.
 - You give it a name, and then everywhere you would have run something, you add one flag.
 - srun dash dash environment. That is it. It works in interactive jobs and in batch scripts identically.
 - The mounts line is the one people forget. Inside the container, Alps filesystems are not there unless you say so.
-NEXT: A realistic one, for PyTorch.
+- Next: A realistic one, for PyTorch.
 DOCS: docs.cscs.ch/software/container-engine/
 -->
 
@@ -449,14 +440,12 @@ Skip it and your multi-node training is quietly slow.
 </div>
 
 <!--
-This is the slide to spend time on.
-SAY:
 - This is a realistic EDF to run generic PyTorch tasks.
 - Top line: Enter the image by registry reference. The Container Engine downloads and caches it.
 - The mounts bring in both scratch filesystems.
 - Say what the EDF buys you: it separates what you want from how the container is managed, and the container description from the commands in your job script.
 - Now the part that is specific to this machine, and the reason a laptop container is not enough.
-POINT AT THE ANNOTATIONS BLOCK:
+- Look at ANNOTATIONS BLOCK.
 - Annotations are arbitrary metadata for the container. We use them to request custom features to the Container Engine.
 - The AWS OFI NCCL hook connects NCCL to the Slingshot network through libfabric.
 - If you leave it out, multi-node training still works. It is just quietly, badly slow.
@@ -466,7 +455,7 @@ THE [env] BLOCK, only if asked:
 - OMP_NUM_THREADS aligns with the number of cores of Grace CPU
 - NCCL_DEBUG=INFO so you can see what the network actually did. EDF supports comments: comment out for cleaner outputs.
 - The full block is on the PyTorch documentation page. Do not read it out.
-NEXT: Where the images come from.
+- Next: Where the images come from.
 DOCS: docs.cscs.ch/software/ml/pytorch/
 -->
 
@@ -517,14 +506,13 @@ Build on top of a base image that most suits your use case.
 </div>
 
 <!--
-SAY:
 - Three things to know about images.
 - Alps Extended Images: curated by CSCS and tuned for this machine. Start here if one fits.
 - NGC as the all-rounder. PyTorch is already there, already built well for these GPUs.
 - And you can build your own on Alps, with Podman, on the right architecture.
-READ THE RED BAR:
+- Let me read the red bar.
 - Build on top of something that works. Starting from a bare Ubuntu on this machine is a huge effort (CUDA, DL libs, PyTorch, network...).
-NEXT: The mistakes we see.
+- Next: The mistakes we see.
 DOCS: docs.cscs.ch/software/ml/pytorch/ · docs.cscs.ch/software/container-engine/
 -->
 
@@ -576,13 +564,12 @@ This is the line that draws down the credit. The **grace** and the **minimal** f
 </div>
 
 <!--
-SAY:
 - One script. It is short on purpose.
 - The account flag is how Slurm knows which project pays. It is not optional.
-- This is the line that connects to module 1: every job here draws down the credit Anna was granted.
+- This is the line that connects back to module 1: every job here draws down the project's credit.
 - Three partitions. Debug for quick turnaround, two nodes, thirty minutes. Normal for real work. Xfer for data, which module 2 covered.
 - And the srun line carries the environment flag from the container slides. That is the whole stack in one script.
-NEXT: How to ask for GH200 nodes properly.
+- Next: How to ask for GH200 nodes properly.
 DOCS: docs.cscs.ch/running/slurm/
 -->
 
@@ -634,12 +621,11 @@ Neither shows up as an error. Both show up as a bill.
 </div>
 
 <!--
-SAY:
 - A Grace-Hopper node is four GPUs and four CPU sockets. Ask for it that way.
 - Four tasks per node, one GPU per task. That is the shape nearly every ML job wants.
 - If you are running several job steps on the same node, take it exclusive.
 - The reason to care is on the right: getting this wrong is not an error message. It is a slow job that still costs you the full node hours.
-NEXT: Which brings us to efficiency.
+- Next: Which brings us to efficiency.
 DOCS: docs.cscs.ch/running/slurm/
 -->
 
@@ -671,14 +657,13 @@ Burning the budget on schedule and getting nothing out of it is **worse** than u
 </div>
 
 <!--
-SAY, and this one is aimed at the PIs:
 - You are billed for the node you reserved, not for the work you did on it.
 - If your GPUs sit at thirty per cent, seventy per cent of that credit bought nothing.
 - Remember module 1 asked you for an expected efficiency in the proposal. This is where that promise is kept or not.
 - The habit that fixes it: measure one run properly before you scale it to a hundred.
-POINT AT THE CARD:
+- Look at CARD.
 - And for the PIs specifically. Spending the budget on schedule while achieving nothing is worse than under-spending, because it is invisible.
-NEXT: You do not have to do all of this from a terminal.
+- Next: You do not have to do all of this from a terminal.
 -->
 
 <!-- TODO(verify): docs.cscs.ch/running/slurm/ does not document a job-efficiency tool.
@@ -710,7 +695,6 @@ Then the environment is **reviewable** and **reproducible**, like everything els
 </div>
 
 <!--
-SAY:
 - Four mistakes, all of which we see regularly.
 - No NCCL hook, covered already, the big one.
 - Dataset on capstor instead of iopsstor. Module 2's mistake showing up here as a slow job.
@@ -718,7 +702,7 @@ SAY:
 - Rebuilding the image on every job instead of importing once.
 - On the right, the habit that prevents most of this: commit the EDF next to your code.
 - Then your environment is reviewed like code, and somebody else can reproduce your run.
-NEXT: Where to read more.
+- Next: Where to read more.
 -->
 
 ---
@@ -740,7 +724,7 @@ PLACEHOLDER. Andrea and Fawzi have not settled whether serving a model you train
 yourself goes through the inference service or through a Slurm job on the cluster.
 Do not improvise this on stage: if it is still open on the day, say it is coming and
 point at the tutorials.
-NEXT: Post-training.
+- Next: Post-training.
 -->
 ---
 
@@ -760,7 +744,7 @@ NEXT: Post-training.
 PLACEHOLDER. Nothing written yet. Fine-tuning, RLHF and evaluation would live here.
 The ML tutorials cover fine-tuning already, so the cheapest version of this slide is a
 pointer at docs.cscs.ch/tutorials/ml/.
-NEXT: One last thing, and it is not on Alps.
+- Next: One last thing, and it is not on Alps.
 -->
 ---
 
@@ -790,13 +774,12 @@ Because people ask, and because the answer is not "no" — it is "yes, through a
 </div>
 
 <!--
-SAY:
 - Thirty seconds, because it comes up every time.
 - There is a dedicated Kubernetes cluster for the Swiss AI Initiative.
 - It is not the general Alps Kubernetes service — the documentation is explicit that that one is only for specific partners and is not available to normal users on Alps.
 - Access is arranged through Imanol, not through the portal.
 - That is all we are saying about it today. If you want it, come and find us.
-NEXT: Where to read more.
+- Next: Where to read more.
 -->
 
 <!-- TODO(verify): this is Andrea's, not the documentation's. Nothing on docs.cscs.ch
@@ -846,9 +829,9 @@ Make it the tutorials.
 </div>
 
 <!--
-Do not read this slide out loud.
-SAY only:
+- I will not read this slide out.
+
 - Everything in the last forty minutes is on one of these pages.
 - If you open one link tonight, make it the tutorials. They are complete worked examples.
-NEXT: hand over to the wrap-up.
+- Next: hand over to the wrap-up.
 -->

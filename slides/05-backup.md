@@ -5,20 +5,6 @@ paginate: true
 footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch'
 ---
 
-<!--
-BACKUP SLIDES. These sit after the wrap-up and are NOT part of the 60-minute budget.
-They are shown only if the open discussion asks for them.
-
-The HPC Console block below is the ~5 minute section Andrea asked for. It is drafted here
-rather than inside module 4 so that the placement decision stays open: it can be moved
-into slides/04-running-jobs.md, promoted to a section of its own, or left here as
-backup. Moving it costs nothing — cut the block and paste it.
-
-Source: the CUG 2026 paper and deck "A Lightweight Web-UI for HPC and AI" (Pagnamenta,
-Ceriani, Palme, Dorsch, 29 April 2026), plus docs.cscs.ch/access/firecrest/.
-See notes/sources.md.
--->
-
 <!-- _class: divider -->
 
 <span class="tag">Backup · shown on request</span>
@@ -28,7 +14,6 @@ See notes/sources.md.
 Post-training · multi-node scaling · GPU efficiency · the HPC Console
 
 <!--
-Only put this up if somebody asks. Then jump straight to the block they asked for.
 -->
 
 ---
@@ -41,10 +26,9 @@ Only put this up if somebody asks. Then jump straight to the block they asked fo
 A browser interface to the cluster, built on FirecREST. Open source as `firecrest-ui`.
 
 <!--
-SAY:
 - Five minutes on the HPC Console, since you asked.
 - Short version: it is a web interface to the cluster. It does not replace SSH. It complements it.
-NEXT: Why it exists.
+- Next: Why it exists.
 -->
 
 ---
@@ -77,12 +61,11 @@ To provide a complementary tool that simplifies the common operations, and to le
 </div>
 
 <!--
-SAY:
 - The honest framing first, because this room contains people who love their terminal.
 - The goal is not to replace SSH. SSH stays, and for automation it is still the right answer.
 - But a lot of daily operations do not need a shell. Is the cluster healthy. What is my job doing. Why did it fail.
 - Those are the things people currently do with three tools and six commands.
-NEXT: What it is built on.
+- Next: What it is built on.
 DOCS: docs.cscs.ch/access/firecrest/
 -->
 
@@ -118,12 +101,11 @@ It is the same FirecREST API from module 4 — anything the console does, your o
 </div>
 
 <!--
-SAY:
 - It is built on the FirecREST API we saw in module 4. That has two consequences worth stating.
 - One, there is no privileged agent running on the cluster. The console has no special powers.
 - Two, and this is the useful part: anything the console can do, your own script can do, because it is the same API.
 - Single sign-on, so it is the same login as the portal and Jupyter.
-NEXT: What you can actually do with it.
+- Next: What you can actually do with it.
 DOCS: docs.cscs.ch/access/firecrest/
 -->
 
@@ -164,14 +146,13 @@ The shareable per-job URL is the feature people keep. External dashboards such a
 </div>
 
 <!--
-SAY:
 - Four workflows.
 - The dashboard shows cluster health in real time, and it will stop you submitting to a degraded cluster. That alone saves a failed overnight run.
 - The scheduler view lists your jobs, or everything on the account, with filters.
 - Monitoring: job script, logs, status. And the thing I would highlight — every job has its own URL you can send to someone.
 - That replaces the screenshot-in-Slack workflow, which is how most debugging conversations start today.
 - And a filesystem browser with preview and large upload.
-NEXT: Where to find it.
+- Next: Where to find it.
 -->
 
 <!-- PLACEHOLDER: the CUG deck has approved screenshots of all four views. Whoever
@@ -210,10 +191,9 @@ Open source as **`firecrest-ui`**.
 </div>
 
 <!--
-SAY:
 - One URL per platform. Yours is console dot mlp.
 - It is open source as firecrest-ui, so if your institution wants its own, that is possible.
-NEXT: back to the discussion.
+- Next: back to the discussion.
 -->
 
 ---
