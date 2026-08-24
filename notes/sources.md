@@ -48,6 +48,12 @@ Four pages under `/storage/`, plus one guide outside it. Verified quotations:
   Andrea's correction. Concrete figure: "copying a 1 TB directory from `/capstor/store`
   to `/iopsstor/scratch` ... takes on the order of 5 minutes on Alps (roughly 3 GB/s)".
   `xfer` jobs chain with `--dependency=afterok:$SLURM_JOB_ID`.
+- **`/guides/storage/` is already live** and is the only public page that documents
+  Ritom: "Ritom is a scratch space using the VAST Data filesystem accessed over NFS",
+  with a "VAST tuning on Ritom" section covering file locking, collective buffering,
+  data sieving and aggregation nodes. Ritom does **not** appear on the live
+  `/platforms/mlp/` or `/storage/filesystems/` pages, which is why the scratch slide
+  cites the guide rather than the platform page.
 - **`/guides/storage/`** — the page module 2 most needs and the one easiest to miss,
   because it sits outside the storage section. Lustre striping
   (`lfs setstripe --stripe-count 32 --stripe-size 4M`, 4 MB block size "gives good

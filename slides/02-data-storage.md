@@ -100,6 +100,14 @@ DOCS: docs.cscs.ch/storage/filesystems/ · docs.cscs.ch/platforms/mlp/
   ritom    cleanup "is being finalised". Nothing else stated.
 Note the criterion is LAST ACCESS, not age or modification time.
 
+TODO(verify): THIS SLIDE'S FOOTER DOES NOT YET BACK IT. docs.cscs.ch/storage/filesystems/
+is live but lists only Home, the two Lustre scratches and Store — no ritom, no datacache.
+Both exist solely in the /442 preview. Until that merges, anyone who follows the citation
+finds a page that does not mention two of the six rows. Re-check on the morning of the
+session; if the merge has not happened, say so out loud rather than letting somebody
+discover it afterwards. (Ritom itself IS live-documented, but on
+docs.cscs.ch/guides/storage/, not on the filesystems page.)
+
 TODO(verify): two things the preview does not settle.
  1. The iopsstor scratch quota is not stated anywhere. Find it, or leave it off.
  2. The preview labels ritom "(Clariden only)" and says "On Clariden, the cleanup policy
@@ -107,7 +115,7 @@ TODO(verify): two things the preview does not settle.
     drops that qualifier. This is a documentation error, not a gap — fix the page. -->
 
 ---
-<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/platforms/mlp/' -->
+<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/guides/storage/' -->
 <div class="audience all">Everyone</div>
 
 # NVMe for reading data, HDD for writing checkpoints
@@ -141,13 +149,13 @@ Cleaned after **30 days**.
 </div>
 <div class="card">
 
-### `ritom` — VAST
+### `ritom` — VAST over NFS
 
-A third scratch, on different hardware again.
+"A scratch space using the VAST Data filesystem accessed over NFS." Its behaviour differs from Lustre.
 
-**No recommended use yet** — its cleanup policy is still being finalised, so do not plan a workflow around it.
+**No recommended workload yet** — the cleanup policy is still being finalised.
 
-The storage guide has parallel-I/O tuning for it.
+The storage guide has tuning settings for it.
 
 </div>
 </div>
@@ -166,11 +174,11 @@ SAY:
 - Get those two backwards and your training is slower for no reason at all.
 - Then be straight about the third one, because they just saw it in the table.
 - Ritom is a VAST filesystem. We are not recommending a workload for it yet, because its cleanup policy is not finalised.
-- If you are doing parallel MPI-IO there, the storage guide has tuning settings. Otherwise leave it alone for now.
+- If you are doing parallel MPI-IO there, the storage guide has tuning settings — locking, collective buffering, data sieving. Otherwise leave it alone for now.
 READ THE RED BAR:
 - And when the job finishes, move what you care about to project storage. Say it every time.
 NEXT: How much have you actually used?
-DOCS: docs.cscs.ch/platforms/mlp/ (Scratch Usage Recommendations) · docs.cscs.ch/guides/storage/
+DOCS: docs.cscs.ch/guides/storage/ · docs.cscs.ch/platforms/mlp/ (Scratch Usage Recommendations)
 -->
 
 ---
@@ -402,7 +410,9 @@ NEXT: Where to read more.
 DOCS: docs.cscs.ch/platforms/mlp/
 -->
 
-<!-- TODO(verify): datacache is documented only on the preview at
+<!-- TODO(verify): THIS SLIDE'S FOOTER DOES NOT YET BACK IT. The live
+docs.cscs.ch/platforms/mlp/ does not mention datacache at all.
+datacache is documented only on the preview at
 cscs-docs-preview.svc.cscs.ch/442/platforms/mlp/ and goes live on 26 August after the
 maintenance. Confirm on the morning of the session that it is actually available — if
 the maintenance slips, this slide says "from today" and would be wrong on stage.

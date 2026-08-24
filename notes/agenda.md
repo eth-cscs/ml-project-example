@@ -115,6 +115,18 @@ Two different failure modes, and the second is the nastier one:
   `datacache` or Ritom. So a slide can cite a working link whose content does not back
   what was just said. That is worse than a dead link, because it looks like we are wrong.
 
+  Checked on 24 August, the live pages say:
+
+  | Page | Has `ritom`? | Has `datacache`? |
+  |---|---|---|
+  | `docs.cscs.ch/platforms/mlp/` | no | no |
+  | `docs.cscs.ch/storage/filesystems/` | no | no |
+  | `docs.cscs.ch/guides/storage/` | **yes** — a "VAST tuning on Ritom" section | no |
+
+  So exactly **two** slides carry a citation that does not yet support them: the
+  six-mount-point table and the `datacache` slide. Both are marked in the source. Ritom
+  itself is fine as long as the scratch slide cites the storage guide, which it now does.
+
 Check both the morning of the session. If the storage merge has not happened, say so on
 the slide rather than letting somebody discover it afterwards.
 
