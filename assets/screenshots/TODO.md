@@ -25,7 +25,7 @@ One thing a demo project **cannot** give you: a consumption history. See capture
 |---|---|---|---|
 | 1 | `portal-team-tab.png` | demo project | The **Team** tab with the roles column visible and legible — one project administrator and one project member. Slide: "The portal is where the project lives". That slide now also names the **Resources** and **Usage** views, so if the left navigation is visible in the same capture, all the better. |
 | 2 | `portal-consumption.png` | **a real project** | The single most important capture. See below. |
-| 3 | `portal-invite-dialog.png` | demo project | The **Invite Users** dialog with the role dropdown open, so the three role names are readable. Optional — use it if slide "Adding Ben takes one email address" feels too abstract on the day. |
+| 3 | `portal-invite-dialog.png` | demo project | The **Invite Users** dialog with the role dropdown open, so the three role names are readable. Optional — use it if slide "Adding someone takes one email address" feels too abstract on the day. |
 | 4 | `user-account-sign-key.png` | own account | `user-account.cscs.ch` → SSH Keys → **Sign Key**, the paste-and-download step. Optional. |
 
 ### Capture 2 — one annotated image, six things on it
