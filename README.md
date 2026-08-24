@@ -29,7 +29,7 @@ documentation is* for the next step they personally have to take.
 
 The built deck is published from `main` on every push:
 
-**→ [View the slides](https://candrea85.github.io/swiss-ai-day-2026-alps-tech-training/)**
+**→ [View the slides](https://eth-cscs.github.io/ml-project-example/)**
 
 Press `p` in the deck for presenter view: speaker notes, next slide and a timer.
 

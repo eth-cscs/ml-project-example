@@ -5,7 +5,9 @@ name: Build and publish the deck
 # artefacts are produced here, never committed.
 #
 # One-time setup in the repository: Settings → Pages → Build and deployment →
-# Source: GitHub Actions. Until that is done this workflow builds but cannot deploy.
+# Source: GitHub Actions. Until that is done the build succeeds and the deploy step
+# fails with "HttpError: Not Found" — a 404 on creating the deployment, not on the
+# artifact. Done for this repository on 24 August 2026.
 
 on:
   push:
@@ -28,9 +30,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Node 20 is deprecated on GitHub runners; 22 is the current LTS.
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       # Marp renders through a headless browser. The GitHub runner image ships Chrome;
       # point Marp at it explicitly rather than relying on auto-detection.
