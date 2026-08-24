@@ -7,11 +7,11 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 
 <!-- _class: divider -->
 
-<span class="tag">Module 1 · 12 min</span>
+<span class="tag">Module 1 · 14 min</span>
 
 # Project lifecycle and access
 
-Anna gets a project. Anna adds Ben. Ben logs in. Both watch the budget.
+Getting a project, adding your team, watching the budget, and getting a shell.
 
 <div class="split">
 
@@ -22,20 +22,17 @@ Anna gets a project. Anna adds Ben. Ben logs in. Both watch the budget.
 
 <!--
 START AT T+05:00. Check the presenter timer now.
-CUT IF LATE: Cut "What this module deliberately skipped". Say those five lines over the hand-off.
-SAY:
-- This module is 12 minutes. It is the plumbing part.
-- The interesting part of the hour is modules 2 to 4.
-TELL THEM WHEN TO PAY ATTENTION. This is the point of this slide:
-- The first half is for PIs and deputy PIs. Getting a project, adding people, watching the budget.
-- The second half is for everybody who has to log in. Account, MFA, keys, the jump host.
+CUT IF LATE: Cut "What this module deliberately skipped", and "What a Swiss AI project comes with" if you must — the inference slide carries the point.
+
+- This module is fourteen minutes. It is the plumbing part.
+- The interesting part of the hour is modules 2 and 3.
+- The first half is for PIs and deputy PIs: getting a project, adding people, watching the budget.
+- The second half is for everybody who has to log in: account, MFA, keys, the jump host.
 - Each slide says in the top right corner which one it is.
-- So if the first half is not your job, you have four minutes to read your email. I will not be offended.
-THEN:
-- Every command I show is on the handout. So do not type. Just watch.
-- Meet Anna. She is a PI with a new project.
-- And Ben. He is a PhD student who joins her project.
-NEXT: Start at the beginning. How do you get a project at all?
+- So if the first half is not your job, you have a few minutes to read your email. I will not be offended.
+- Every command I show is on the handout, so do not type. Just watch.
+- And please interrupt me. Ask when the question comes to you, not at the end.
+- Let us start at the beginning. How do you get a project at all?
 -->
 
 ---
@@ -62,11 +59,11 @@ You choose which one to apply for. The Swiss AI Initiative decides. CSCS opens t
 
 ### Before asking for a large one
 
-- A GPU-hour number you **measured**
-- The efficiency you expect to reach
+- GPU hours you **measured**
+- The efficiency you expect
 - The **data footprint**, and how long it stays
 
-A large proposal can be **cut down to a small grant** rather than rejected.
+A weak large proposal is usually **made smaller**, not rejected.
 
 </div>
 </div>
@@ -78,26 +75,24 @@ The 4th call for large projects is open right now — **3 August to 14 September
 </div>
 
 <!--
-SAY FIRST, who does what. People ask us for hours and we cannot give them:
+- First, who does what, because people ask us for hours and we cannot give them.
 - You decide whether to apply for a small or a large project. That choice is yours.
 - You apply to the Swiss AI Initiative, not to us. They decide.
 - Swiss AI tells us to open the small ones as they are approved, all year round.
 - And twice a year they hand us the large ones, together.
-- CSCS opens the project and runs it. We do not decide who gets what.
-THEN THE TWO KINDS:
-- People often apply to the wrong one.
-- Small: up to 32,000 GPU hours. Six months. Reviewed all year.
+- We open the project and we run it. We do not decide who gets what.
+- Now the two kinds, because people often apply to the wrong one.
+- Small is up to thirty-two thousand GPU hours, for six months, reviewed all year.
 - So you can ask today and start on the first day of next month.
-- Large: 500,000 GPU hours and more. Twelve months.
-- It starts only on 1 January or 1 July. If you miss a call, you wait six months.
+- Large is five hundred thousand GPU hours and more, for twelve months.
+- It starts only on the first of January or the first of July. If you miss a call you wait six months.
 - The storage row is the one people forget.
-- Small gets 1 terabyte by default. Large gets no default. You must ask for it in the proposal.
+- A small project gets one terabyte by default. A large one gets no default. You state it in the proposal.
 - Bring three things to a large proposal: GPU hours you measured, the efficiency you expect, and your data footprint.
-- Good news: a weak large proposal is usually made smaller. It is not simply rejected.
-POINT AT THE RED BAR:
-- The 4th large call closes on 14 September. That is about three weeks from today.
+- And some good news: a weak large proposal is usually made smaller rather than rejected.
+- Look at the red bar. The fourth large call closes on the fourteenth of September, about three weeks from today.
 - If you want a large project in January, this is your call.
-NEXT: Say Anna applied and was granted a project. Who is she now, and what is an account?
+- Next: say you applied and you were granted a project. What is an account?
 DOCS: docs.cscs.ch/platforms/mlp/ · swiss-ai.org/compute-grants
 -->
 
@@ -119,11 +114,11 @@ An account can belong to several projects. It closes only when the last one clos
 <div class="cols">
 <div>
 
-### Three roles in the portal
+### Three roles
 
-- **Project administrator** — the PI. Anna.
-- **Project manager** — the deputy PI.
-- **Project member** — everyone else. Ben.
+- **Project administrator** — the PI
+- **Project manager** — the deputy PI
+- **Project member** — everyone else
 
 Administrators and managers **invite people** and **assign roles**.
 
@@ -133,41 +128,31 @@ Administrators and managers **invite people** and **assign roles**.
 ### One account, many projects
 
 - Your **email address** identifies you — one address, one account
-- **Institutional addresses only.** Always use the same one
+- **Institutional addresses only** — and always the same one
 - Open while **at least one** project is open
-- An end date stops the **compute**, not the project: **90 days** of grace follow
+- An end date stops the **compute**, not the project — **90 days** of grace follow
 - A later invitation **re-enables** the same account
 
 </div>
 </div>
 
-<div class="accent">
-
-If you are a PI and you have never opened `portal.cscs.ch`, this module is the one to stay awake for.
-
-</div>
-
 <!--
-SAY:
-- The portal uses three words. People often guess them wrong.
-- Project administrator is the PI. That is Anna.
-- Project manager is the deputy PI.
-- Project member is everyone else. That is Ben.
+- The portal uses three words, and people often guess them wrong.
+- Project administrator is the PI. Project manager is the deputy PI. Project member is everyone else.
 - Only the first two can invite people and set roles.
-NOW THE IMPORTANT PART. Say it slowly:
+- Now the important part, and I will say it slowly.
 - Your account is identified by your email address. One address, one account.
-- We only accept institutional addresses. Not a personal one.
-- And because the address IS the identity, always use the same one. If you sign up
-  again with a different address you get a second account, not access to your old one.
-- Your account belongs to projects, and it can belong to several at the same time.
+- We only accept institutional addresses, not personal ones.
+- And because the address is the identity, always use the same one.
+- If you sign up again with a different address you get a second account, not access to your old one.
+- Your account belongs to projects, and it can belong to several at once.
 - It stays open while at least one of those projects is open.
-- Be precise about the end, because this is the part people get wrong.
+- Be careful about the end, because this is the part people get wrong.
 - A project's end date stops your compute. That is what you feel first.
-- The project itself does not close yet. It stays active for another 90 days so you can get your data out.
-- Only after those 90 days does it close. And the account closes with the last of your projects.
-- Good news: if someone invites you to a project later, the same account is switched back on.
-- People forget this every year. Say it slowly.
-NEXT: Anna has a project and a role. Let us open the portal.
+- The project itself does not close yet. It stays active for another ninety days so you can get your data out.
+- Only after those ninety days does it close, and your account closes with the last of your projects.
+- The good news: if someone invites you to a project later, the same account is switched back on.
+- Next: you have a project and a role. Let us open the portal.
 DOCS: docs.cscs.ch/accounts/
 -->
 
@@ -184,22 +169,16 @@ Confirm, then get them written into the docs page. -->
 
 # The portal is where the project lives
 
-`portal.cscs.ch` — organisation, then project, then Team, then Invitations.
+`portal.cscs.ch` — your team, your resources, and what they have spent.
 
 <div class="cols-narrow">
 <div>
 
-- Log in with your CSCS account and MFA
-- Pick your **organisation**
-- Pick the **project**
-- **Team** lists everyone and their role
-- **Invitations** is where you add people
-
-<div class="accent quiet">
-
-Same login as every other CSCS web application.
-
-</div>
+- Log in with your CSCS account and MFA. Pick your **organisation**, then the **project**
+- **Team** — everyone on the project and their role
+- **Invitations** — where you add people
+- **Resources** — what the project was granted, and where a PI adds an inference resource
+- **Usage** — what has been spent, project-wide and inside each resource
 
 </div>
 <div class="shot">
@@ -213,14 +192,16 @@ Anonymise real names.
 </div>
 
 <!--
-SAY:
+- If you are a PI and you have never opened this, the next few minutes are the ones to stay awake for.
 - This is a tour, not a tutorial. One sentence per step.
-- Log in. Pick your organisation. Pick your project.
-- Two tabs matter: Team and Invitations.
-- Team answers the question "who is on my project and what can they do".
-- That is the question PIs email us about most.
-POINT AT: the roles column in the screenshot.
-NEXT: Anna is looking at Team. Ben is not there yet. Let us add him.
+- Log in — the same login as every other CSCS web application — then pick your organisation and your project.
+- Then four things, and most PIs have seen none of them.
+- Team: everyone on the project and what they can do. That is the question you email us about most.
+- Invitations: where you add people, and we will do that on the next slide.
+- Resources: what the project was actually granted. This is also where you add an inference resource.
+- Usage: what has been spent, for the project as a whole and inside each resource. There is a slide on that shortly.
+- Look at the roles column here.
+- Next: your team is listed, but the new student is not on it yet. Let us add them.
 DOCS: docs.cscs.ch/accounts/ (portal section)
 -->
 
@@ -228,7 +209,7 @@ DOCS: docs.cscs.ch/accounts/ (portal section)
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/accounts/' -->
 <div class="audience">PIs and deputies</div>
 
-# Adding Ben takes one email address
+# Adding someone takes one email address
 
 One email address, or a CSV for a whole cohort. Either way the invitation carries the role.
 
@@ -251,7 +232,7 @@ CragAlvarado@example.com,Project member,prj02
 </div>
 <div class="card dark">
 
-### What Ben receives
+### What they receive
 
 - An email invitation
 - **Already has a CSCS account** → accepts via the login page
@@ -261,16 +242,15 @@ CragAlvarado@example.com,Project member,prj02
 </div>
 
 <!--
-SAY:
-- Two ways to do this. Both are fast.
-- One person: green Invite Users button, email address, role.
-- A group: upload a CSV file. Three columns. Exactly this header.
-- Useful when ten students arrive in September.
-- On the right is what Ben receives.
-- If he already has a CSCS account, he logs in and accepts.
-- If he is new, the invitation sends him to account creation. That is the next slide.
-EXPECT THIS QUESTION: "Can I change a role later?"
-- If the network works, open the Team tab and show it.
+- Two ways to do this, and both are fast.
+- One person: the green Invite Users button, an email address, a role.
+- A group: upload a CSV file. Three columns, exactly this header.
+- That is what you want when ten students arrive in September.
+- On the right is what they receive.
+- If they already have a CSCS account, they log in and accept.
+- If they are new, the invitation sends them to account creation, which is coming up.
+- Someone will ask whether you can change a role afterwards.
+- If the network is behaving, open the Team tab and show them.
 - Do not promise anything you have not clicked yourself.
 DOCS: docs.cscs.ch/accounts/ (portal section)
 -->
@@ -295,11 +275,10 @@ Compute and storage arrive with the project. One more resource is opt-in.
 ### By default
 
 - **Compute** on **Clariden** and **Bristen**
-- **Storage** — home, scratch, project store
+- **Project storage** — `/store`, shared by the whole project
 
 ### On request
 
-- **`datacache`** — fast shared storage, by Service Desk ticket
 - **Inference** — an API resource the **PI or deputy** adds in the portal
 
 </div>
@@ -307,7 +286,7 @@ Compute and storage arrive with the project. One more resource is opt-in.
 
 ### They all draw on one credit
 
-There is no separate inference budget and no separate storage budget you can overspend independently.
+There is no separate inference budget you can overspend independently.
 
 It is **one project credit**, and everything spends it.
 
@@ -322,14 +301,13 @@ The next slide is the one nobody expects: you can use a model without running a 
 
 <!--
 SAY:
-- Quick inventory, because people do not know what they already have.
-- By default a Swiss AI project comes with compute on both clusters, Clariden and Bristen, and storage.
-- Two things are opt-in. A datacache area, which module 2 covers, by Service Desk ticket.
-- And an inference resource, which the PI or the deputy adds themselves in the portal.
-POINT AT THE CARD:
-- The thing to take away is that these are not separate pots.
-- One project credit, and all of it spends the same credit.
-NEXT: And that last one deserves its own slide.
+- A quick inventory, because most people do not know what they already have.
+- By default your project gets compute on both clusters, Clariden and Bristen.
+- And it gets project storage, the store area, which the whole project shares.
+- Your home directory and your scratch are yours, not the project's. Module 2 covers those.
+- One thing is opt-in: an inference resource. The PI or the deputy adds it in the portal.
+- These are not separate pots. There is one project credit and everything spends it.
+- That last one deserves its own slide, and it is next.
 DOCS: docs.cscs.ch/platforms/mlp/
 -->
 ---
@@ -338,14 +316,14 @@ DOCS: docs.cscs.ch/platforms/mlp/
 
 # You can use a model without training one
 
-`https://api.inference.cscs.ch/v1` — **OpenAI and Anthropic compatible**. Change a base URL and your existing code works.
+`api.inference.cscs.ch/v1` — **new since 24 July**, OpenAI and Anthropic compatible. Change a base URL and your code works.
 
 <div class="cols-wide">
 <div class="code-sm">
 
 - Open-weight models, served and managed for you — **Apertus 70B** and **8B**, among others
 - The **PI or deputy PI** creates the inference resource in `portal.cscs.ch`; then **any project member** can create API keys
-- **Set a token budget on every key.** Today it is the only limit there is
+- Each key can carry a token budget — but **any member can make another key**
 
 ```bash
 curl -X POST https://api.inference.cscs.ch/v1/chat/completions \
@@ -360,7 +338,7 @@ curl -X POST https://api.inference.cscs.ch/v1/chat/completions \
 
 > "The credit for the inference resource is taken from your project's credit."
 
-The same credit as module 1. Inference spends it, like any job.
+**There is no project-level cap.** A PI who wants a ceiling on inference has to ask for one by Service Desk ticket.
 
 </div>
 </div>
@@ -372,36 +350,25 @@ The docs also show how to point **Claude Code** and **OpenCode** at it.
 </div>
 
 <!--
-This one is for a Swiss AI room specifically. Do not rush it.
-SAY:
-- Last thing, and it does not involve a cluster, a container or Slurm at all.
+- This one is new, and it is for this room in particular.
 - There is a managed inference API. Open-weight models, served for you, behind a public endpoint.
+- It has been available since the twenty-fourth of July.
 - It is OpenAI and Anthropic compatible, so whatever you already wrote works if you change the base URL.
 - And it serves Apertus, which is your own model.
-- Many of you want to use a model rather than train one. This is that, and until today we were not telling you about it.
-HOW YOU GET IT, and note the split:
-- The PI or the deputy PI creates an inference resource in the portal. The same portal as module 1.
+- Many of you want to use a model rather than train one. This is that.
+- How you get it: the PI or the deputy adds an inference resource in the portal.
 - After that, any member of the project can create their own API keys.
-- And this is the part to dwell on if you are a PI.
-- Each key can carry its own token budget, a period after which that budget resets, and a list of allowed models.
-- An API key is a spending instrument, because the credit comes out of the project.
-- The key is shown once when it is created. Put it in a password manager.
-THE HONEST VERSION. Decide in the room how far you go:
-- Today there is NO project-level cap on how much of the credit inference can consume.
-- So if no key has a budget, a single key can spend the entire project credit.
-- Aim it at the PIs as an instruction — "put a budget on every key" — rather than as an
-  announcement that the guardrail is missing. Same fact, but one lands as an action.
-- If a PI asks you directly whether there is a cap, answer directly. Do not imply there
-  is one.
-BE HONEST ABOUT THE COST. Read the quotation out loud:
-- The credit comes out of the project credit. It is not a free extra.
-- So it lands on the same budget as the linear consumption slide in module 1.
-POINT AT THE CURL:
-- Three lines. That is the whole thing. Endpoint, bearer token, model name.
-- If you have written against the OpenAI API, you have already written this.
-POINT AT THE RED BAR:
-- And the documentation shows how to wire it into Claude Code and OpenCode, if that is how you work.
-NEXT: Where to read more.
+- Each key can carry a token budget, a reset period, and a list of allowed models.
+- The key is shown once when you create it, so put it in a password manager.
+- Now the cost, and I want to be straight about it.
+- Let me read the quotation: the credit comes out of your project credit. It is not a free extra.
+- And here is what a PI needs to hear. A budget on one key does not cap the project, because any member can create another key.
+- Today there is no project-level cap at all.
+- If you want a ceiling on how much of your credit can go to inference, that is a Service Desk ticket.
+- Look at the curl. Three lines: endpoint, bearer token, model name.
+- If you have ever written against the OpenAI API, you have already written this.
+- The documentation also shows how to point Claude Code and OpenCode at it.
+- Next: how you see what you have spent.
 DOCS: docs.cscs.ch/services/inference/api/
 -->
 
@@ -444,18 +411,15 @@ next slide.
 </div>
 
 <!--
-SAY FIRST, to correct a wrong assumption:
-- This view is not only for the PI.
-- Every project member can see the total for the project.
+- First let me correct something people assume.
+- This view is not only for the PI. Every project member can see the total for the project.
 - Open one resource and you see the usage per user inside it.
-- What you cannot see is one total per user for the whole project.
-- If you want that number, you add it up yourself.
-POINT AT THE RED BAR. Say it as a promise, not as an excuse:
-- We know these views are not good enough yet.
-- We are working on them now.
-- This covers compute, storage, and the new inference resources.
-- If someone has a request, ask them to raise it in the discussion at the end.
-NEXT: Why every month? The next slide explains.
+- What you cannot see is one total per user for the whole project. If you want that number you add it up yourself.
+- Now the red bar, and I mean it as a promise rather than an excuse.
+- We know these views are not good enough yet. We are working on them now.
+- That covers compute, storage, and the new inference resources.
+- If you have a request, raise it in the discussion at the end.
+- Next: why every month, and not just at the end.
 DOCS: docs.cscs.ch/accounts/ (portal section)
 -->
 
@@ -534,30 +498,23 @@ All the rules: **docs.cscs.ch/platforms/mlp/**
 </div>
 
 <!--
-This is the most useful slide for PIs. Do not rush it.
-SAY, to frame it first:
+- This is the most useful slide of my fourteen minutes, so I will not rush it.
 - Every project is granted a compute credit, in GPU hours.
-- The model is usage based. You spend the credit as your jobs run.
-- And you are expected to spend it more or less evenly, month by month.
-THEN THE TWO NUMBERS:
+- You spend it as your jobs run, and you are expected to spend it more or less evenly, month by month.
 - Every month has two numbers.
 - Expected: how much you should use this month.
-- Minimal: the expected amount minus a grace. The grace is 15 to 50 per cent, depending on how big your budget is.
-NOW WALK THROUGH THE THREE BARS, left to right:
-- Left bar: you used more than expected. This is fine. You only run at lower priority while you are ahead.
-- Middle bar: you used less, but you stayed above the minimal. The rest moves to the next months.
-- Right bar: you fell below the minimal. The red box is credit you lost. It does not come back.
-THEN THE TIMELINE AT THE BOTTOM:
-- The project runs 6 or 12 months.
-- At the end date your compute stops. No more jobs.
-- But the project does not close. It stays active for another 90 days, for data only.
-- After those 90 days it closes for real.
-POINT AT THE RED BAR:
-- If you run out of credit early, you are not stuck.
-- You can still use the low partition. About two months of your budget.
-POINT AT THE LINK IN THE RED BAR:
+- Minimal: the expected amount minus a grace, and the grace is fifteen to fifty per cent depending on how big your budget is.
+- Look at the three bars, left to right.
+- Left: you used more than expected. That is fine. You just run at lower priority while you are ahead.
+- Middle: you used less, but you stayed above the minimal. The rest moves to the following months.
+- Right: you fell below the minimal. The red box is credit you lost, and it does not come back.
+- Now the timeline underneath.
+- The project runs six or twelve months. At the end date your compute stops. No more jobs.
+- But the project does not close. It stays active for another ninety days, for data only.
+- After those ninety days it closes for real.
+- And if you run out of credit early you are not stuck. There is the low partition, about two months of your budget.
 - Every number on this slide is on that one page. Take a photo of it.
-NEXT: That is Anna finished. The rest of the module is Ben.
+- Next: that is everything about the project. The rest is about getting in.
 DOCS: docs.cscs.ch/platforms/mlp/policies/
 -->
 
@@ -612,18 +569,15 @@ Google Authenticator and FreeOTP are tested; any TOTP app works.
 </div>
 
 <!--
-Now it is Ben's turn.
-SAY:
-- To create an account he needs three things.
-- A scan of his ID or passport. An institutional email address. Correct personal details.
-- It usually takes up to 48 hours. So do not do this the night before a deadline.
-- Then MFA. It is not optional.
-- Log in to any CSCS web page. Type the code you get by email. Scan the QR code. Type the six digits.
-- Any TOTP app works. We tested Google Authenticator and FreeOTP.
-READ THE RED BAR OUT LOUD. It is the exact sentence from the docs:
-- This prevents our most common ticket.
-- Someone tries SSH, gets "permission denied", and never set up MFA.
-NEXT: Ben has an account. Now he needs a key.
+- Now the part for everybody who has to log in.
+- To create an account you need three things: a scan of your ID or passport, an institutional email address, and correct personal details.
+- It usually takes up to forty-eight hours, so do not do this the night before a deadline.
+- Then MFA, and it is not optional.
+- Log in to any CSCS web page, type the code you get by email, scan the QR code, type the six digits.
+- Any TOTP app works. We have tested Google Authenticator and FreeOTP.
+- Let me read the red bar, because it is the exact sentence from the documentation.
+- This prevents our most common ticket: someone tries SSH, gets permission denied, and never set up MFA.
+- Next: you have an account. Now you need a key.
 DOCS: docs.cscs.ch/accounts/account-create/ · docs.cscs.ch/access/mfa/
 -->
 
@@ -660,19 +614,16 @@ ssh-add -t 1d ~/.ssh/cscs-key            # load it into the agent
 </div>
 
 <!--
-People take a photo of this slide. Pause here.
-SAY, one line per command:
+- People photograph this slide, so I will pause here.
 - Install cscs-key. One time.
-- Create the key pair. One time. Only once, ever.
-- Sign it. This is the daily step.
+- Create the key pair. One time, ever.
+- Sign it. That is the daily step.
 - Load it into the agent.
-THEN THE RULES:
-- A signed key lasts one day.
-- You can sign five keys per day. That is enough for normal work.
+- A signed key lasts one day, and you can sign five a day. That is enough for normal work.
 - If a key leaks, use cscs-key list and cscs-key revoke.
-- Cannot install the CLI on your machine? Use the web page. Same result.
-- All of this is on the handout. Nobody needs to type now.
-NEXT: Ben has a signed key. Where does he send it?
+- If you cannot install the CLI on your machine, use the web page. Same result.
+- All of this is on the handout, so nobody needs to type now.
+- Next: you have a signed key. Where do you send it?
 DOCS: docs.cscs.ch/access/ssh/
 -->
 
@@ -732,20 +683,16 @@ ssh -N \
 </div>
 
 <!--
-SAY:
-- Write this in your SSH config one time. Then you never think about the jump host again.
-- Two entries. Ela. And the cluster behind it, with ProxyJump.
+- Write this into your SSH config once and you never think about the jump host again.
+- Two entries: Ela, and the cluster behind it with ProxyJump.
 - Replace cscsusername with your real username.
 - After that you just type: ssh clariden.
-BE VERY CLEAR HERE. People get this wrong:
-- Bristen is not a hostname you swap in.
-- It is a second Host block of its own. The Ela entry stays shared.
-- Clariden is for production runs. Bristen is for test and development, best effort.
-LAST BOX:
-- This is the question we get at every drop-in. How do I reach a dashboard or a notebook on a compute node?
-- That is the tunnel. It is on the handout and in the docs.
-- Do not explain it here. There is no time.
-NEXT: Ben is in. Two things I am not covering.
+- Be careful with the middle box, because people get this wrong.
+- Bristen is not a hostname you swap in. It is a second Host block of its own, and the Ela entry stays shared.
+- Clariden is where production runs go. Bristen is for test and development, best effort.
+- The last box is the question we get at every drop-in: how do I reach a dashboard or a notebook running on a compute node?
+- That is the tunnel. It is on the handout and in the documentation, so I will not explain it here.
+- Next: two things I am deliberately not covering.
 DOCS: docs.cscs.ch/access/ssh/ · /clusters/clariden/ · /clusters/bristen/
 -->
 
@@ -763,7 +710,7 @@ DOCS: docs.cscs.ch/access/ssh/ · /clusters/clariden/ · /clusters/bristen/
 
 - **Service accounts** — for pipelines. Scoped to one project, grant access to all its resources. The **PI** requests one by Service Desk ticket
 - **The HPC Console** — a pointer only, see module 4
-- **Everything you do once you are in** — modules 2 to 4
+- **Everything you do once you are in** — modules 2 and 3
 
 </div>
 </div>
@@ -775,19 +722,15 @@ You now have an account, a project and a shell. The rest of the hour is what you
 </div>
 
 <!--
-One line each. Ten seconds in total. Do not start a discussion here.
-SAY:
+- One line each, ten seconds in total.
 - Password and MFA problems: write to the service desk. They are fast.
-- The old SSH service was switched off in May 2026. Some people still have it in their notes. Say the date out loud.
-- Service accounts exist. They are for pipelines. One service account belongs to one project.
+- The old SSH service was switched off in May 2026. Some of you still have it in your notes.
+- Service accounts exist. They are for pipelines, and one belongs to one project.
 - The PI asks for one with a Service Desk ticket. It is not a self-service button.
-- The HPC Console: only a pointer here. Module 4 shows it.
-- If anyone asks about Kubernetes: it exists at CSCS but the documentation says it is only for specific partners and is not available for normal users on Alps. Do not promise it.
-READ THE RED BAR:
-- You now have an account, a project and a shell.
-NEXT, hand over to module 2:
-- Ben has a shell on Clariden and an empty home directory.
-- His first question is where to put two terabytes of training data.
+- The HPC Console: only a pointer here. Module 3 shows it properly.
+- If someone asks about Kubernetes: it exists at CSCS, but the documentation says it is only for specific partners and is not available for normal users on Alps. Do not promise it.
+- Let me read the red bar: you now have an account, a project and a shell.
+- Next: you have a shell and an empty home directory, and the first question is where two terabytes of training data go.
 -->
 
 ---
@@ -828,13 +771,12 @@ NEXT, hand over to module 2:
 </div>
 
 <!--
-Do not read this slide out loud.
-SAY only this:
+- I will not read this slide out.
 - Three addresses to remember.
 - portal.cscs.ch for your project.
 - user-account.cscs.ch for your account and your keys.
 - docs.cscs.ch for everything else.
 - And the service desk when none of those help.
-- Everything on this slide is also on the handout.
-NEXT: hand over to module 2 immediately. We are on the clock.
+- Everything here is on the handout too.
+- Handing over now.
 -->

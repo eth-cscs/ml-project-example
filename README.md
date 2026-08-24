@@ -38,11 +38,10 @@ Press `p` in the deck for presenter view: speaker notes, next slide and a timer.
 | # | Module | Budget | Owner | Status |
 |---|---|---|---|---|
 | 0 | Alps, the ML Platform, and the next hour | 5 min | TBD | scaffold |
-| 1 | Project lifecycle and access | 12 min | **Andrea Ceriani** | on budget |
-| 2 | Data and storage | 13 min | TBD | scaffold — covers the new `datacache` |
-| 3 | Software and containers | 15 min | TBD | scaffold |
-| 4 | Running and automating | 12 min | TBD | scaffold |
-| 5 | Where to go from here | 3 min | TBD | scaffold |
+| 1 | Project lifecycle and access | 14 min | **Andrea Ceriani** | on budget |
+| 2 | Data and storage | 13 min | TBD | scaffold |
+| 3 | A concrete ML use case | 30 min | Fawzi + owners per subsection | restructured, two subsections still placeholders |
+| 4 | Where to go from here | 3 min | TBD | scaffold |
 | — | Backup, shown on request | — | — | HPC Console block ready |
 
 Budgets, hand-offs between modules and the pre-agreed cuts are in
