@@ -273,6 +273,13 @@ td {
   background: transparent;
 }
 
+
+/* A Markdown table must declare a header row, so a table that has no headings still
+   emits an empty <thead> and renders as a stray band above the first row. Hide it —
+   but only when every cell is empty, so a header with one blank corner cell (the
+   small-versus-large comparison, for instance) is left alone. */
+thead:not(:has(th:not(:empty))) { display: none; }
+
 /* ── Layout helpers ─────────────────────────────────────────────────────── */
 
 .cols,

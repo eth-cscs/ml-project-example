@@ -185,7 +185,7 @@ We follow **Anna**, a PI, and **Ben**, a PhD student who joins her project.
 <div class="cols">
 <div>
 
-| | | |
+| # | Module | Time |
 |---|---|---|
 | **1** | Project and access | 12 min |
 | **2** | Data and storage | 13 min |

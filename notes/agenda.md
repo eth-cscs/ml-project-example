@@ -88,6 +88,16 @@ maintenance slide points forward to it so the outage has an upside.
 Confirm on the morning that it is actually available. If the maintenance slips, the
 module 2 slide says "from today" and would be wrong on stage.
 
+## A trap in the handout
+
+Marp **clips** whatever does not fit the A4 page rather than paginating it. The PDF
+stays one page and the overflow is silently gone. This has already happened once: the
+tunnel command and the sources line disappeared for several commits without anyone
+noticing, because nothing failed and the page count never changed.
+
+`make check` cannot catch it. After editing `handout/quickstart.md`, look at the bottom
+of `build/quickstart.pdf` and confirm the last section is whole.
+
 ## Before the session: two documentation merges
 
 This is the deck's biggest external dependency, and it is not in our hands.

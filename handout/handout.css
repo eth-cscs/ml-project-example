@@ -5,8 +5,11 @@
  *
  * Marp derives the page size from the section width/height below, which is why this
  * lives in a real theme file rather than in the Markdown's inline style block.
- * If anything spills off the page it will be visible as a second, near-empty page in
- * build/quickstart.pdf — that is the signal to cut content, not to shrink the font.
+ *
+ * WARNING: overflow is CLIPPED, not paginated. The PDF stays one page and the content
+ * past the bottom edge is simply gone — silently. It has already happened once, losing
+ * the tunnel command. After any edit, look at the bottom of build/quickstart.pdf and
+ * check the last section is still whole.
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -44,13 +47,13 @@ h2 {
   color: #D61F26;
   border-bottom: 1px solid #E5E5E5;
   padding-bottom: 3px;
-  margin: 13px 0 6px;
+  margin: 9px 0 5px;
 }
 
 /* First heading in each column should not push the column down. */
 .cols > div > h2:first-child { margin-top: 0; }
 
-p { margin: 0 0 6px; }
+p { margin: 0 0 5px; }
 
 ul {
   margin: 0 0 6px;
@@ -63,8 +66,8 @@ pre {
   background: #F7F7F8;
   border: 1px solid #E5E5E5;
   border-radius: 5px;
-  padding: 7px 9px;
-  margin: 0 0 7px;
+  padding: 6px 9px;
+  margin: 0 0 6px;
   overflow: visible;
 }
 
@@ -97,7 +100,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   font-size: 10px;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 td {
@@ -105,6 +108,13 @@ td {
   padding: 3px 6px 3px 0;
   vertical-align: top;
 }
+
+
+/* A Markdown table must declare a header row, so a table that has no headings still
+   emits an empty <thead> and renders as a stray band above the first row. Hide it —
+   but only when every cell is empty, so a header with one blank corner cell (the
+   small-versus-large comparison, for instance) is left alone. */
+thead:not(:has(th:not(:empty))) { display: none; }
 
 .cols {
   display: grid;
@@ -114,9 +124,9 @@ td {
 
 /* Full-width band under the two columns, for commands too long to fit a column. */
 .wide {
-  margin-top: 10px;
+  margin-top: 8px;
   border-top: 2px solid #E5E5E5;
-  padding-top: 8px;
+  padding-top: 6px;
 }
 
 .note {

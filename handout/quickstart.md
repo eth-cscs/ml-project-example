@@ -27,7 +27,7 @@ Alps technical training · Swiss AI Initiative Annual Meeting 2026 · Module 1 �
 
 Administrators and managers invite people and assign roles.
 
-Your **email address** identifies you: one address, one account. An account can belong to several projects and stays open while at least one of them is open. A project's end date stops its **compute**; the project stays active for another **90 days** for data retrieval, then it closes. Your account closes when the last of your projects does. A later invitation re-enables the same account.
+Your **email address** is your identity: one address, one account, however many projects. An account stays open while at least one of its projects is open. A project's end date stops its **compute**; the project stays active **90 more days** for data retrieval, then closes. A later invitation re-enables the same account.
 
 ## 3. Small and large projects
 
@@ -119,7 +119,7 @@ Bristen needs its **own** `Host` block, not a hostname swap: copy the `clariden`
 
 ## 11. Spending the budget
 
-Every project is granted a compute credit in **GPU hours**. Consumption is **usage based** — you spend the credit as your jobs run — and you are expected to spend it roughly linearly, month by month.
+Every project is granted a credit in **GPU hours**, spent as your jobs run. You are expected to spend it roughly linearly, month by month.
 
 | | |
 |---|---|
