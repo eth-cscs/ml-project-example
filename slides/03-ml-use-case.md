@@ -24,6 +24,61 @@ CUT IF LATE: Cut "Four ways to make this slow" and "The data is already here". B
 - Next: The first problem is where the data goes.
 -->
 ---
+<div class="audience all">Everyone</div>
+
+# What we are going to do
+
+Raw data on one side, a model you can call on the other. Everything in between is the next half hour.
+
+<div class="diagram">
+<svg viewBox="0 0 1160 350" width="100%" role="img"
+     aria-label="A four-stage pipeline: import raw data, prepare it, train a model, serve it. Underneath, the four ways of driving the work: ssh, JupyterLab, the HPC Console and FirecREST.">
+  <g font-family="Inter, sans-serif">
+    <g fill="#F7F7F8" stroke="#E5E5E5">
+      <rect x="26"  y="20" width="248" height="150" rx="14"/>
+      <rect x="330" y="20" width="248" height="150" rx="14"/>
+      <rect x="634" y="20" width="248" height="150" rx="14"/>
+      <rect x="938" y="20" width="196" height="150" rx="14"/>
+    </g>
+    <g stroke="#D61F26" stroke-width="2.5" fill="none">
+      <path d="M284 95 h36"/><path d="M310 85 l12 10 l-12 10"/>
+      <path d="M588 95 h36"/><path d="M614 85 l12 10 l-12 10"/>
+      <path d="M892 95 h36"/><path d="M918 85 l12 10 l-12 10"/>
+    </g>
+    <g font-size="15" font-weight="600" fill="#D61F26" letter-spacing="0.6">
+      <text x="52"  y="58">1 · IMPORT</text>
+      <text x="356" y="58">2 · PREPARE</text>
+      <text x="660" y="58">3 · TRAIN</text>
+      <text x="964" y="58">4 · SERVE</text>
+    </g>
+    <g font-size="21" fill="#1A1A1A">
+      <text x="52"  y="99">Raw data onto the</text> <text x="52"  y="129">filesystem that fits it</text>
+      <text x="356" y="99">Vet it, and build</text>   <text x="356" y="129">the training set</text>
+      <text x="660" y="99">A container, Slurm,</text> <text x="660" y="129">and the GPUs</text>
+      <text x="964" y="99">Make the model</text>     <text x="964" y="129">callable</text>
+    </g>
+    <line x1="26" y1="232" x2="1134" y2="232" stroke="#F0F0F0" stroke-width="1"/>
+    <text x="26" y="268" font-size="15" font-weight="600" fill="#888888" letter-spacing="0.6">DRIVEN FROM WHICHEVER OF THESE FITS</text>
+    <text x="26" y="304" font-size="21" fill="#1A1A1A">ssh · JupyterLab · the HPC Console · FirecREST</text>
+    <text x="26" y="334" font-size="17" fill="#555555">All four spend the same project credit.</text>
+  </g>
+</svg>
+</div>
+
+<!--
+- Before the details, here is the shape of the next half hour.
+- Four steps. Import, prepare, train, serve.
+- Step one is done: it was the previous module, and I will spend fifteen seconds on it.
+- Step two is the one people skip. You have raw data and no model, and there is already something useful to do.
+- Step three is the long one: a container, Slurm, and the GPUs.
+- Step four is making the model callable by someone other than you.
+- Underneath all of it, four ways of driving the work, and you pick whichever fits the task.
+- They all spend the same project credit, which is the thread back to module 1.
+- Two of these steps are still being written, and I will say so when we get there.
+- Next: the data.
+-->
+
+---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/storage/transfer/' -->
 <span class="tag">Import your data</span>
 
