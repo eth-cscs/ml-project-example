@@ -68,7 +68,7 @@ SAY:
 - A uenv is a CSCS-built environment, one Squashfs file containing the software and its modules.
 - The Container Engine runs your job inside a container you describe with a small file.
 - For PyTorch specifically, the docs recommend the container route, and that is what most of you will use.
-- The honest difference: uenv is focused on Alps, containers allow to use portable environments built by 3rd parties.
+- The honest difference: uenv is built for Alps; containers let you use portable environments built by third parties.
 NEXT: uenv first, because it is three commands.
 DOCS: docs.cscs.ch/software/uenv/ · docs.cscs.ch/software/container-engine/
 -->
@@ -135,7 +135,8 @@ workdir = "${SCRATCH}"
 ```
 
 <div class="cols">
-<div>
+<div class="code-sm">
+
 Save them in `$HOME/.edf`:
 
 ```bash
@@ -210,15 +211,15 @@ com.hooks.aws_ofi_nccl.enabled = "true"
 
 ### The EDF as a blueprint
 
-- Declaratively expresses the characteristics of your job environment. The Container Engine takes care of instantiating it.
-- Separates the *description* of the container (reusable) from the *commands* you want to run inside it.
+- Declaratively describes your job environment. The Container Engine instantiates it.
+- Separates the *description* of the container from the *commands* you run inside it.
 
 </div>
 <div class="card">
 
 ### The annotations introduce HPC features
 
-The **aws-ofi-nccl** hook is what makes multi-node NCCL use the Slingshot network properly.
+The **aws-ofi-nccl** hook makes multi-node NCCL use the Slingshot network.
 
 Skip it and your multi-node training is quietly slow.
 
@@ -232,14 +233,14 @@ SAY:
 - This is a realistic EDF to run generic PyTorch tasks.
 - Top line: Enter the image by registry reference. The Container Engine downloads and caches it.
 - The mounts bring in both scratch filesystems.
-- Highlight the abstractions enabled by the EDF: user intent from container tool management; container description from job script command
+- Say what the EDF buys you: it separates what you want from how the container is managed, and the container description from the commands in your job script.
 - Now the part that is specific to this machine, and the reason a laptop container is not enough.
 POINT AT THE ANNOTATIONS BLOCK:
 - Annotations are arbitrary metadata for the container. We use them to request custom features to the Container Engine.
 - The AWS OFI NCCL hook connects NCCL to the Slingshot network through libfabric.
 - If you leave it out, multi-node training still works. It is just quietly, badly slow.
 - That is the single most common performance bug we see.
-- Refer to documentation for more annotations and features
+- There are more annotations and more features. The documentation lists them.
 THE [env] BLOCK, only if asked:
 - OMP_NUM_THREADS aligns with the number of cores of Grace CPU
 - NCCL_DEBUG=INFO so you can see what the network actually did. EDF supports comments: comment out for cleaner outputs.
@@ -253,8 +254,6 @@ DOCS: docs.cscs.ch/software/ml/pytorch/
 <div class="audience all">Everyone</div>
 
 # Where to get images
-
-<!-- PLACEHOLDER — module 3 owner: this is the slide most in need of your real workflow. -->
 
 <div class="cols-3">
 <div class="card">
@@ -299,16 +298,21 @@ Build on top of a base image that most suits your use case.
 <!--
 SAY:
 - Three things to know about images.
-- Alps extended images
-- NGC as the all-arounder. PyTorch is already there, already built well for these GPUs.
-- Point out possibility to build on Alps.
+- Alps Extended Images: curated by CSCS and tuned for this machine. Start here if one fits.
+- NGC as the all-rounder. PyTorch is already there, already built well for these GPUs.
+- And you can build your own on Alps, with Podman, on the right architecture.
 READ THE RED BAR:
 - Build on top of something that works. Starting from a bare Ubuntu on this machine is a huge effort (CUDA, DL libs, PyTorch, network...).
 NEXT: The mistakes we see.
 DOCS: docs.cscs.ch/software/ml/pytorch/ · docs.cscs.ch/software/container-engine/
 -->
 
-<!-- TODO(verify): the exact import command (enroot / podman / the CSCS-recommended
+<!-- TODO(verify): the PR dropped com.hooks.aws_ofi_nccl.variant = "cuda12" from the
+annotations block, keeping only .enabled. Ask Alberto whether the variant is no longer
+needed or whether this was a simplification — if it is still required, the slide is
+missing a line that decides whether multi-node training is fast.
+
+TODO(verify): the exact import command (enroot / podman / the CSCS-recommended
 route) was not captured and is NOT stated on the container-engine overview page. Module 3
 owner: find it, quote it verbatim, and put it on this slide. Without a real command this
 slide is advice, not instruction. -->
@@ -317,8 +321,6 @@ slide is advice, not instruction. -->
 <div class="audience all">Everyone</div>
 
 # Four ways to make this slow
-
-<!-- PLACEHOLDER — module 3 owner: replace with the four you actually see in tickets. -->
 
 <div class="cols">
 <div>
@@ -363,7 +365,7 @@ NEXT: Where to read more.
 
 - **uenv** — docs.cscs.ch/software/uenv/
 - **Container Engine** — docs.cscs.ch/software/container-engine/
-- **Building container images on Alps** - docs.cscs.ch/build-install/containers/
+- **Building container images on Alps** — docs.cscs.ch/build-install/containers/
 - **ML software stack** — docs.cscs.ch/software/ml/
 - **PyTorch** — docs.cscs.ch/software/ml/pytorch/
 
