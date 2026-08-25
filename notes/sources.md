@@ -304,6 +304,21 @@ the documentation does not yet carry. Used for the service-account slide:
   and courses. That is why the new model separates the types, and it is the speaker-note
   line for anyone who used one.
 
+Deliberately not used:
+
+- §5.2 — "Where appropriate, service accounts are restricted in scope (e.g. limited
+  filesystem entitlements or reduced role set) to reduce the risk of credential
+  compromise." True of the architecture, but whether a PI can ask for a narrower scope
+  today is unsettled, and a slide that promises a control the portal does not expose is
+  worse than a slide that says nothing. Revisit when it is offered.
+
+From Andrea, not from the paper or the docs:
+
+- A service account is normally **run by the project team**, and registered on a **shared
+  team address** so the notifications about it reach the team rather than one person's
+  inbox. This is why the slide's accent no longer says "not a shared login" — it is shared
+  by design; what must not be shared is somebody's own account.
+
 Not used, but worth knowing:
 
 - §3.3 / §4.1 — SSH certificates are "typically one day for standard user accounts, and

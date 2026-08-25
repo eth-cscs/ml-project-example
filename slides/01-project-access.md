@@ -168,7 +168,7 @@ Your own account is for the work you do yourself. Automation needs a different k
 - A **user account** is a person — interactive work, and it can sit in several projects
 - A **service account** runs a workload **on behalf of** a person — pipelines, scheduled jobs, anything unattended
 - It is **bound to one project** and inherits its validity period — project ends, account closed
-- It can be **restricted**: less filesystem access, a smaller role in the project
+- Normally **run by the project team**, with a **shared team address** for its notifications
 
 </div>
 <div class="card">
@@ -184,7 +184,7 @@ Once approved, a **Service Account** entry appears under **Team** in the portal 
 
 <div class="accent">
 
-Not a shared login, and not your password in a script. It is an identity of its own, so the audit trail still says who did what.
+Not your own account in a script. It belongs to the project, so it outlives whoever set it up.
 
 </div>
 
@@ -193,8 +193,8 @@ Not a shared login, and not your password in a script. It is an identity of its 
 - Your own account is you. It is for interactive work, and it can sit in several projects.
 - A service account runs work on behalf of a person: a pipeline, a scheduled job, anything that runs when nobody is watching.
 - It belongs to one project only, and it is closed automatically when that project ends.
-- It does not have to reach everything the project has. It can be given less filesystem access, or a smaller role.
-- That is on purpose. If the key leaks, what it can touch is smaller.
+- In practice the project team runs it together, and it is registered on a shared team address.
+- That matters more than it sounds. The notifications about it reach the team, not one inbox that nobody reads after that person leaves.
 - It is not enabled by default. The PI opens a Service Desk ticket and explains the use case: what for, how much, who is responsible, for how long.
 - After approval a Service Account entry appears under Team in the portal.
 - If you used a secondary account in the past, this is what replaces it. Those had no multi-factor and no clear owner.
@@ -205,13 +205,11 @@ DOCS: docs.cscs.ch/accounts/account-create/
 <!-- Sourced from Ceriani et al., "Transitioning User and Identity Management for Alps",
 CUG 2026, sections 4, 4.1 and 5.2 — on-behalf-of, single-project binding, inherited
 validity period, automatic deprovisioning and the accountability argument are all stated
-there. On restriction the paper says only: "Where appropriate, service accounts are
-restricted in scope (e.g. limited filesystem entitlements or reduced role set) to reduce
-the risk of credential compromise." It does not say restricted relative to what, so the
-slide no longer compares the account to the person who requested it.
-TODO(verify): whether a PI can actually ask for a restricted scope today, or whether this
-describes the architecture rather than something the portal exposes. If it is not on offer
-yet, drop the bullet — do not let the slide promise a control that does not exist. TODO(verify): "not enabled by default" is the one claim
+there. The paper's scope-restriction sentence is deliberately NOT on the slide: it describes
+the architecture, and whether a PI can request a narrower scope today is unsettled.
+TODO(verify): that the team runs the account and registers it on a shared team address
+comes from Andrea as ML Platform service manager — neither the paper nor the docs page
+says it. TODO(verify): "not enabled by default" is the one claim
 neither the paper nor docs.cscs.ch/accounts/account-create/ makes explicitly; the docs page
 documents the request and the template but never says the feature is off until asked for. -->
 ---
