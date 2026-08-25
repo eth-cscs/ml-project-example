@@ -492,16 +492,14 @@ Burning the budget on schedule and getting **nothing** out of it is worse than u
 - This is the most useful slide for a PI, so I will not rush it.
 - Your project has a credit in GPU hours. You spend it as your jobs run, roughly evenly, month by month.
 - Every month has two numbers. Expected is what you should use. Minimal is that minus a grace of fifteen to fifty per cent, depending on your budget size.
-- Left bar: you used more than expected. That is fine, you just run at lower priority while you are ahead.
+- Left bar: you used more than expected. Fine — you just run at lower priority while you are ahead.
 - Middle: you used less but stayed above the minimal, so the rest rolls over.
-- Right: you fell below it. The red box is credit you lost, and it does not come back.
-- Now the timeline. Six or twelve months, then the end date stops your compute.
-- The project stays active ninety more days, for data only. Then it closes.
+- Right: you fell below it, and the red box is credit that does not come back.
+- Then the timeline. Six or twelve months, the end date stops your compute, and the project stays active ninety more days for data only.
 - Out of credit early? The low partition, about two months of your budget. All the rules are on the page in the footer.
-- Now the red line, and it is the one I would keep if you forget the rest.
-- Burning the budget on schedule and getting nothing out of it is worse than under-consuming.
+- Now the red line, and it is the one to keep if you forget the rest.
 - We would rather you used less and knew why, than hit every monthly target with jobs that taught you nothing.
-- So do not run jobs to make a number go up. Measure one run properly first.
+- So do not run jobs to make a number go up.
 - Next: that is the project, start to finish. Here is where to read the detail.
 DOCS: docs.cscs.ch/platforms/mlp/policies/
 -->
