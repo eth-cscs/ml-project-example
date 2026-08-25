@@ -7,15 +7,15 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 
 <!-- _class: divider -->
 
-<span class="tag">Module 2 · 13 min</span>
+<span class="tag">Module 2 · ~10 min</span>
 
 # Data and storage
 
 You are in, with an empty home directory. Where do two terabytes of training data go?
 
 <!--
-START AT T+17:00. Check the presenter timer now.
-CUT IF LATE: Cut "Inodes run out before terabytes do". Say it in one line over the mount-point table.
+START AT T+15:00. Check the presenter timer now.
+CUT IF LATE: Cut "Project storage is what you asked for in the proposal". The mount-point table already shows it — say the default quota in one line.
 
 - You are in — the handout got you there — with an empty home directory on Clariden.
 - His first real question is where to put his data.
@@ -252,7 +252,7 @@ Project-level like the store, but **not backed up**, like scratch. And nothing i
 - datacache is the third option. Fast NVMe, shared by the project, and never cleaned automatically.
 - Two warnings. It is not backed up. And nothing is deleted for you, so the project manages its own space.
 - It is not created by default. Your PI opens a Service Desk ticket with the use case, the space and the inodes.
-- Next: where to read more.
+- Next: now get the data in.
 DOCS: docs.cscs.ch/platforms/mlp/
 -->
 
@@ -263,62 +263,6 @@ cscs-docs-preview.svc.cscs.ch/442/platforms/mlp/ and goes live on 26 August afte
 maintenance. Confirm on the morning of the session that it is actually available — if
 the maintenance slips, this slide says "from today" and would be wrong on stage.
 Re-point the DOCS line once the page is merged. -->
-
----
-<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/guides/storage/' -->
-<div class="audience all">Everyone</div>
-
-# Inodes run out before terabytes do
-
-A quota has two numbers, and people only remember one.
-
-<div class="cols">
-<div>
-
-- Home is **50 GB** — and **500,000 inodes**
-- One inode is roughly one file
-- **One PyTorch virtual environment is about 22,800 inodes**
-- So about twenty of those and Home is full, on a metric nobody was watching
-
-</div>
-<div class="card">
-
-### The fix, and it is the same one as module 3
-
-> "Lustre is not well suited to handling many small files."
-
-Squash the environment into a **single squashfs image**. One file instead of twenty-two thousand.
-
-That is exactly what a **uenv** already is.
-
-</div>
-</div>
-
-<div class="accent">
-
-Millions of small training files hurt the metadata servers, not just your quota.
-
-</div>
-
-<!--
-- A quota has two numbers and people only remember the gigabytes.
-- Space, and inodes. An inode is roughly a file.
-- Home gives you 50 gigabytes and five hundred thousand files.
-- Now the number that surprises everyone: one PyTorch virtual environment is about
-  twenty-two thousand eight hundred inodes.
-- So roughly twenty environments and your home directory is full — not on size, on file count.
-- The documentation is blunt about why: Lustre is not well suited to handling many small files.
-- The fix is on the right, and it is the same trick module 3 will show you.
-- Squash the whole environment into one squashfs image. One file, not twenty-two thousand.
-- That is literally what a uenv is. Module 3 picks this up.
-- Next: Now get the data in.
-DOCS: docs.cscs.ch/guides/storage/ · docs.cscs.ch/storage/filesystems/
--->
-
-<!-- TODO(verify): the quota-checking command is in the "Checking quota" section of the
-storage docs and was never captured here. Module 2 owner: quote it verbatim and put it
-on this slide or say it out loud. The 22,800-inode figure and the Lustre quotation come
-from cscs-docs-preview.svc.cscs.ch/442/guides/storage/. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/storage/transfer/' -->

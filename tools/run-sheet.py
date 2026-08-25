@@ -21,7 +21,9 @@ import pathlib
 import re
 import sys
 
-TAG = re.compile(r'<span class="tag">\s*Module\s*(\d+)\s*·\s*(\d+)\s*min\s*</span>')
+# The audience-facing tag reads "~10 min" on purpose: the budgets are soft and we say so.
+# The run sheet still needs a number to add up, so the tilde is optional here.
+TAG = re.compile(r'<span class="tag">\s*Module\s*(\d+)\s*·\s*~?\s*(\d+)\s*min\s*</span>')
 TITLE = re.compile(r"^# (.+)$", re.MULTILINE)
 CUT = re.compile(r"^CUT IF LATE:\s*(.+)$", re.MULTILINE)
 
@@ -81,7 +83,8 @@ def main() -> int:
         "Start the timer in the presenter view (press `p`, then click the timer on the "
         "right) at the moment module 0 begins. Everything below is measured from there.",
         "",
-        "**These times assume nobody asks anything.** We are inviting the audience to "
+        "**Every budget here is approximate, and the slides say so.** They are a shape for the hour, not a contract — what they really fix is the order and the hand-overs. "
+        "**They also assume nobody asks anything.** We are inviting the audience to "
         "interrupt, so expect to run behind them — that is the design working, not "
         "failing. The pre-agreed cuts below are how you absorb it: drop a slide rather "
         "than speed up, because a rushed slide teaches nobody anything and the questions "

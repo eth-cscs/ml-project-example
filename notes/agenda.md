@@ -32,15 +32,37 @@ second person.
 
 | # | Module | Budget | Slides | Drafted | Status |
 |---|---|---|---|---|---|
-| 0 | Welcome — Alps, the ML Platform, what this hour covers | 5 min | `slides/00-intro.md` | 6 | scaffold |
-| 1 | Project lifecycle and access — request, portal, invites, what a project comes with, inference, budget, service accounts | 12 min | `slides/01-project-access.md` | 11 | **on budget** |
-| 2 | Data and storage — mount points, the three scratches, project store, `datacache`, inodes, moving data in | 13 min | `slides/02-data-storage.md` | 8 | scaffold |
-| 3 | **A concrete ML use case** — one worked example, raw data to a trained model | 30 min | `slides/03-ml-use-case.md` | 20 | restructured, two placeholders |
-| 4 | Wrap-up — support, User Day (28 Aug), what we did not cover | 3 min | `slides/04-wrapup.md` | 4 | scaffold |
-| — | Open discussion | 27 min | — | — | — |
+| 0 | Welcome — Alps, the ML Platform, what this hour covers | ~5 min | `slides/00-intro.md` | 6 | scaffold |
+| 1 | Project lifecycle and access — request, portal, invites, what a project comes with, inference, budget, service accounts | ~10 min | `slides/01-project-access.md` | 11 | **on budget** |
+| 2 | Data and storage — mount points, the three scratches, project store, `datacache`, moving data in | ~10 min | `slides/02-data-storage.md` | 7 | scaffold |
+| 3 | **A concrete ML use case** — one worked example, raw data to a trained model | ~30 min | `slides/03-ml-use-case.md` | 17 | restructured, two placeholders |
+| 4 | Wrap-up — support, User Day (28 Aug), what we did not cover | ~2 min | `slides/04-wrapup.md` | 4 | scaffold |
+| — | Open discussion | what is left | — | — | — |
 | — | Backup, shown on request only | — | `slides/05-backup.md` | 7 | HPC Console deep dive |
 
-**63 minutes budgeted, 27 left for discussion.**
+**57 minutes budgeted, 33 left for discussion.** Every number carries a tilde on the
+slides on purpose: they are a shape for the hour, not a contract. Module 3 can run to
+forty if the audience interrupts, which we are asking them to do, and the discussion
+absorbs it.
+
+### Slides dropped on 25 August 2026
+
+Four slides came out on the day, after review:
+
+- **"Inodes run out before terabytes do"** (module 2). The quota numbers survive — the
+  mount-point table already carries 50 GB and 500,000 inodes, and so does the module's
+  closing slide. What is gone is the 22,800-inodes-per-PyTorch-environment figure and the
+  link from it to squashfs and uenv, which module 3 then picks up cold.
+- **"Every job is charged to a project"**, **"A GH200 node is four GPUs and four sockets"**
+  and **"You are billed for the node, not for the work"** (module 3). Two of the three
+  were `PLACEHOLDER` and had been waiting for a real efficiency number.
+
+The consequence to be aware of: **the deck no longer shows how to submit a job.** There is
+no `sbatch` script, no `--account`, no partition table, and no node topology anywhere in
+the session. The overview diagram still says step three is "a container, Slurm, and the
+GPUs", and `docs.cscs.ch/running/slurm/` is still on the closing slide, so the pointer
+survives — but nobody sees a job script. That is a deliberate choice, not an oversight;
+revisit it if the discussion keeps coming back to Slurm.
 
 ### Access is on the handout, not on a slide
 

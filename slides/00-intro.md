@@ -7,7 +7,7 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 
 <!-- _class: divider -->
 
-<span class="tag">Module 0 · 5 min</span>
+<span class="tag">Module 0 · ~5 min</span>
 
 # Alps, the ML Platform, and the next hour
 
@@ -177,11 +177,11 @@ One project, from "we need compute" to a model that is trained and being used.
 
 | # | Module | Time |
 |---|---|---|
-| **1** | Project and access | 12 min |
-| **2** | Data and storage | 13 min |
-| **3** | A concrete ML use case | 30 min |
-| **4** | Wrap-up | 3 min |
-| | **Open discussion** | **30 min** |
+| **1** | Project and access | ~10 min |
+| **2** | Data and storage | ~10 min |
+| **3** | A concrete ML use case | ~30 min |
+| **4** | Wrap-up | ~2 min |
+| | **Open discussion** | **what is left** |
 
 </div>
 <div class="card">
@@ -201,7 +201,8 @@ There is a **handout**. Every command is on it.
 - The hour is one story: one project, from "we need compute" to a model that is trained and being used.
 - We follow it in order, and every step is something you will actually type.
 - Four modules. The third is the centre of the hour: one worked example, start to finish.
-- Then thirty minutes of open discussion, which is honestly the part we want most.
+- Those times are rough. The third one can run to forty minutes if you keep us honest, and the discussion takes what is left.
+- Then open discussion for whatever is left, which is honestly the part we want most.
 - One thing we actually mean: interrupt us. If something does not make sense, say so then and there, not at the end.
 - We would rather answer three good questions and drop a slide than get through everything and lose you at minute ten.
 - Two practical things. Every slide says in the corner who it is for. And there is a handout with every command, so do not type.

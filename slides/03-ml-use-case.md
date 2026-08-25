@@ -7,14 +7,14 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 
 <!-- _class: divider -->
 
-<span class="tag">Module 3 · 30 min</span>
+<span class="tag">Module 3 · ~30 min</span>
 
 # A concrete ML use case
 
 Raw data in, a trained model out. Every step is something you will actually type.
 
 <!--
-START AT T+30:00. Check the presenter timer now.
+START AT T+25:00. Check the presenter timer now.
 CUT IF LATE: Cut "Four ways to make this slow" and "The data is already here". Both are one spoken line.
 
 - The rest of the hour is one worked example, not four topics.
@@ -576,150 +576,7 @@ owner: find it, quote it verbatim, and put it on this slide. Without a real comm
 slide is advice, not instruction. -->
 
 ---
-<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/running/slurm/' -->
-<div class="audience all">Everyone</div>
-
-# Every job is charged to a project
-
-`--account` is not optional. It is how the GPU hours from module 1 get spent.
-
-```bash
-#!/bin/bash
-#SBATCH --account=a-csstaff
-#SBATCH --job-name=example-%j
-#SBATCH --time=00:30:00
-#SBATCH --nodes=4
-
-srun --environment=my-pytorch python train.py
-```
-
-<div class="cols">
-<div>
-
-| Partition | Max nodes | Time limit |
-|---|---|---|
-| `debug` | 2 | 30:00 |
-| `normal` | unlimited | 1-00:00:00 |
-| `xfer` | 1 | 1-00:00:00 |
-
-</div>
-<div class="card">
-
-### The link back to module 1
-
-This is the line that draws down the credit. The **grace** and the **minimal** from module 1 are counted from these jobs.
-
-</div>
-</div>
-
-<!--
-- One script. It is short on purpose.
-- The account flag is how Slurm knows which project pays. It is not optional.
-- This is the line that connects back to module 1: every job here draws down the project's credit.
-- Three partitions. Debug for quick turnaround, two nodes, thirty minutes. Normal for real work. Xfer for data, which module 2 covered.
-- And the srun line carries the environment flag from the container slides. That is the whole stack in one script.
-- Next: How to ask for GH200 nodes properly.
-DOCS: docs.cscs.ch/running/slurm/
--->
-
-<!-- TODO(verify): docs.cscs.ch/access/jupyterlab/ never states that a session is a
-Slurm job charged to the project. It says notebook servers run on compute nodes and
-references slurm-<jobid>.out, which strongly implies it, but the accounting is not
-written down. Confirm, then say it plainly — it changes whether people leave sessions
-open overnight.
-
-TODO(verify): --account=a-csstaff is a placeholder. Module 4 owner: replace with a
-realistic Swiss AI project account string, and confirm the partition table against
-docs.cscs.ch/running/slurm/ for the ML Platform specifically — the partitions listed
-there may differ per cluster. -->
-
----
-<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/running/slurm/' -->
-<div class="audience all">Everyone</div>
-
-# A GH200 node is four GPUs and four sockets
-
-Ask for it the way the hardware is built.
-
-<div class="cols">
-<div>
-
-```bash
-#SBATCH --ntasks-per-node=4
-#SBATCH --gpus-per-task=1
-```
-
-One task per GPU. This is the shape almost every ML job wants.
-
-For multiple job steps on one node:
-
-```bash
-#SBATCH --exclusive --mem=450G
-```
-
-</div>
-<div class="card">
-
-### Why this matters
-
-Ask for the wrong shape and you get one process driving four GPUs badly, or four processes fighting over one.
-
-Neither shows up as an error. Both show up as a bill.
-
-</div>
-</div>
-
-<!--
-- A Grace-Hopper node is four GPUs and four CPU sockets. Ask for it that way.
-- Four tasks per node, one GPU per task. That is the shape nearly every ML job wants.
-- If you are running several job steps on the same node, take it exclusive.
-- The reason to care is on the right: getting this wrong is not an error message. It is a slow job that still costs you the full node hours.
-- Next: Which brings us to efficiency.
-DOCS: docs.cscs.ch/running/slurm/
--->
-
----
-<div class="audience">PIs and deputies</div>
-
-# You are billed for the node, not for the work
-
-<!-- PLACEHOLDER — module 3 owner: this needs a real efficiency example or a tool name. -->
-
-<div class="cols">
-<div>
-
-- A node reserved is a node **charged**, busy or idle
-- 30% GPU utilisation means **70% of your credit** bought nothing
-- Efficiency was a question in the proposal (module 1). It is the same question here
-- Measure one run before scaling to a hundred
-
-</div>
-<div class="card">
-
-### For the PIs
-
-This is the other half of "check the consumption regularly".
-
-Burning the budget on schedule and getting nothing out of it is **worse** than under-consuming.
-
-</div>
-</div>
-
-<!--
-- You are billed for the node you reserved, not for the work you did on it.
-- If your GPUs sit at thirty per cent, seventy per cent of that credit bought nothing.
-- Remember module 1 asked you for an expected efficiency in the proposal. This is where that promise is kept or not.
-- The habit that fixes it: measure one run properly before you scale it to a hundred.
-- Look at CARD.
-- And for the PIs specifically. Spending the budget on schedule while achieving nothing is worse than under-spending, because it is invisible.
-- Next: You do not have to do all of this from a terminal.
--->
-
-<!-- TODO(verify): docs.cscs.ch/running/slurm/ does not document a job-efficiency tool.
-Module 4 owner: name the tool you actually recommend (seff, a Grafana dashboard, the HPC
-Console job view) and put a real number on this slide, or cut it to a spoken line. -->
-
----
+<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/software/container-engine/' -->
 <div class="audience all">Everyone</div>
 
 # Four ways to make this slow
@@ -730,6 +587,7 @@ Console job view) and put a real number on this slide, or cut it to a spoken lin
 - **No NCCL hook** — multi-node training falls back and crawls
 - **Dataset on the wrong scratch** — random reads from spinning disk
 - **Imported image on home** — quickly eats into 50 GB quota
+- **Rebuilding the image every job** — import once, then reuse it
 
 </div>
 <div class="card">
@@ -751,7 +609,8 @@ Then the environment is **reviewable** and **reproducible**, like everything els
 - Rebuilding the image on every job instead of importing once.
 - On the right, the habit that prevents most of this: commit the EDF next to your code.
 - Then your environment is reviewed like code, and somebody else can reproduce your run.
-- Next: Where to read more.
+- Next: the model is trained. How do other people call it?
+DOCS: docs.cscs.ch/software/container-engine/
 -->
 
 ---

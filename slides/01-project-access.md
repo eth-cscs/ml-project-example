@@ -7,7 +7,7 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 
 <!-- _class: divider -->
 
-<span class="tag">Module 1 · 12 min</span>
+<span class="tag">Module 1 · ~10 min</span>
 
 # Project lifecycle and access
 
@@ -290,6 +290,7 @@ CragAlvarado@example.com,Project member,prj02
 - Someone will ask whether you can change a role afterwards.
 - If the network is behaving, open the Team tab and show them.
 - Do not promise anything you have not clicked yourself.
+- Next: the team is on the project. What does the project actually give them?
 DOCS: docs.cscs.ch/accounts/ (portal section)
 -->
 
@@ -344,7 +345,7 @@ The next slide is the one nobody expects: you can use a model without running a 
 - Your home directory and your scratch are yours, not the project's. Module 2 covers those.
 - One thing is opt-in: an inference resource. The PI or the deputy adds it in the portal.
 - These are not separate pots. There is one project credit and everything spends it.
-- That last one deserves its own slide, and it is next.
+- Next: the one nobody expects — you can use a model without running a job at all.
 DOCS: docs.cscs.ch/platforms/mlp/
 -->
 ---
