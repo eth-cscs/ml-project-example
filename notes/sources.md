@@ -247,3 +247,47 @@ one sentence that explains the whole portal story if somebody asks in the discus
 
 Also useful as scale context: roughly 14k managed users, 3–4k active, ~4k projects,
 growth driven largely by AI workloads.
+
+## Service accounts — the CUG 2026 IAM paper
+
+Andrea Ceriani, Francesco Pagnamenta, Davide Mazzoleni, Narendra Challa, Marco Consoli,
+Elia Palme, Maxime Martinasso, Stefano Schuppli, Viktor Mirieiev, Sergei Zaiaev and Ilja
+Livenson. *Transitioning User and Identity Management for Alps.* Cray User Group (CUG
+2026), Nice, 26–30 April 2026. <https://doi.org/10.1145/3837730.3837747> — CC BY 4.0.
+
+Published, peer-reviewed and co-authored by Andrea, so it is a citable source for claims
+the documentation does not yet carry. Used for the service-account slide:
+
+- §4 — three identity categories: **user accounts** (long-lived human identities that may
+  participate in multiple projects over time), **service accounts** (non-interactive
+  workflows performed on behalf of a user, "automated pipelines that execute actions a
+  user would otherwise perform manually") and **temporary accounts** (courses, webinars,
+  short-lived collaborations).
+- §4.1 — "Service accounts and temporary accounts are bound to a single project and
+  inherit its validity period. When the project expires, these accounts are automatically
+  closed and deprovisioned from LDAP and other credential stores." A **user** account, by
+  contrast, "remains active as long as the user has at least one active project
+  membership" — which independently confirms the account-lifecycle slide.
+- §5.2 — "Where appropriate, service accounts are restricted in scope (e.g. limited
+  filesystem entitlements or reduced role set) to reduce the risk of credential
+  compromise." This **corrected** the slide, which claimed a service account reaches all
+  the project's resources.
+- §5.2 — service accounts "preserve an explicit association with an account and project
+  context, enabling clearer accountability and auditability". That is the accent line.
+- §4.2 — the legacy **secondary account** was "a user-like identity with username and
+  password but without multi-factor authentication", used interchangeably for automation
+  and courses. That is why the new model separates the types, and it is the speaker-note
+  line for anyone who used one.
+
+Not used, but worth knowing:
+
+- §3.3 / §4.1 — SSH certificates are "typically one day for standard user accounts, and
+  extended validity (seven days or one year) available for specific use cases and user
+  categories". The handout says one day flat. The paper does **not** say which categories
+  get the longer validity, so nothing was written from it — ask Andrea whether the
+  handout should mention that longer validity exists.
+- §4 — **temporary accounts** for courses and workshops are a first-class type. Nothing
+  in the session mentions them. Possible backup slide if PIs ask about training events.
+
+The paper names the workflow platform by its product name throughout. That name never
+reaches a slide, a note or the handout — see CLAUDE.md §7.

@@ -514,10 +514,10 @@ Your own account is for the work you do yourself. Automation needs a different k
 <div class="cols">
 <div>
 
-- A **user account** is a person. Interactive work, and it belongs to you
+- A **user account** is a person — interactive work, and it can sit in several projects
 - A **service account** runs a workload **on behalf of** a person — pipelines, scheduled jobs, anything unattended
-- It is **bound to one project** and follows that project's lifecycle
-- Inside that project it reaches **all** the resources
+- It is **bound to one project** and inherits its validity period — project ends, account closed
+- It can be **scoped down**: fewer entitlements than the person who asked for it
 
 </div>
 <div class="card">
@@ -533,27 +533,29 @@ Once approved, a **Service Account** entry appears under **Team** in the portal.
 
 <div class="accent">
 
-Not a shared login. It is an identity of its own, with its own lifetime and its own keys.
+Not a shared login, and not your password in a script. It is an identity of its own, so the audit trail still says who did what.
 
 </div>
 
 <!--
 - One more kind of account, and it is the one people improvise badly.
-- Your own account is you. Interactive work, tied to a person.
+- Your own account is you. It is for interactive work, and it can sit in several projects.
 - A service account runs work on behalf of a person: a pipeline, a scheduled job, anything that runs when nobody is watching.
-- It is bound to one project and it lives and dies with that project.
-- Inside the project it reaches everything the project has.
-- It is not enabled by default. The PI opens a Service Desk ticket and explains the use case — what for, how much, who is responsible, for how long.
+- It belongs to one project only, and it is closed automatically when that project ends.
+- It can also be given less than you have. Fewer filesystem entitlements, a smaller role. A leaked credential then costs less.
+- It is not enabled by default. The PI opens a Service Desk ticket and explains the use case: what for, how much, who is responsible, for how long.
 - After approval a Service Account entry appears under Team in the portal.
-- Say the last line clearly: this is not a shared login, and it is not your password in a script.
-- It is an identity of its own, and that is the point.
-- Next: two things I am deliberately not covering.
+- If you used a secondary account in the past, this is what replaces it. Those had no multi-factor and no clear owner.
+- Next: where to read more.
 DOCS: docs.cscs.ch/accounts/account-create/
 -->
 
-<!-- TODO(verify): "not enabled by default" and the on-behalf-of framing come from
-Andrea. docs.cscs.ch/accounts/account-create/ documents the request, the template and
-what appears after approval, but never says the feature is off until asked for. -->
+<!-- Sourced from Ceriani et al., "Transitioning User and Identity Management for Alps",
+CUG 2026, sections 4, 4.1 and 5.2 — on-behalf-of, single-project binding, inherited
+validity period, automatic deprovisioning, optional scope reduction, and the accountability
+argument are all stated there. TODO(verify): "not enabled by default" is the one claim
+neither the paper nor docs.cscs.ch/accounts/account-create/ makes explicitly; the docs page
+documents the request and the template but never says the feature is off until asked for. -->
 ---
 <!-- _class: ref -->
 
