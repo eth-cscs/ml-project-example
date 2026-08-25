@@ -83,8 +83,8 @@ freely rather than treat this as a draft to defend.
 
 ## Hand-offs between modules
 
-- **1 → 2**: you have a shell on Clariden and an empty home directory. The first
-  question is where two terabytes of training data go.
+- **1 → 2**: you have a project, a team on it and a budget to spend. The first thing you
+  spend it on is storage, so the next question is where two terabytes of training data go.
 - **2 → 3**: the data is on the right filesystem — including the new `datacache`, which
   goes live the morning of the session. Now it needs an environment that can read it.
 - **3 → 4**: the environment exists. Now it has to run at scale, repeatedly.

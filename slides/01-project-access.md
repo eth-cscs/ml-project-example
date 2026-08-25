@@ -11,12 +11,12 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 
 # Project lifecycle and access
 
-Getting a project, adding your team, watching the budget, and getting a shell.
+Getting a project, adding your team, managing its resources, and watching the budget.
 
 <div class="split">
 
 **Mostly for PIs and deputies** — getting a project, the team, the resources, the budget.
-**Everyone** — what an account is, and the two kinds there are.
+**Everyone** — the two kinds of account, the inference API, what you have spent.
 
 </div>
 
@@ -27,7 +27,7 @@ CUT IF LATE: Cut "What a Swiss AI project comes with" — the inference slide ca
 - This module is twelve minutes. It is the plumbing part.
 - The interesting part of the hour is modules 2 and 3.
 - Most of it is for PIs and deputy PIs: getting a project, adding people, the resources, the budget.
-- Two slides are for everybody: what an account is, and the two kinds of account there are.
+- Four slides are for everybody: the two kinds of account, the inference API, and where to see what you spent.
 - Each slide says in the top right corner which one it is.
 - So if the admin part is not your job, you have a few minutes to read your email. I will not be offended.
 - Accounts, MFA and SSH keys are not on any slide. They are all on the handout. Take one.
