@@ -48,31 +48,17 @@ Putting data in the wrong one is the most common and most expensive mistake here
 </div>
 
 <!--
-- Six mount points. Read the table, do not read it out loud.
-- Three groups. Home, scratch, and project.
-- Home is small. 50 gigabytes. Code and configuration, nothing else.
-- Three scratch filesystems. The difference between the first two is the next slide.
-- Ritom is the third, on VAST, for parallel I/O into a shared file.
-- Its cleanup is also 30 days. Say it out loud, because it is not in the documentation
-  yet — anyone who checks will not find it there.
-- Then two project areas: the store, which is backed up, and datacache, which is not and which you have to ask for.
-
-- Scratch is yours. Per user. Not backed up.
-- Store belongs to the project. Shared. Backed up.
-- Everything else on this slide hangs off those two.
-- If anyone asks about home:
-- No cleanup, and there are daily snapshots of the last seven days in $HOME/.snapshot.
-- That has saved people who deleted their own code. Worth knowing it exists.
-- Tape backups for Home are being implemented, so do not promise them yet.
-
-- This is the column that hurts people.
-- Say the mechanism precisely, because it is not what they assume.
-- It is not age. It is last access time.
-- A file nobody has read for 14 days on iopsstor is deleted. 30 days on capstor.
+- Six mount points, in three groups: home, scratch, project.
+- Home is small. Fifty gigabytes, for code and configuration.
+- Three scratch filesystems. The next slide says which is for what.
+- Two project areas: the store, which is backed up, and datacache, which is not.
+- Now the cleanup column, because this is the one that hurts people.
+- It is not age, it is last access. A file nobody reads for fourteen days on iopsstor is deleted. Thirty days on capstor.
 - So a dataset you keep reading survives. A checkpoint you wrote and forgot does not.
-- Not archived. Deleted.
-- Ritom's cleanup is 30 days too, but that is not in the documentation yet.
-- Next: So which scratch, for what?
+- Deleted, not archived. And there are no backups on scratch.
+- Ritom is thirty days too, but that is not in the documentation yet.
+- The model to remember: scratch is yours and is not backed up. Store belongs to the project and is backed up.
+- Next: which scratch, for what?
 DOCS: docs.cscs.ch/storage/filesystems/ · docs.cscs.ch/platforms/mlp/
 -->
 
@@ -161,19 +147,15 @@ Nothing on scratch survives. Shared project data goes on the **store** or on **`
 </div>
 
 <!--
-- All three are called scratch. They are different hardware and they behave differently.
-- iopsstor is NVMe. It is good at IOPS. Put your dataset there, the thing you read from constantly in random order.
-- capstor is spinning disks, optimised for large sequential reads and writes. Put your checkpoints there.
+- All three are called scratch, but they are different hardware.
+- iopsstor is NVMe, good at IOPS. Put your dataset there — the thing you read constantly, in random order.
+- capstor is spinning disk, for large sequential writes. Put your checkpoints there.
 - Get those two backwards and your training is slower for no reason at all.
-- Then the third one, because they just saw it in the table.
-- Ritom is VAST, over NFS. It is the one for parallel I/O into a shared file.
-- Collective MPI-IO, parallel HDF5 or NetCDF, and checkpoints written from many ranks into a small number of files.
-- The documentation is clear that file-per-rank I/O sees little benefit there, so it is not a general-purpose replacement for the other two.
-- If you do use it, read the tuning settings in the storage guide first — locking, collective buffering, data sieving. VAST behaves differently from Lustre and MPI-IO can get it wrong by default.
-- Its cleanup is 30 days, same as capstor. That is not documented yet, so say it rather than letting them look for it.
-- Let me read the red bar.
-- And when the job finishes, move what you care about to project storage. Say it every time.
-- Next: How much have you actually used?
+- Ritom is VAST. It is the one for parallel writes into a shared file: collective MPI-IO, parallel HDF5, checkpoints from many ranks into few files.
+- Little benefit for file-per-rank. If you use it, read the tuning settings in the storage guide first.
+- Its cleanup is thirty days too, though that is not documented yet.
+- And when a job ends, move what you care about to project storage.
+- Next: how much have you actually used?
 DOCS: docs.cscs.ch/guides/storage/ · docs.cscs.ch/platforms/mlp/ (Scratch Usage Recommendations)
 -->
 
@@ -263,21 +245,15 @@ Project-level like the store, but **not backed up**, like scratch. And nothing i
 </div>
 
 <!--
-- Until today you had two bad options for a dataset the whole team reads.
-- Put it on scratch: fast, but it is per user, and it is deleted after 14 days.
-- Put it on project store: shared and durable, but it is medium-performance, so random reads are slow.
-- So teams kept a copy each, on scratch, and re-staged it every two weeks.
-- datacache is the third option. Fast NVMe, shared across the project, and never cleaned automatically.
-- One copy of the dataset. The whole project reads it. It is still there next month.
-- Look at RED BAR.
-- Place it against the model from two slides ago. Scratch is yours and not backed up. Store is the project's and is backed up.
-- datacache is the odd one: it belongs to the project, like the store, but it is not backed up, like scratch.
-- And unlike both, nothing is ever deleted for you.
-- Within your quota on capacity and inodes, the project owns its own space hygiene. That is a real responsibility.
-
-- It is not created by default. Your PI opens a Service Desk ticket saying what it is for and how much space and how many inodes.
-- We review it before creating the area.
-- Next: Where to read more.
+- This one is new, from today, so nobody here has used it.
+- Start from the problem. Until today a dataset the whole team reads had two bad homes.
+- Scratch is fast, but it is per user and it is deleted after fourteen days.
+- Project store is shared and durable, but medium performance, so random reads are slow.
+- So teams kept a copy each and re-staged it every two weeks.
+- datacache is the third option. Fast NVMe, shared by the project, and never cleaned automatically.
+- Two warnings. It is not backed up. And nothing is deleted for you, so the project manages its own space.
+- It is not created by default. Your PI opens a Service Desk ticket with the use case, the space and the inodes.
+- Next: where to read more.
 DOCS: docs.cscs.ch/platforms/mlp/
 -->
 

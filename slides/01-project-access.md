@@ -75,24 +75,16 @@ The 4th call for large projects is open right now — **3 August to 14 September
 </div>
 
 <!--
-- First, who does what, because people ask us for hours and we cannot give them.
-- You decide whether to apply for a small or a large project. That choice is yours.
-- You apply to the Swiss AI Initiative, not to us. They decide.
-- Swiss AI tells us to open the small ones as they are approved, all year round.
-- And twice a year they hand us the large ones, together.
-- We open the project and we run it. We do not decide who gets what.
-- Now the two kinds, because people often apply to the wrong one.
-- Small is up to thirty-two thousand GPU hours, for six months, reviewed all year.
-- So you can ask today and start on the first day of next month.
-- Large is five hundred thousand GPU hours and more, for twelve months.
-- It starts only on the first of January or the first of July. If you miss a call you wait six months.
-- The storage row is the one people forget.
-- A small project gets one terabyte by default. A large one gets no default. You state it in the proposal.
+- First, who does what. You choose small or large, and you apply to the Swiss AI Initiative, not to us.
+- They decide. We open the project and run it.
+- Small: up to thirty-two thousand GPU hours, six months, reviewed all year. You can start next month.
+- Large: five hundred thousand and up, twelve months. It starts only on the first of January or the first of July.
+- Miss a call and you wait six months.
+- The storage row is the one people forget. Small gets a terabyte by default. Large gets none — you state it in the proposal.
 - Bring three things to a large proposal: GPU hours you measured, the efficiency you expect, and your data footprint.
-- And some good news: a weak large proposal is usually made smaller rather than rejected.
-- Look at the red bar. The fourth large call closes on the fourteenth of September, about three weeks from today.
-- If you want a large project in January, this is your call.
-- Next: say you applied and you were granted a project. What is an account?
+- And a weak large proposal is usually made smaller, not rejected.
+- The fourth call closes on the fourteenth of September. That is about three weeks.
+- Next: you have a project. What is an account?
 DOCS: docs.cscs.ch/platforms/mlp/ · swiss-ai.org/compute-grants
 -->
 
@@ -137,22 +129,16 @@ Administrators and managers **invite people** and **assign roles**.
 </div>
 
 <!--
-- The portal uses three words, and people often guess them wrong.
-- Project administrator is the PI. Project manager is the deputy PI. Project member is everyone else.
-- Only the first two can invite people and set roles.
+- Three words the portal uses. Project administrator is the PI, project manager is the deputy, project member is everyone else.
+- Only the first two invite people and set roles.
 - Now the important part, and I will say it slowly.
-- Your account is identified by your email address. One address, one account.
-- We only accept institutional addresses, not personal ones.
-- And because the address is the identity, always use the same one.
-- If you sign up again with a different address you get a second account, not access to your old one.
-- Your account belongs to projects, and it can belong to several at once.
-- It stays open while at least one of those projects is open.
-- Be careful about the end, because this is the part people get wrong.
-- A project's end date stops your compute. That is what you feel first.
-- The project itself does not close yet. It stays active for another ninety days so you can get your data out.
-- Only after those ninety days does it close, and your account closes with the last of your projects.
-- The good news: if someone invites you to a project later, the same account is switched back on.
-- Next: you have a project and a role. Let us open the portal.
+- Your email address is your identity. One address, one account, and institutional addresses only.
+- Always use the same one. A different address gives you a second account, not access to your old one.
+- An account can belong to several projects, and stays open while one of them is open.
+- The end date stops your compute, not the project. It stays active ninety more days for your data.
+- Then it closes, and your account closes with the last of your projects.
+- Good news: a later invitation switches the same account back on.
+- Next: let us open the portal.
 DOCS: docs.cscs.ch/accounts/
 -->
 
@@ -350,24 +336,15 @@ The docs also show how to point **Claude Code** and **OpenCode** at it.
 </div>
 
 <!--
-- This one is new, and it is for this room in particular.
-- There is a managed inference API. Open-weight models, served for you, behind a public endpoint.
-- It has been available since the twenty-fourth of July.
-- It is OpenAI and Anthropic compatible, so whatever you already wrote works if you change the base URL.
+- This is new. It has been there since the twenty-fourth of July.
+- A managed inference API. Open-weight models, served for you.
+- It is OpenAI and Anthropic compatible, so change the base URL and your code works.
 - And it serves Apertus, which is your own model.
-- Many of you want to use a model rather than train one. This is that.
-- How you get it: the PI or the deputy adds an inference resource in the portal.
-- After that, any member of the project can create their own API keys.
-- Each key can carry a token budget, a reset period, and a list of allowed models.
-- The key is shown once when you create it, so put it in a password manager.
-- Now the cost, and I want to be straight about it.
-- Let me read the quotation: the credit comes out of your project credit. It is not a free extra.
-- And here is what a PI needs to hear. A budget on one key does not cap the project, because any member can create another key.
-- Today there is no project-level cap at all.
-- If you want a ceiling on how much of your credit can go to inference, that is a Service Desk ticket.
-- Look at the curl. Three lines: endpoint, bearer token, model name.
-- If you have ever written against the OpenAI API, you have already written this.
-- The documentation also shows how to point Claude Code and OpenCode at it.
+- The PI or the deputy adds the resource in the portal. Then any member creates API keys.
+- Let me read the quotation. The credit comes out of your project credit.
+- And a budget on one key does not cap the project, because any member can make another key.
+- Today there is no project-level cap. If you want one, that is a Service Desk ticket.
+- Look at the curl. Three lines. If you know the OpenAI API, you already know this.
 - Next: how you see what you have spent.
 DOCS: docs.cscs.ch/services/inference/api/
 -->
@@ -498,23 +475,17 @@ All the rules: **docs.cscs.ch/platforms/mlp/**
 </div>
 
 <!--
-- This is the most useful slide of my fourteen minutes, so I will not rush it.
-- Every project is granted a compute credit, in GPU hours.
-- You spend it as your jobs run, and you are expected to spend it more or less evenly, month by month.
-- Every month has two numbers.
-- Expected: how much you should use this month.
-- Minimal: the expected amount minus a grace, and the grace is fifteen to fifty per cent depending on how big your budget is.
-- Look at the three bars, left to right.
-- Left: you used more than expected. That is fine. You just run at lower priority while you are ahead.
-- Middle: you used less, but you stayed above the minimal. The rest moves to the following months.
-- Right: you fell below the minimal. The red box is credit you lost, and it does not come back.
-- Now the timeline underneath.
-- The project runs six or twelve months. At the end date your compute stops. No more jobs.
-- But the project does not close. It stays active for another ninety days, for data only.
-- After those ninety days it closes for real.
-- And if you run out of credit early you are not stuck. There is the low partition, about two months of your budget.
-- Every number on this slide is on that one page. Take a photo of it.
-- Next: that is everything about the project. The rest is about getting in.
+- This is the most useful slide for a PI, so I will not rush it.
+- Your project has a credit in GPU hours. You spend it as your jobs run, roughly evenly, month by month.
+- Every month has two numbers. Expected is what you should use. Minimal is that minus a grace of fifteen to fifty per cent, depending on your budget size.
+- Left bar: you used more than expected. That is fine, you just run at lower priority while you are ahead.
+- Middle: you used less but stayed above the minimal, so the rest rolls over.
+- Right: you fell below it. The red box is credit you lost, and it does not come back.
+- Now the timeline. Six or twelve months, then the end date stops your compute.
+- The project stays active ninety more days, for data only. Then it closes.
+- Out of credit early? The low partition, about two months of your budget.
+- Every number here is on that one page. Take a photo of it.
+- Next: that is the project. The rest is getting in.
 DOCS: docs.cscs.ch/platforms/mlp/policies/
 -->
 

@@ -495,22 +495,16 @@ Skip it and your multi-node training is quietly slow.
 </div>
 
 <!--
-- This is a realistic EDF to run generic PyTorch tasks.
-- Top line: Enter the image by registry reference. The Container Engine downloads and caches it.
+- A realistic EDF for a PyTorch job.
+- Top line: the image is a registry reference. The Container Engine pulls it and caches it.
 - The mounts bring in both scratch filesystems.
-- Say what the EDF buys you: it separates what you want from how the container is managed, and the container description from the commands in your job script.
-- Now the part that is specific to this machine, and the reason a laptop container is not enough.
-- Look at ANNOTATIONS BLOCK.
-- Annotations are arbitrary metadata for the container. We use them to request custom features to the Container Engine.
-- The AWS OFI NCCL hook connects NCCL to the Slingshot network through libfabric.
-- If you leave it out, multi-node training still works. It is just quietly, badly slow.
-- That is the single most common performance bug we see.
-- There are more annotations and more features. The documentation lists them.
-THE [env] BLOCK, only if asked:
-- OMP_NUM_THREADS aligns with the number of cores of Grace CPU
-- NCCL_DEBUG=INFO so you can see what the network actually did. EDF supports comments: comment out for cleaner outputs.
-- The full block is on the PyTorch documentation page. Do not read it out.
-- Next: Where the images come from.
+- The EDF describes the environment; your job script says what to run inside it. Keeping those separate is what makes the description reusable.
+- Now the part that is specific to this machine.
+- Annotations are metadata for the container, and we use them to ask the Container Engine for features.
+- The aws-ofi-nccl hook connects NCCL to the Slingshot network. Leave it out and multi-node training still works — it is just quietly, badly slow.
+- That is the most common performance bug we see.
+- The env block sets OMP_NUM_THREADS for the Grace CPU. And note that an EDF supports comments.
+- Next: where the images come from.
 DOCS: docs.cscs.ch/software/ml/pytorch/
 -->
 

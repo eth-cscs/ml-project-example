@@ -79,6 +79,7 @@ serve: $(DECK) $(THEME)
 
 check:
 	@python3 tools/slide-count.py $(SLIDES)
+	@python3 tools/speaking-time.py $(SLIDES)
 	@python3 tools/sync-footers.py --check $(SLIDES)
 
 # Each slide's footer carries the docs page it came from, derived from its DOCS: line.

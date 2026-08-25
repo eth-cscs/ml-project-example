@@ -169,6 +169,11 @@ support contact — so Andrea can move quickly on stage and say "it is all on th
   first language. Short sentences, plain words, no idioms. Use these markers so a
   presenter can find their place instantly:
 
+  **Keep a note under about 120 words.** That is one minute at the pace of a technical
+  talk given in a second language. `make check` measures it and names anything over.
+  When a note runs long the fix is to cut detail and let the `DOCS:` link carry it, not
+  to plan on speaking faster.
+
   **Every line must be a line you can say out loud.** No stage directions, no notes to
   yourself, no headers. "Look at the red bar" is fine because you would say it; "READ THE
   RED BAR:" is not. The last spoken line is the hand-off to the next slide, written as
