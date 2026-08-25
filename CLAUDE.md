@@ -68,7 +68,7 @@ personally have to take. We are not teaching everything — we are building a ma
 | `handout/quickstart.md` | One-page cheat sheet, exported to PDF, given to attendees |
 | `assets/` | Images, diagrams, screenshots |
 | `build/` | Generated output — **git-ignored, never edit by hand** |
-| `notes/agenda.md` | Live agenda with per-module time budget and owner |
+| `notes/agenda.md` | Live agenda: time budgets, subsections, hand-over, open questions |
 
 ## 4. Toolchain — Marp (decided)
 
@@ -93,7 +93,7 @@ Caveats to respect:
 Build entry point: a `Makefile` at the repo root with `make pptx`, `make html`, `make pdf`,
 `make all`, `make clean`. Create it if it does not exist.
 
-## 5. Agenda and module ownership (60 min)
+## 5. Agenda (about 60 min of a 90-minute slot)
 
 The spine is a **single running story**: one Swiss AI project, from "we need compute" to
 a model that is trained and being used. Address the audience in the **second person** —
@@ -101,15 +101,21 @@ a model that is trained and being used. Address the audience in the **second per
 Module 3 is a real worked example and carries the continuity; the audience marker in the
 corner of each slide says who it is for.
 
-| # | Module | Budget | Owner |
-|---|---|---|---|
-| 0 | Welcome, what Alps/MLP is, what this hour covers | 5 min | TBD |
-| 1 | **Project lifecycle & access** — request, portal, invites, resources, first login | **12 min** | **Andrea** |
-| 2 | Data & storage lifecycle — filesystems, quotas, moving data in, where training data lives | 13 min | TBD |
-| 3 | Software & containers — uenv, Container Engine, Alps-extended images, best practices | 15 min | TBD |
-| 4 | Running & automating — Slurm, job efficiency, JupyterLab, FirecREST, inference/serving | 12 min | TBD |
-| 5 | Wrap-up — support channels, User Day (28 Aug), what we did not cover | 3 min | TBD |
-| — | Open discussion: planned work, suggestions, requests | 30 min | all |
+| # | Module | Budget |
+|---|---|---|
+| 0 | Welcome — Alps, the ML Platform, what this hour covers | 5 min |
+| 1 | Project lifecycle and access — request, portal, invites, what a project comes with, inference, budget, first login | 14 min |
+| 2 | Data and storage — mount points, the three scratches, project store, `datacache`, inodes, moving data in | 13 min |
+| 3 | **A concrete ML use case** — one worked example, raw data to a trained model | 30 min |
+| 4 | Wrap-up — support channels, User Day (28 Aug), what we did not cover | 3 min |
+| — | Open discussion | the rest of the 90 |
+| — | Backup slides, shown only on request | — |
+
+Module 3 absorbed what used to be three separate modules — storage, software and
+containers, running jobs — and rebuilt them as one worked example. Its subsections are
+marked with a kicker above the slide title rather than with divider slides, which would
+have cost eight of its thirty minutes. `notes/agenda.md` lists them and which are still
+placeholders.
 
 Rules for the agenda:
 
@@ -124,12 +130,13 @@ Rules for the agenda:
   deep dive. Mention they exist, show them only if asked in the discussion.
 - Each module ends with a **"Where to read more"** slide of docs links.
 
-## 6. Module 1 in detail (Andrea's part — the one to develop first)
+## 6. Module 1 in detail
 
-**Time budget: 12 minutes, max 10 content slides.** This is plumbing, not the intellectually
-interesting part of the session — the value of the hour is in modules 2–4. Module 1 must be
-**fast, screenshot-driven and confident**, and push detail into backup slides and the handout.
-Do not let it grow.
+**Time budget: 14 minutes, 14 slides.** This is plumbing, not the intellectually
+interesting part of the session — the value of the hour is in modules 2 and 3. Module 1 must
+be **fast, screenshot-driven and confident**, and push detail into the handout. It has
+already grown twice, absorbing what a project comes with and the inference resource; do not
+let it grow again without taking the time from somewhere.
 
 Storyline: *a project is granted → the PI adds the team → a member logs in → both watch the budget.*
 
@@ -253,7 +260,7 @@ Legacy (use only if nothing on docs.cscs.ch covers it, and label as legacy):
   and estimated speaking time** (≈1 min per content slide, plus demos).
 - If a module exceeds its time budget, say so and propose what to cut — do not silently
   overflow.
-- Keep `notes/agenda.md` in sync whenever a budget or owner changes.
+- Keep `notes/agenda.md` in sync whenever a budget or the structure changes.
 - Commit messages in English, imperative mood, one module per commit where possible.
 
 ## 10. Definition of done (per module)

@@ -30,15 +30,15 @@ second person.
 
 ## Modules
 
-| # | Module | Budget | Owner | Slides | Drafted | Status |
-|---|---|---|---|---|---|---|
-| 0 | Welcome — Alps, the ML Platform, what this hour covers | 5 min | **Andrea** | `slides/00-intro.md` | 6 | scaffold |
-| 1 | **Project lifecycle and access** — request, portal, invites, what a project comes with, inference, budget, first login | **14 min** | **Andrea** | `slides/01-project-access.md` | 14 | **on budget** |
-| 2 | Data and storage — mount points, the three scratches, project store, `datacache`, inodes, moving data in | 13 min | **Andrea** | `slides/02-data-storage.md` | 8 | scaffold |
-| 3 | **A concrete ML use case** — one worked example, raw data to a trained model | **30 min** | **Fawzi** | `slides/03-ml-use-case.md` | 19 | restructured, two placeholders |
-| 4 | Wrap-up — support, User Day (28 Aug), what we did not cover | 3 min | **both** | `slides/04-wrapup.md` | 4 | scaffold |
-| — | Open discussion | 25 min | all | — | — | — |
-| — | Backup, shown on request only | — | — | `slides/05-backup.md` | 7 | HPC Console block done |
+| # | Module | Budget | Slides | Drafted | Status |
+|---|---|---|---|---|---|
+| 0 | Welcome — Alps, the ML Platform, what this hour covers | 5 min | `slides/00-intro.md` | 6 | scaffold |
+| 1 | **Project lifecycle and access** — request, portal, invites, what a project comes with, inference, budget, first login | **14 min** | `slides/01-project-access.md` | 14 | **on budget** |
+| 2 | Data and storage — mount points, the three scratches, project store, `datacache`, inodes, moving data in | 13 min | `slides/02-data-storage.md` | 8 | scaffold |
+| 3 | **A concrete ML use case** — one worked example, raw data to a trained model | **30 min** | `slides/03-ml-use-case.md` | 19 | restructured, two placeholders |
+| 4 | Wrap-up — support, User Day (28 Aug), what we did not cover | 3 min | `slides/04-wrapup.md` | 4 | scaffold |
+| — | Open discussion | 25 min | — | — | — |
+| — | Backup, shown on request only | — | `slides/05-backup.md` | 7 | HPC Console block done |
 
 **65 minutes budgeted, 25 left for discussion.** Storage stays a module of its own before
 the worked example; inside the example, importing data is a fifteen-second recap that
@@ -85,7 +85,8 @@ freely rather than treat this as a draft to defend.
 In `slides/05-backup.md`. Mentioned on the wrap-up slide, shown only if the discussion
 asks for them:
 
-- **HPC Console** — drafted, 5 slides, about 5 minutes. Ready.
+- **HPC Console, in depth** — drafted, 5 slides, about 5 minutes. Ready. Note the console
+  itself is *not* backup: module 3 covers it in one slide. This is the deeper version.
 - Kubernetes — not written
 - Post-training and RLHF workflows — not written
 - Advanced multi-node scaling — not written
@@ -132,8 +133,8 @@ Two speakers, not five.
 
 | | Modules | Runs | Minutes |
 |---|---|---|---|
-| **Andrea** | 0, 1, 2 — intro, access, storage | T+00 → T+32 | 32 |
-| **Fawzi** | 3 — the worked example | T+32 → T+62 | 30 |
+| — | 0, 1, 2 — intro, access, storage | T+00 → T+32 | 32 |
+| — | 3 — the worked example | T+32 → T+62 | 30 |
 | both | 4 — wrap-up, then the discussion | T+62 → | 3 + discussion |
 
 So there is exactly **one hand-over**, at T+32, and it is the only timing commitment

@@ -26,7 +26,7 @@ Post-training · multi-node scaling · GPU efficiency · the HPC Console
 A browser interface to the cluster, built on FirecREST. Open source as `firecrest-ui`.
 
 <!--
-- Five minutes on the HPC Console, since you asked.
+- Five more minutes on the HPC Console, since you asked. You saw one slide on it earlier.
 - Short version: it is a web interface to the cluster. It does not replace SSH. It complements it.
 - Next: Why it exists.
 -->
@@ -95,7 +95,7 @@ DOCS: docs.cscs.ch/access/firecrest/
 
 Nothing to install. Nothing running as you on the cluster.
 
-It is the same FirecREST API from module 4 — anything the console does, your own script can do too.
+It is the same FirecREST API from module 3 — anything the console does, your own script can do too.
 
 </div>
 </div>
