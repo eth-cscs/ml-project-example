@@ -81,6 +81,11 @@ check:
 	@python3 tools/slide-count.py $(SLIDES)
 	@python3 tools/speaking-time.py $(SLIDES)
 	@python3 tools/sync-footers.py --check $(SLIDES)
+# A relative image path in the published HTML resolves against build/, which is the
+# whole site on GitHub Pages — the file sits outside it and the slide shows alt text.
+# It looks correct locally, so only a check catches it.
+	@test ! -f $(BUILD)/deck.html || ! grep -q 'src="\.\./' $(BUILD)/deck.html || \
+	  { echo 'check: deck.html links an image outside build/ — it will 404 on Pages'; exit 1; }
 
 # Each slide's footer carries the docs page it came from, derived from its DOCS: line.
 # Edit the DOCS line in the speaker notes, then run this — never edit a footer by hand.
