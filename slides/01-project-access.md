@@ -410,12 +410,21 @@ Apertus tag swiss-ai/Apertus-70B-Instruct-2509 is still current if you quote it.
 
 # Check the consumption regularly
 
-Two new panels, live since **24 August 2026**: the month you are in, and the credit as a whole.
+New since **24 August 2026**: two panels for the project, and a third view per resource.
 
+<div class="cols-narrow">
+<div>
+
+- **This month** — drawn so far, projected month-end, and whether you are on pace
+- **Overall credit** — allocated, used, **lost**, remaining
+- **Per resource** — open one for the usage **per user** inside it
+
+</div>
 <div class="screenshot">
 
 ![Two portal panels. This month's credit consumption shows drawn so far, projected month-end, last month, and a pacing bar against the minimum draw. Overall credit shows what is allocated, used, lost and remaining, with the average daily draw.](../assets/screenshots/portal-consumption.png)
 
+</div>
 </div>
 
 <div class="accent">
@@ -426,13 +435,13 @@ Every member of the project sees this, not only the PI.
 
 <!--
 - This changed two days ago, so even people who use the portal every week have not seen it.
-- Two new panels. The first one is the month you are in.
-- Drawn so far, what the month is projected to end at, and what last month actually drew.
-- Then the pacing bar. It tells you in one look whether you are ahead or behind for today.
-- The second panel is the whole credit. Allocated, used, lost, remaining, and your average daily draw.
+- Two new panels. The first is the month you are in: drawn so far, where the month is projected to end, what last month drew.
+- The pacing bar under it tells you in one look whether you are ahead or behind for today.
+- The second is the whole credit. Allocated, used, lost, remaining, and your average daily draw.
 - Lost is the word to look at. That is credit that was never spent and is not coming back.
-- Everyone on the project sees these, not only the PI. Open one resource for the usage per user inside it.
-- We know the views were not good enough. This is the first part of fixing that.
+- The third view is not in this picture. Open a single resource and you get the usage per user inside it.
+- And everyone on the project sees all of this, not only the PI.
+- We know these views were not good enough. This is the first part of fixing that.
 - Next: why regularly, and not just at the end.
 DOCS: docs.cscs.ch/accounts/
 -->
