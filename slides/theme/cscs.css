@@ -405,6 +405,18 @@ section > *:has(+ .accent) { margin-bottom: 18px; }
 .muted { color: var(--text-muted); }
 .push  { margin-top: auto; }
 
+/* A real portal capture. The height cap is the point: Marp clips overflow silently, and
+   a screenshot is the one element whose height is decided outside this file, so cap it
+   here rather than discover it on the projector. max-width and max-height together keep
+   the aspect ratio, because <img> is a replaced element. */
+.screenshot { text-align: center; }
+.screenshot img {
+  max-width: 100%;
+  max-height: 338px;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+}
+
 /* Screenshot placeholder — replaced by a real capture before the session. */
 .shot {
   border: 2px dashed var(--cscs-red);

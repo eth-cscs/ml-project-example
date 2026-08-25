@@ -122,7 +122,7 @@ Administrators and managers **invite people** and **assign roles**.
 - Your **email address** identifies you — one address, one account
 - **Institutional addresses only** — and always the same one
 - Open while **at least one** project is open
-- An end date stops the **compute**, not the project — **90 days** of grace follow
+- It closes with the **last** project you are on
 - A later invitation **re-enables** the same account
 
 </div>
@@ -135,8 +135,7 @@ Administrators and managers **invite people** and **assign roles**.
 - Your email address is your identity. One address, one account, and institutional addresses only.
 - Always use the same one. A different address gives you a second account, not access to your old one.
 - An account can belong to several projects, and stays open while one of them is open.
-- The end date stops your compute, not the project. It stays active ninety more days for your data.
-- Then it closes, and your account closes with the last of your projects.
+- It closes with the last project you are on. What happens at a project end date comes later, with the budget.
 - Good news: a later invitation switches the same account back on.
 - Next: that is an account with a person behind it. There is a second kind without one.
 DOCS: docs.cscs.ch/accounts/
@@ -411,52 +410,37 @@ Apertus tag swiss-ai/Apertus-70B-Instruct-2509 is still current if you quote it.
 
 # Check the consumption regularly
 
-The portal shows what the project was granted and what it has burned.
+Two new panels, live since **24 August 2026**: the month you are in, and the credit as a whole.
 
-<div class="cols-narrow">
-<div>
+<div class="screenshot">
 
-- **Everyone on the project** sees the project total — not just the PI
-- Per-user usage sits inside the detail of each resource
-- There is **no per-user total** across the project
+![Two portal panels. This month's credit consumption shows drawn so far, projected month-end, last month, and a pacing bar against the minimum draw. Overall credit shows what is allocated, used, lost and remaining, with the average daily draw.](../assets/screenshots/portal-consumption.png)
+
+</div>
 
 <div class="accent">
 
-<span class="tag">In progress</span>
-We are actively improving these views — compute, storage, and the new inference resources.
+Every member of the project sees this, not only the PI.
 
-</div>
-
-</div>
-<div class="shot">
-
-**SCREENSHOT**
-
-`portal.cscs.ch` — the project resources view. Granted vs used, the per-user breakdown,
-**and** expected, minimal, grace and the end date. Annotated with the same words as the
-next slide.
-
-</div>
 </div>
 
 <!--
-- First let me correct something people assume.
-- This view is not only for the PI. Every project member can see the total for the project.
-- Open one resource and you see the usage per user inside it.
-- What you cannot see is one total per user for the whole project. If you want that number you add it up yourself.
-- Now the red bar, and I mean it as a promise rather than an excuse.
-- We know these views are not good enough yet. We are working on them now.
-- That covers compute, storage, and the new inference resources.
-- If you have a request, raise it in the discussion at the end.
+- This changed two days ago, so even people who use the portal every week have not seen it.
+- Two new panels. The first one is the month you are in.
+- Drawn so far, what the month is projected to end at, and what last month actually drew.
+- Then the pacing bar. It tells you in one look whether you are ahead or behind for today.
+- The second panel is the whole credit. Allocated, used, lost, remaining, and your average daily draw.
+- Lost is the word to look at. That is credit that was never spent and is not coming back.
+- Everyone on the project sees these, not only the PI. Open one resource for the usage per user inside it.
+- We know the views were not good enough. This is the first part of fixing that.
 - Next: why regularly, and not just at the end.
-DOCS: docs.cscs.ch/accounts/ (portal section)
+DOCS: docs.cscs.ch/accounts/
 -->
 
 <!-- TODO(verify): the consumption view is not documented on
-docs.cscs.ch/accounts/waldur/. The visibility rules above come from Andrea as ML
-Platform service manager, not from the docs — see notes/sources.md. Confirm the exact
-tab name when capturing the screenshot, and consider getting this written into the
-docs page. -->
+docs.cscs.ch/accounts/waldur/ at all, and these two panels shipped on 24 August 2026, so
+nothing describes them yet. Both the panels and the visibility rule come from Andrea as
+ML Platform service manager. Get them into the docs page — see notes/docs-gaps.md. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/platforms/mlp/' -->

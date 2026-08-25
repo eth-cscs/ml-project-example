@@ -248,6 +248,28 @@ one sentence that explains the whole portal story if somebody asks in the discus
 Also useful as scale context: roughly 14k managed users, 3–4k active, ~4k projects,
 growth driven largely by AI workloads.
 
+## The consumption panels — `portal.cscs.ch`, 24 August 2026
+
+Two panels went live on 24 August 2026, two days before the session:
+
+- **This month's credit consumption** — drawn so far, projected month-end, last month
+  drew, each against expected; and a pacing bar carrying **minimum draw** and an ideal
+  for today.
+- **Overall credit** — remaining against allocated, average daily draw, and an allocation
+  bar split into **used**, **lost** and **remaining**.
+
+Source: `assets/screenshots/portal-consumption-full.png`, captured by Andrea on 25 August
+2026. Nothing about these panels is on docs.cscs.ch yet — see notes/docs-gaps.md.
+
+The third panel in that capture, **What happens next**, is not on a slide but is the only
+written evidence in this repo for what "Spend it linearly, or you lose it" claims. It
+states, in the portal's own words: credit expiry sets whatever is left to zero and
+forfeits it, and "the final month also waives the grace coefficient, so the minimum draw
+is the full expected consumption"; at the project end date "resources are paused for the
+grace period"; and when the grace period ends "every remaining resource is terminated. A
+project left with no active resources is deleted." In the captured project the end date
+and the end of grace are three months apart, consistent with the 90 days the slide says.
+
 ## Service accounts — the CUG 2026 IAM paper
 
 Andrea Ceriani, Francesco Pagnamenta, Davide Mazzoleni, Narendra Challa, Marco Consoli,

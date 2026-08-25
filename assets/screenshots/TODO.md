@@ -24,28 +24,32 @@ One thing a demo project **cannot** give you: a consumption history. See capture
 | # | Filename | Source | View to capture |
 |---|---|---|---|
 | 1 | `portal-team-tab.png` | demo project | The **Team** tab with the roles column visible and legible — one project administrator and one project member. Slide: "The portal is where the project lives". That slide now also names the **Resources** and **Usage** views, so if the left navigation is visible in the same capture, all the better. |
-| 2 | `portal-consumption.png` | **a real project** | The single most important capture. See below. |
+| 2 | ~~`portal-consumption.png`~~ | — | **Done.** Captured 25 August 2026, on the slide. See below for what changed. |
 | 3 | `portal-invite-dialog.png` | demo project | The **Invite Users** dialog with the role dropdown open, so the three role names are readable. Optional — use it if slide "Adding someone takes one email address" feels too abstract on the day. |
 | 4 | ~~`user-account-sign-key.png`~~ | — | **No longer needed.** Key signing came off the slides on 25 August; it is handout-only now. |
 
-### Capture 2 — one annotated image, six things on it
+### Capture 2 — done, and the portal changed under it
 
-Confirmed by Andrea: **granted vs used, the per-user breakdown, expected, minimal, grace
-and the project end date are all in the same view.** So this is one screenshot, not two,
-and the module needs no extra slide.
+Captured 25 August 2026 from a real project, the day after two new panels went live. No
+names or project ID are visible, so nothing needed blurring.
 
-Use **a real project partway through its period**, not the demo project: an empty chart
-argues the opposite of what the slide says. Blur names and the project ID.
+Two files are in `assets/screenshots/`:
 
-Annotate it with callouts. Use **exactly the words from the diagram** on the next slide —
-`expected`, `minimal`, `grace`, `project ends`. If the diagram says "minimal" and the
-portal label reads differently, the audience has to translate between the two and the
-pairing stops paying off. Where the wording genuinely differs, put both: `minimal (portal
-label)`.
+- `portal-consumption.png` — the crop on the slide: **This month's credit consumption**
+  and **Overall credit**.
+- `portal-consumption-full.png` — the same capture with the third panel, **What happens
+  next**, still on it. Not on any slide. It is kept because it is the only evidence we
+  have in the repo for the grace period, the credit expiry and the deletion rule, which
+  the next slide states as fact and the documentation does not cover.
 
-The slide is "Check the consumption regularly", and it sits directly
-before the slide that explains what those numbers mean. Order on purpose: where to look,
-then the rule.
+The old plan was an annotated capture sharing its vocabulary with the timeline diagram on
+"Spend it linearly, or you lose it". The new panels made that unnecessary: they already
+say **minimum draw**, **expected** and **allocated** on screen. The one word that still
+differs is the diagram's `minimal` against the portal's `minimum draw` — if you annotate
+anything, annotate that.
+
+If the capture needs retaking, use **a real project partway through its period**: an empty
+chart argues the opposite of what the slide says.
 
 ## On showing it live
 
