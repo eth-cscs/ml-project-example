@@ -184,20 +184,20 @@ Once approved, a **Service Account** entry appears under **Team** in the portal 
 
 <div class="accent">
 
-Not your own account in a script. It belongs to the project, so it outlives whoever set it up.
+Its own username, and an **API key** instead of a password. No MFA — it does not log in like a person.
 
 </div>
 
 <!--
 - One more kind of account, and it is the one people improvise badly.
-- Your own account is you. It is for interactive work, and it can sit in several projects.
 - A service account runs work on behalf of a person: a pipeline, a scheduled job, anything that runs when nobody is watching.
-- It belongs to one project only, and it is closed automatically when that project ends.
-- In practice the project team runs it together, and it is registered on a shared team address.
-- That matters more than it sounds. The notifications about it reach the team, not one inbox that nobody reads after that person leaves.
-- It is not enabled by default. The PI opens a Service Desk ticket and explains the use case: what for, how much, who is responsible, for how long.
-- After approval a Service Account entry appears under Team in the portal.
-- If you used a secondary account in the past, this is what replaces it. Those had no multi-factor and no clear owner.
+- It belongs to one project only, and it closes automatically when that project ends.
+- In practice the team runs it together, on a shared team address, so the notifications reach the team and not one inbox nobody reads after that person leaves.
+- It is not enabled by default. The PI opens a Service Desk ticket: what for, how much, who is responsible, for how long.
+- Then a Service Account entry appears under Team in the portal.
+- The red line is the part people picture wrongly. It has its own username and no password. It authenticates with an API key.
+- And it has no multi-factor, because it never logs in the way you do.
+- If you used a secondary account before, this is what replaces it.
 - Next: that Team tab is worth a look, so let us open the portal.
 DOCS: docs.cscs.ch/accounts/account-create/
 -->
@@ -207,11 +207,12 @@ CUG 2026, sections 4, 4.1 and 5.2 — on-behalf-of, single-project binding, inhe
 validity period, automatic deprovisioning and the accountability argument are all stated
 there. The paper's scope-restriction sentence is deliberately NOT on the slide: it describes
 the architecture, and whether a PI can request a narrower scope today is unsettled.
-TODO(verify): that the team runs the account and registers it on a shared team address
-comes from Andrea as ML Platform service manager — neither the paper nor the docs page
-says it. TODO(verify): "not enabled by default" is the one claim
-neither the paper nor docs.cscs.ch/accounts/account-create/ makes explicitly; the docs page
-documents the request and the template but never says the feature is off until asked for. -->
+Confirmed by Andrea as ML Platform service manager on 25 August 2026, and NOT in any
+document: that service accounts are off until requested; that the project team runs the
+account and registers it on a shared team address; and that it authenticates with an API
+key under its own username, with no MFA. These are facts, not guesses — but a reader of
+docs.cscs.ch cannot find any of them, which is a documentation gap rather than an open
+question. Listed in notes/docs-gaps.md. -->
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/accounts/' -->
 <div class="audience">PIs and deputies</div>
@@ -226,7 +227,7 @@ documents the request and the template but never says the feature is off until a
 - Log in with MFA, then pick your **organisation** and your **project**
 - **Project dashboard** — the credit, and what it has spent
 - **Resources** — what the project was granted, and where a PI adds **inference**
-- **Team** — who is on the project, with **Invitations** and **Service accounts** beside it
+- **Team** — who is on the project. **Invitations** beside it takes one address, or a **CSV** for a whole cohort
 - **Audit logs** — what changed, and who changed it
 
 </div>
@@ -239,16 +240,16 @@ documents the request and the template but never says the feature is off until a
 
 <!--
 - If you are a PI and you have never opened this, the next few minutes are the ones to stay awake for.
-- This is a tour, not a tutorial. One sentence per step.
 - Log in with the same account as every other CSCS web application, then pick your organisation and your project.
-- The header tells you the two dates that matter: when the project started and when it ends.
+- The header gives you the two dates that matter: when the project started and when it ends.
 - Then four tabs, and most PIs have seen none of them.
 - Project dashboard is the credit and what you have spent. There is a slide on that shortly.
-- Resources is what the project was actually granted. It is also where you add an inference resource.
+- Resources is what the project was granted, and where you add an inference resource.
 - Team is who is on the project. Look at the roles column.
-- Next to Active you have Invitations, where you add people, and Service accounts.
+- Inviting is one email address and a role, or a CSV when ten students arrive in September.
+- If they already have a CSCS account they accept and they are in. If they are new, the invitation sends them to account creation.
 - Audit logs is the record of what changed and who changed it.
-- Next: your team is listed, but the new student is not on it yet. Let us add them.
+- Next: the team is on the project. What does the project actually give them?
 DOCS: docs.cscs.ch/accounts/
 -->
 
@@ -257,68 +258,16 @@ deliberately blurred: those are real colleagues and this deck is published to a 
 GitHub Pages site. To use the unblurred capture, re-crop the original without the
 GaussianBlur paste — see the commit that added this file.
 
+TODO(verify): whether, and by whom, an existing member's role can be changed after the
+invitation is not documented anywhere — the portal docs cover only the invitation flow.
+Andrea's expectation is that a PI and a deputy PI can both do it from the Team tab. Click
+it, then either put one line on this slide or get it into the docs page.
+
 TODO(verify): the tab names are read straight off the capture, which is why the old
 "Invitations" and "Usage" bullets are gone — neither is a tab. What is NOT verified is
 what "Project dashboard" and "Audit logs" contain; the descriptions above are inferred
 from their names and from where the consumption panels most likely live. Click both and
 correct the two bullets. -->
-
----
-<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/accounts/' -->
-<div class="audience">PIs and deputies</div>
-
-# Adding someone takes one email address
-
-One email address, or a CSV for a whole cohort. Either way the invitation carries the role.
-
-<div class="cols">
-<div>
-
-### One person
-
-Green **Invite Users** button, enter the email address, assign the role.
-
-### A whole group
-
-Upload a CSV with three columns:
-
-```
-Email,Role,Project
-CragAlvarado@example.com,Project member,prj02
-```
-
-</div>
-<div class="card dark">
-
-### What they receive
-
-- An email invitation
-- **Already has a CSCS account** → accepts via the login page
-- **New to CSCS** → follows the account creation procedure
-
-</div>
-</div>
-
-<!--
-- Two ways to do this, and both are fast.
-- One person: the green Invite Users button, an email address, a role.
-- A group: upload a CSV file. Three columns, exactly this header.
-- That is what you want when ten students arrive in September.
-- On the right is what they receive.
-- If they already have a CSCS account, they log in and accept.
-- If they are new, the invitation sends them to account creation, which is coming up.
-- Someone will ask whether you can change a role afterwards.
-- If the network is behaving, open the Team tab and show them.
-- Do not promise anything you have not clicked yourself.
-- Next: the team is on the project. What does the project actually give them?
-DOCS: docs.cscs.ch/accounts/ (portal section)
--->
-
-<!-- TODO(verify): whether, and by whom, an existing member's role can be changed after
-the invitation is NOT documented — docs.cscs.ch/accounts/waldur/ covers only the
-invitation flow. Andrea's expectation is that a PI and a deputy PI can both do it from
-the Team tab. Click it in the portal, then either put one line on this slide or get it
-into the docs page. Until then the slide claims nothing either way. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/platforms/mlp/' -->

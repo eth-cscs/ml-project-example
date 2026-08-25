@@ -268,29 +268,25 @@ Re-point the DOCS line once the page is merged. -->
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/storage/transfer/' -->
 <div class="audience all">Everyone</div>
 
-# Moving data in: Globus from outside, `xfer` from inside
-
-Never move terabytes from a login node.
+# Globus from outside, `xfer` inside, S3 from either side
 
 <div class="cols">
 <div>
 
 ### From outside CSCS
 
-The recommended route is the **CSCS Globus Online endpoint**. Authenticate with your CSCS credentials.
+The recommended route is the **CSCS Globus Online endpoint**.
 
 ### Between CSCS filesystems
 
-Submit to the **`xfer`** Slurm partition. Do not do it interactively.
+Submit to the **`xfer`** Slurm partition, never interactively.
 
 ```bash
 #!/bin/bash -l
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=1
 #SBATCH --partition=xfer
-
-command="rsync -av"
-srun -n $SLURM_NTASKS $command $1 $2
+srun rsync -av $1 $2
 ```
 
 </div>
@@ -298,21 +294,27 @@ srun -n $SLURM_NTASKS $command $1 $2
 
 ### `rclone` beats `rsync` at scale
 
-For a directory with many files, or a few very large checkpoints, `rclone` copies in parallel.
+`rclone` copies in parallel — many small files, or a few large ones.
 
 **Many files**
-`rclone copy --transfers=16 --checkers=32 --progress`
+`rclone copy --transfers=16 --checkers=32`
 
 **Large files**
-`rclone copy --multi-thread-streams=4 --multi-thread-cutoff=256M --transfers=4 --progress`
+`rclone copy --multi-thread-streams=4 --multi-thread-cutoff=256M --transfers=4`
 
 **1 TB in about 5 minutes** — roughly 3 GB/s.
 
 </div>
 </div>
 
+<div class="accent">
+
+**S3** as well: the object store at `rgw.cscs.ch`, and `rclone` speaks it too.
+
+</div>
+
 <!--
-- Two directions, two tools.
+- Never move terabytes from a login node. Two directions, two tools, and a third route that works from both.
 - From outside CSCS, use Globus. It handles restarts, which matters when the transfer takes hours.
 - Between CSCS filesystems, use the xfer partition. It is a Slurm partition dedicated to this.
 - The point of xfer is that you are not doing it on a login node, where you would be hurting everybody else.
@@ -320,13 +322,26 @@ For a directory with many files, or a few very large checkpoints, `rclone` copie
 - Two flag sets, one for many small files, one for a few big ones.
 - Give them the concrete number: a one terabyte directory from store to scratch takes about five minutes. Roughly three gigabytes a second.
 - Start with those values and raise the parallelism gradually, watching the effect on the metadata servers.
-- If you need to chain transfers, xfer jobs take --dependency=afterok like any other Slurm job.
+- Last line: we also have object storage, and it speaks S3. The endpoint is rgw dot cscs dot ch.
+- Any S3 client works with it, and rclone is one, so the same tool moves data between a bucket and the filesystems.
 - Next: What about data that has to outlive the project?
-DOCS: docs.cscs.ch/storage/transfer/
+DOCS: docs.cscs.ch/storage/transfer/ · docs.cscs.ch/storage/object/
 -->
 
 <!-- TODO(verify): the transfer guidance and the rclone flags come from the preview
-cscs-docs-preview.svc.cscs.ch/442/storage/transfer/. Re-check once merged. -->
+cscs-docs-preview.svc.cscs.ch/442/storage/transfer/. Re-check once merged. The job script is the
+documented one with its `command=` indirection inlined into the `srun` — same job, three
+lines shorter. The flags are verbatim except `--progress`, dropped from both: it prints a live
+counter, which is worth nothing in a batch job whose output goes to a log file.
+
+The S3 line, added at Fawzi's request on 25 August 2026: docs.cscs.ch/storage/object/ does
+document the service — "CSCS offers a public cloud object storage service, based on the
+Ceph Object Gateway. The service can be accessed from S3-compatible clients", endpoint
+https://rgw.cscs.ch, path-style URLs. TODO(verify): two things it does NOT say. That you
+reach it with rclone from the xfer queue is Fawzi's, not the page's — docs.cscs.ch/storage/
+transfer/ covers only Globus and xfer between filesystems. And the object page opens with
+"This page is currently incomplete and it is being updated following recent developments",
+so re-read it before the session in case the endpoint or the access story has moved. -->
 
 ---
 <!-- _class: ref -->

@@ -33,7 +33,7 @@ second person.
 | # | Module | Budget | Slides | Drafted | Status |
 |---|---|---|---|---|---|
 | 0 | Welcome — Alps, the ML Platform, what this hour covers | ~5 min | `slides/00-intro.md` | 6 | scaffold |
-| 1 | Project lifecycle and access — request, portal, invites, what a project comes with, inference, budget, service accounts | ~10 min | `slides/01-project-access.md` | 11 | **on budget** |
+| 1 | Project lifecycle and access — request, user and service accounts, portal, what a project comes with, inference, budget | ~10 min | `slides/01-project-access.md` | 10 | **on budget** |
 | 2 | Data and storage — mount points, the three scratches, project store, `datacache`, moving data in | ~10 min | `slides/02-data-storage.md` | 7 | scaffold |
 | 3 | **A concrete ML use case** — one worked example, raw data to a trained model | ~30 min | `slides/03-ml-use-case.md` | 17 | restructured, two placeholders |
 | 4 | Wrap-up — support, User Day (28 Aug), what we did not cover | ~2 min | `slides/04-wrapup.md` | 4 | scaffold |
@@ -47,7 +47,15 @@ absorbs it.
 
 ### Slides dropped on 25 August 2026
 
-Four slides came out on the day, after review:
+Six slides came out on the day, after review:
+
+- **"Adding someone takes one email address"** (module 1). The Team-tab capture on the
+  portal slide shows Invitations sitting next to Active, so a whole slide on the invite
+  flow was saying twice what the screenshot says once. The two facts that were only on it
+  — the CSV bulk upload, and what an invitee receives depending on whether they already
+  have an account — moved to the portal slide's Team bullet and its notes. Worth watching
+  in rehearsal: the module divider still promises "adding your team", and that promise now
+  rests on one bullet.
 
 - **"Inodes run out before terabytes do"** (module 2). The quota numbers survive — the
   mount-point table already carries 50 GB and 500,000 inodes, and so does the module's

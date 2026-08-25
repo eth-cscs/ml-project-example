@@ -70,6 +70,27 @@ of the lifecycle. Both ends are missing.
       between a user believing their account was deleted and understanding that it is
       dormant, and it is worth one sentence.
 
+## Service accounts — everything the slide says, and none of it documented
+
+`docs.cscs.ch/accounts/account-create/` documents how to request a service account: the PI
+submits the request, it is scoped to a single project, and after approval a Service Account
+entry appears under the Team tab. Everything else on the module 1 slide was confirmed by
+Andrea on 25 August 2026 and appears in no CSCS document:
+
+- Service accounts are **not enabled by default** — the page describes the request but
+  never says the feature is off until you ask.
+- The account is **normally run by the project team**, and registered on a **shared team
+  address**, so notifications reach the team rather than one person's inbox.
+- It has a **username of its own** and authenticates with an **API key**, not a password.
+  It has **no MFA**, because it does not log in interactively.
+
+The last point is the one to write down first. Everywhere else we tell users that there is
+no access without MFA, so an identity that deliberately has none needs its own paragraph,
+or it reads as an inconsistency — or worse, as a loophole.
+
+The CUG 2026 IAM paper (doi 10.1145/3837730.3837747) covers the lifecycle semantics and is
+citable, but it is a conference paper, not user documentation.
+
 ## ML Platform policies — what the grace period actually suspends
 
 - [ ] The policies page says a project "remains accessible for a grace period of 90 days

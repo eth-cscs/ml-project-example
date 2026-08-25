@@ -314,10 +314,15 @@ Deliberately not used:
 
 From Andrea, not from the paper or the docs:
 
+Confirmed by Andrea on 25 August 2026, and in no CSCS document (see notes/docs-gaps.md):
+
 - A service account is normally **run by the project team**, and registered on a **shared
   team address** so the notifications about it reach the team rather than one person's
   inbox. This is why the slide's accent no longer says "not a shared login" — it is shared
   by design; what must not be shared is somebody's own account.
+- It has a **username of its own** and authenticates with an **API key**, not a password,
+  and it has **no MFA** because it never logs in interactively. Worth saying out loud: the
+  rest of the session tells people there is no access without MFA.
 
 Not used, but worth knowing:
 
