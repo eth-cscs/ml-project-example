@@ -484,7 +484,8 @@ Every project gets a credit in GPU hours, spent as your jobs run. Each month has
 
 <div class="accent">
 
-Burning the budget on schedule and getting **nothing** out of it is worse than under-consuming.
+Out of credit before the end? The `low` partition, capped at two months of your budget.
+All the rules: **docs.cscs.ch/platforms/mlp/**
 
 </div>
 
@@ -496,10 +497,10 @@ Burning the budget on schedule and getting **nothing** out of it is worse than u
 - Middle: you used less but stayed above the minimal, so the rest rolls over.
 - Right: you fell below it, and the red box is credit that does not come back.
 - Then the timeline. Six or twelve months, the end date stops your compute, and the project stays active ninety more days for data only.
-- Out of credit early? The low partition, about two months of your budget. All the rules are on the page in the footer.
-- Now the red line, and it is the one to keep if you forget the rest.
+- Out of credit early? The low partition, about two months of your budget.
+- Every number here is on that one page. Take a photo of it.
+- One last thing, and it is not on the slide. Burning the budget on schedule and getting nothing out of it is worse than under-consuming.
 - We would rather you used less and knew why, than hit every monthly target with jobs that taught you nothing.
-- So do not run jobs to make a number go up.
 - Next: that is the project, start to finish. Here is where to read the detail.
 DOCS: docs.cscs.ch/platforms/mlp/policies/
 -->
