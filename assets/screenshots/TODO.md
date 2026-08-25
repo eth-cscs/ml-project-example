@@ -26,7 +26,7 @@ One thing a demo project **cannot** give you: a consumption history. See capture
 | 1 | `portal-team-tab.png` | demo project | The **Team** tab with the roles column visible and legible — one project administrator and one project member. Slide: "The portal is where the project lives". That slide now also names the **Resources** and **Usage** views, so if the left navigation is visible in the same capture, all the better. |
 | 2 | `portal-consumption.png` | **a real project** | The single most important capture. See below. |
 | 3 | `portal-invite-dialog.png` | demo project | The **Invite Users** dialog with the role dropdown open, so the three role names are readable. Optional — use it if slide "Adding someone takes one email address" feels too abstract on the day. |
-| 4 | `user-account-sign-key.png` | own account | `user-account.cscs.ch` → SSH Keys → **Sign Key**, the paste-and-download step. Optional. |
+| 4 | ~~`user-account-sign-key.png`~~ | — | **No longer needed.** Key signing came off the slides on 25 August; it is handout-only now. |
 
 ### Capture 2 — one annotated image, six things on it
 
@@ -43,7 +43,7 @@ portal label reads differently, the audience has to translate between the two an
 pairing stops paying off. Where the wording genuinely differs, put both: `minimal (portal
 label)`.
 
-The slide is "Check the consumption monthly, not in the last week", and it sits directly
+The slide is "Check the consumption regularly", and it sits directly
 before the slide that explains what those numbers mean. Order on purpose: where to look,
 then the rule.
 
@@ -51,7 +51,7 @@ then the rule.
 
 The style guide says avoid live demos, and that still holds **for the 12-minute slot**:
 
-- MFA on stage costs 30 to 60 seconds of dead air, minimum, and that is when it works.
+- Logging in on stage costs 30 to 60 seconds of dead air, minimum, and that is when it works.
 - The invite flow sends a real email, so it needs a throwaway address prepared anyway.
 - The module is already at 12 minutes against a 12-minute budget. A live demo adds two
   to three minutes and there is nothing left to take them from.

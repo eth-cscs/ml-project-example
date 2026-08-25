@@ -12,7 +12,7 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 # Where to go from here
 
 <!--
-START AT T+62:00. Check the presenter timer now.
+START AT T+60:00. Check the presenter timer now.
 CUT IF LATE: Cut nothing. If you are late here, you are late into the discussion, and that is fine.
 
 - That is the hour. One project, from nothing to a trained model.

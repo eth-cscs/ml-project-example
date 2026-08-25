@@ -107,8 +107,8 @@ def main() -> int:
         "",
         "## If you are running late",
         "",
-        "Two speakers means one hand-over that matters. Andrea has modules 0 to 2 and "
-        "Fawzi has module 3, so the moment to protect is the start of module 3.",
+        "Two speakers means one hand-over that matters: modules 0 to 2, then module 3. "
+        "The moment to protect is the start of module 3.",
         "",
         "Inside your own block, a cut is free: if module 1 runs long, take it out of "
         "module 2 and nobody else is affected. Crossing the hand-over is different — "

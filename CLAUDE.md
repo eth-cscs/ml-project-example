@@ -150,15 +150,17 @@ Storyline: *a project is granted → the PI adds the team → a member logs in �
    single invite vs bulk CSV; assigning roles.
 4. **Resources in the portal**: what the project has been granted, and how to read
    consumption. Message for PIs: check this monthly, not in the last week.
-5. **First login for the new member**: create the account, set up **MFA**, generate a
-   local ED25519 key, get it **signed by CSCS** (`cscs-key` CLI, or the
-   `user-account.cscs.ch` dashboard), note that signed keys are **valid one day** and
-   there is a **limit of 5 keys per day**.
-6. **Connecting**: everything goes through the **`ela.cscs.ch` jump host**; show a working
-   `~/.ssh/config` block with `ProxyJump`, and `ssh -A`. Mention SSH tunnelling to a
-   service on a compute node via Ela as a one-liner (details → docs).
-7. **Hand-off slide**: "you now have an account, a project and a shell — the rest of the
-   hour is what you actually do with them."
+5. **Service accounts**: a user account is a person doing interactive work; a service
+   account runs a workload *on behalf of* a person, is bound to one project, follows its
+   lifecycle, and reaches every resource in it. Not enabled by default — the PI requests
+   one by Service Desk ticket, explaining the use case.
+6. **Hand-off slide**: "you are in — the rest of the hour is what you actually do."
+
+**Access is deliberately not on a slide.** Creating an account, MFA, signing a key and the
+`~/.ssh/config` block all live on the handout and nowhere else. Most of this audience
+already has an account, and the three slides this used to take bought very little. The
+one thing that must still be said out loud is that there is no SSH without MFA — it is
+our most common ticket — and that line is in the closing slide's notes.
 
 Deliberately **out of scope** for module 1 (say so on a slide, one line each):
 password/MFA troubleshooting, legacy key management, non-Swiss-AI account types,

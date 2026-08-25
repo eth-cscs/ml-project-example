@@ -7,7 +7,7 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 
 <!-- _class: divider -->
 
-<span class="tag">Module 1 · 14 min</span>
+<span class="tag">Module 1 · 12 min</span>
 
 # Project lifecycle and access
 
@@ -15,22 +15,22 @@ Getting a project, adding your team, watching the budget, and getting a shell.
 
 <div class="split">
 
-**First half — PIs and deputies.** Getting a project, the team, the budget.
-**Second half — everyone.** Account, MFA, keys, logging in.
+**Mostly for PIs and deputies** — getting a project, the team, the resources, the budget.
+**Everyone** — what an account is, and the two kinds there are.
 
 </div>
 
 <!--
 START AT T+05:00. Check the presenter timer now.
-CUT IF LATE: Cut "What this module deliberately skipped", and "What a Swiss AI project comes with" if you must — the inference slide carries the point.
+CUT IF LATE: Cut "What a Swiss AI project comes with" — the inference slide carries the point.
 
-- This module is fourteen minutes. It is the plumbing part.
+- This module is twelve minutes. It is the plumbing part.
 - The interesting part of the hour is modules 2 and 3.
-- The first half is for PIs and deputy PIs: getting a project, adding people, watching the budget.
-- The second half is for everybody who has to log in: account, MFA, keys, the jump host.
+- Most of it is for PIs and deputy PIs: getting a project, adding people, the resources, the budget.
+- Two slides are for everybody: what an account is, and the two kinds of account there are.
 - Each slide says in the top right corner which one it is.
-- So if the first half is not your job, you have a few minutes to read your email. I will not be offended.
-- Every command I show is on the handout, so do not type. Just watch.
+- So if the admin part is not your job, you have a few minutes to read your email. I will not be offended.
+- Accounts, MFA and SSH keys are not on any slide. They are all on the handout. Take one.
 - And please interrupt me. Ask when the question comes to you, not at the end.
 - Let us start at the beginning. How do you get a project at all?
 -->
@@ -357,7 +357,7 @@ Apertus tag swiss-ai/Apertus-70B-Instruct-2509 is still current if you quote it.
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/accounts/' -->
 <div class="audience all">Everyone</div>
 
-# Check the consumption monthly, not in the last week
+# Check the consumption regularly
 
 The portal shows what the project was granted and what it has burned.
 
@@ -396,7 +396,7 @@ next slide.
 - We know these views are not good enough yet. We are working on them now.
 - That covers compute, storage, and the new inference resources.
 - If you have a request, raise it in the discussion at the end.
-- Next: why every month, and not just at the end.
+- Next: why regularly, and not just at the end.
 DOCS: docs.cscs.ch/accounts/ (portal section)
 -->
 
@@ -507,203 +507,53 @@ makes, so it is worth getting written down — see notes/docs-gaps.md. -->
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/accounts/account-create/' -->
 <div class="audience all">Everyone</div>
 
-# No MFA means no SSH. There is no way around it
+# A service account runs the work you are not there for
 
-New accounts are usually opened within 48 hours — plan for it, do not do this the night before.
+Your own account is for the work you do yourself. Automation needs a different kind.
 
 <div class="cols">
 <div>
 
-### Creating the account
-
-- Scanned ID or passport
-- **Institutional** email address
-- Correct personal details
-- Usually open within **48 hours**
+- A **user account** is a person. Interactive work, and it belongs to you
+- A **service account** runs a workload **on behalf of** a person — pipelines, scheduled jobs, anything unattended
+- It is **bound to one project** and follows that project's lifecycle
+- Inside that project it reaches **all** the resources
 
 </div>
 <div class="card">
 
-### Enrolling MFA
+### How to get one
 
-Log in to any CSCS web application, enter the code sent by email, scan the QR code, type the six-digit code.
+Not enabled by default. The **PI** opens a Service Desk ticket explaining the use case: what it is for, expected usage, who is responsible, and for how long.
 
-Google Authenticator and FreeOTP are tested; any TOTP app works.
+Once approved, a **Service Account** entry appears under **Team** in the portal.
 
 </div>
 </div>
 
 <div class="accent">
 
-"It is not possible to log in to CSCS systems using SSH without registering a device and creating certified SSH keys."
+Not a shared login. It is an identity of its own, with its own lifetime and its own keys.
 
 </div>
 
 <!--
-- Now the part for everybody who has to log in.
-- To create an account you need three things: a scan of your ID or passport, an institutional email address, and correct personal details.
-- It usually takes up to forty-eight hours, so do not do this the night before a deadline.
-- Then MFA, and it is not optional.
-- Log in to any CSCS web page, type the code you get by email, scan the QR code, type the six digits.
-- Any TOTP app works. We have tested Google Authenticator and FreeOTP.
-- Let me read the red bar, because it is the exact sentence from the documentation.
-- This prevents our most common ticket: someone tries SSH, gets permission denied, and never set up MFA.
-- Next: you have an account. Now you need a key.
-DOCS: docs.cscs.ch/accounts/account-create/ · docs.cscs.ch/access/mfa/
--->
-
----
-<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/access/ssh/' -->
-<div class="audience all">Everyone</div>
-
-# Signed keys expire after one day
-
-Generate the key pair once. Sign it every day. Five signatures per day, maximum.
-
-```bash
-brew install eth-cscs/tap/cscs-key       # macOS, Linux — or download the release binary
-ssh-keygen -t ed25519 -f ~/.ssh/cscs-key # once, ever
-cscs-key sign                            # every day: signs ~/.ssh/cscs-key
-ssh-add -t 1d ~/.ssh/cscs-key            # load it into the agent
-```
-
-<div class="cols">
-<div>
-
-- Keys are valid for **1 day** by default
-- You can create up to **5 keys per day**
-- `cscs-key list` and `cscs-key revoke` if something leaks
-
-</div>
-<div class="card">
-
-### No CLI? Use the dashboard
-
-`user-account.cscs.ch` → SSH Keys → Sign Key. Paste the public key, download the certificate.
-
-</div>
-</div>
-
-<!--
-- People photograph this slide, so I will pause here.
-- Install cscs-key. One time.
-- Create the key pair. One time, ever.
-- Sign it. That is the daily step.
-- Load it into the agent.
-- A signed key lasts one day, and you can sign five a day. That is enough for normal work.
-- If a key leaks, use cscs-key list and cscs-key revoke.
-- If you cannot install the CLI on your machine, use the web page. Same result.
-- All of this is on the handout, so nobody needs to type now.
-- Next: you have a signed key. Where do you send it?
-DOCS: docs.cscs.ch/access/ssh/
--->
-
----
-<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/access/ssh/' -->
-<div class="audience all">Everyone</div>
-
-# Everything goes through ela.cscs.ch
-
-Ela is the jump host. You never connect to Clariden or Bristen directly.
-
-<div class="cols">
-<div>
-
-```
-Host ela
-    HostName ela.cscs.ch
-    User cscsusername
-    IdentityFile ~/.ssh/cscs-key
-
-Host clariden
-    HostName clariden.alps.cscs.ch
-    User cscsusername
-    ProxyJump ela
-    IdentityFile ~/.ssh/cscs-key
-    IdentitiesOnly yes
-```
-
-</div>
-<div class="stack">
-<div class="card">
-
-### Then it is just
-
-`ssh clariden` — add `-A` to forward your agent.
-
-</div>
-<div class="card">
-
-### Bristen needs its own block
-
-Copy the `clariden` block, change the alias and `HostName`. Ela is shared.
-
-</div>
-<div class="card code-sm">
-
-### Tunnel to a compute node
-
-```bash
-ssh -N \
-  -J ${MYUSER}@ela.cscs.ch,${MYUSER}@${CLUSTER}.alps.cscs.ch \
-  -L ${PORT}:localhost:${PORT} ${MYUSER}@${NODE}
-```
-
-</div>
-</div>
-</div>
-
-<!--
-- Write this into your SSH config once and you never think about the jump host again.
-- Two entries: Ela, and the cluster behind it with ProxyJump.
-- Replace cscsusername with your real username.
-- After that you just type: ssh clariden.
-- Be careful with the middle box, because people get this wrong.
-- Bristen is not a hostname you swap in. It is a second Host block of its own, and the Ela entry stays shared.
-- Clariden is where production runs go. Bristen is for test and development, best effort.
-- The last box is the question we get at every drop-in: how do I reach a dashboard or a notebook running on a compute node?
-- That is the tunnel. It is on the handout and in the documentation, so I will not explain it here.
+- One more kind of account, and it is the one people improvise badly.
+- Your own account is you. Interactive work, tied to a person.
+- A service account runs work on behalf of a person: a pipeline, a scheduled job, anything that runs when nobody is watching.
+- It is bound to one project and it lives and dies with that project.
+- Inside the project it reaches everything the project has.
+- It is not enabled by default. The PI opens a Service Desk ticket and explains the use case — what for, how much, who is responsible, for how long.
+- After approval a Service Account entry appears under Team in the portal.
+- Say the last line clearly: this is not a shared login, and it is not your password in a script.
+- It is an identity of its own, and that is the point.
 - Next: two things I am deliberately not covering.
-DOCS: docs.cscs.ch/access/ssh/ · /clusters/clariden/ · /clusters/bristen/
+DOCS: docs.cscs.ch/accounts/account-create/
 -->
 
----
-# What this module deliberately skipped
-
-<div class="cols">
-<div>
-
-- **Password and MFA troubleshooting** — service desk, they are fast
-- **Legacy key management** — `sshservice.cscs.ch` was retired in May 2026
-
-</div>
-<div>
-
-- **Service accounts** — for pipelines. Scoped to one project, grant access to all its resources. The **PI** requests one by Service Desk ticket
-- **The HPC Console** — a pointer only, see module 4
-- **Everything you do once you are in** — modules 2 and 3
-
-</div>
-</div>
-
-<div class="accent">
-
-You now have an account, a project and a shell. The rest of the hour is what you do with them.
-
-</div>
-
-<!--
-- One line each, ten seconds in total.
-- Password and MFA problems: write to the service desk. They are fast.
-- The old SSH service was switched off in May 2026. Some of you still have it in your notes.
-- Service accounts exist. They are for pipelines, and one belongs to one project.
-- The PI asks for one with a Service Desk ticket. It is not a self-service button.
-- The HPC Console: only a pointer here. Module 3 shows it properly.
-- If someone asks about Kubernetes: it exists at CSCS, but the documentation says it is only for specific partners and is not available for normal users on Alps. Do not promise it.
-- Let me read the red bar: you now have an account, a project and a shell.
-- Next: you have a shell and an empty home directory, and the first question is where two terabytes of training data go.
--->
-
+<!-- TODO(verify): "not enabled by default" and the on-behalf-of framing come from
+Andrea. docs.cscs.ch/accounts/account-create/ documents the request, the template and
+what appears after approval, but never says the feature is off until asked for. -->
 ---
 <!-- _class: ref -->
 
@@ -717,12 +567,12 @@ You now have an account, a project and a shell. The rest of the hour is what you
 - **MLP project policies** — docs.cscs.ch/platforms/mlp/policies/
 - **Applying** — swiss-ai.org/compute-grants
 - **Accounts, projects and the portal** — docs.cscs.ch/accounts/
+- **Service accounts** — docs.cscs.ch/accounts/account-create/
 
-### Getting in
+### Getting in — all of it on the handout
 
-- **Creating an account** — docs.cscs.ch/accounts/account-create/
 - **MFA** — docs.cscs.ch/access/mfa/
-- **SSH, key signing, Ela** — docs.cscs.ch/access/ssh/
+- **SSH and key signing** — docs.cscs.ch/access/ssh/
 
 </div>
 <div class="card dark">
@@ -730,24 +580,26 @@ You now have an account, a project and a shell. The rest of the hour is what you
 ### Keep these three
 
 - `portal.cscs.ch` — the project
-- `user-account.cscs.ch` — the account and the keys
+- `user-account.cscs.ch` — your account and your keys
 - `docs.cscs.ch` — everything else
+
+### The handout
+
+Accounts, MFA, signing a key, the SSH config. We are not spending stage time on it — it is all on one page.
 
 ### Stuck?
 
-- **service-desk@cscs.ch**
-- The handout has every command from this module
+**service-desk@cscs.ch**
 
 </div>
 </div>
 
 <!--
 - I will not read this slide out.
-- Three addresses to remember.
-- portal.cscs.ch for your project.
-- user-account.cscs.ch for your account and your keys.
-- docs.cscs.ch for everything else.
+- Three addresses to remember. portal.cscs.ch for your project, user-account.cscs.ch for your account and your keys, docs.cscs.ch for everything else.
 - And the service desk when none of those help.
-- Everything here is on the handout too.
-- Handing over now.
+- One thing I have not said on a slide, and it is our most common ticket.
+- You cannot use SSH until you have registered a device for MFA. No MFA, no SSH.
+- That, the key signing and the SSH config are all on the handout, on one page. Take one.
+- Next: you are in, and the first question is where two terabytes of training data go.
 -->

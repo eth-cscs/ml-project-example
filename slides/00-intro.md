@@ -177,7 +177,7 @@ One project, from "we need compute" to a model that is trained and being used.
 
 | # | Module | Time |
 |---|---|---|
-| **1** | Project and access | 14 min |
+| **1** | Project and access | 12 min |
 | **2** | Data and storage | 13 min |
 | **3** | A concrete ML use case | 30 min |
 | **4** | Wrap-up | 3 min |

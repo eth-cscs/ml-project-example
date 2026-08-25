@@ -11,13 +11,13 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 
 # Data and storage
 
-You have a shell and an empty home directory. Where do two terabytes of training data go?
+You are in, with an empty home directory. Where do two terabytes of training data go?
 
 <!--
-START AT T+19:00. Check the presenter timer now.
+START AT T+17:00. Check the presenter timer now.
 CUT IF LATE: Cut "Inodes run out before terabytes do". Say it in one line over the mount-point table.
 
-- You are in, with a shell on Clariden and an empty home directory.
+- You are in — the handout got you there — with an empty home directory on Clariden.
 - His first real question is where to put his data.
 - Getting this wrong is the most expensive mistake on this platform.
 - Wrong filesystem means slow training. Or deleted data.

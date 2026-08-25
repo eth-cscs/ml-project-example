@@ -14,7 +14,7 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 Raw data in, a trained model out. Every step is something you will actually type.
 
 <!--
-START AT T+32:00. Check the presenter timer now.
+START AT T+30:00. Check the presenter timer now.
 CUT IF LATE: Cut "Four ways to make this slow" and "The data is already here". Both are one spoken line.
 
 - The rest of the hour is one worked example, not four topics.
@@ -698,7 +698,7 @@ DOCS: docs.cscs.ch/running/slurm/
 
 ### For the PIs
 
-This is the other half of "check the consumption monthly".
+This is the other half of "check the consumption regularly".
 
 Burning the budget on schedule and getting nothing out of it is **worse** than under-consuming.
 

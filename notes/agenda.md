@@ -33,16 +33,26 @@ second person.
 | # | Module | Budget | Slides | Drafted | Status |
 |---|---|---|---|---|---|
 | 0 | Welcome — Alps, the ML Platform, what this hour covers | 5 min | `slides/00-intro.md` | 6 | scaffold |
-| 1 | **Project lifecycle and access** — request, portal, invites, what a project comes with, inference, budget, first login | **14 min** | `slides/01-project-access.md` | 14 | **on budget** |
+| 1 | Project lifecycle and access — request, portal, invites, what a project comes with, inference, budget, service accounts | 12 min | `slides/01-project-access.md` | 11 | **on budget** |
 | 2 | Data and storage — mount points, the three scratches, project store, `datacache`, inodes, moving data in | 13 min | `slides/02-data-storage.md` | 8 | scaffold |
-| 3 | **A concrete ML use case** — one worked example, raw data to a trained model | **30 min** | `slides/03-ml-use-case.md` | 19 | restructured, two placeholders |
+| 3 | **A concrete ML use case** — one worked example, raw data to a trained model | 30 min | `slides/03-ml-use-case.md` | 20 | restructured, two placeholders |
 | 4 | Wrap-up — support, User Day (28 Aug), what we did not cover | 3 min | `slides/04-wrapup.md` | 4 | scaffold |
-| — | Open discussion | 25 min | — | — | — |
-| — | Backup, shown on request only | — | `slides/05-backup.md` | 7 | HPC Console block done |
+| — | Open discussion | 27 min | — | — | — |
+| — | Backup, shown on request only | — | `slides/05-backup.md` | 7 | HPC Console deep dive |
 
-**65 minutes budgeted, 25 left for discussion.** Storage stays a module of its own before
-the worked example; inside the example, importing data is a fifteen-second recap that
-points back at it rather than repeating it.
+**63 minutes budgeted, 27 left for discussion.**
+
+### Access is on the handout, not on a slide
+
+On 25 August the three access slides — MFA, key signing and the Ela jump host — came out
+of module 1, and a service-accounts slide went in. The reasoning: this audience mostly has
+accounts already, the brief says onboarding must be skippable, and three slides bought
+very little that the handout does not carry better.
+
+The consequence is that the handout is now load-bearing. It is the only place the session
+covers getting in, so it has to be printed and it has to be handed out. The one thing that
+still gets said out loud is that there is no SSH without MFA, which is the most common
+ticket; that line is in the closing slide's notes.
 
 ### Module 3's subsections
 
