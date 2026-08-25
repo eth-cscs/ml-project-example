@@ -138,7 +138,7 @@ Administrators and managers **invite people** and **assign roles**.
 - The end date stops your compute, not the project. It stays active ninety more days for your data.
 - Then it closes, and your account closes with the last of your projects.
 - Good news: a later invitation switches the same account back on.
-- Next: let us open the portal.
+- Next: that is an account with a person behind it. There is a second kind without one.
 DOCS: docs.cscs.ch/accounts/
 -->
 
@@ -149,6 +149,59 @@ address is the unique identity, and that a later invitation re-enables the same 
 rather than creating a new one. Both come from Andrea as ML Platform service manager.
 Confirm, then get them written into the docs page. -->
 
+---
+<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/accounts/account-create/' -->
+<div class="audience all">Everyone</div>
+
+# A service account runs the work you are not there for
+
+Your own account is for the work you do yourself. Automation needs a different kind.
+
+<div class="cols">
+<div>
+
+- A **user account** is a person — interactive work, and it can sit in several projects
+- A **service account** runs a workload **on behalf of** a person — pipelines, scheduled jobs, anything unattended
+- It is **bound to one project** and inherits its validity period — project ends, account closed
+- It can be **scoped down**: fewer entitlements than the person who asked for it
+
+</div>
+<div class="card">
+
+### How to get one
+
+Not enabled by default. The **PI** opens a Service Desk ticket explaining the use case: what it is for, expected usage, who is responsible, and for how long.
+
+Once approved, a **Service Account** entry appears under **Team** in the portal — the tab we open next.
+
+</div>
+</div>
+
+<div class="accent">
+
+Not a shared login, and not your password in a script. It is an identity of its own, so the audit trail still says who did what.
+
+</div>
+
+<!--
+- One more kind of account, and it is the one people improvise badly.
+- Your own account is you. It is for interactive work, and it can sit in several projects.
+- A service account runs work on behalf of a person: a pipeline, a scheduled job, anything that runs when nobody is watching.
+- It belongs to one project only, and it is closed automatically when that project ends.
+- It can also be given less than you have. Fewer filesystem entitlements, a smaller role. A leaked credential then costs less.
+- It is not enabled by default. The PI opens a Service Desk ticket and explains the use case: what for, how much, who is responsible, for how long.
+- After approval a Service Account entry appears under Team in the portal.
+- If you used a secondary account in the past, this is what replaces it. Those had no multi-factor and no clear owner.
+- Next: that Team tab is worth a look, so let us open the portal.
+DOCS: docs.cscs.ch/accounts/account-create/
+-->
+
+<!-- Sourced from Ceriani et al., "Transitioning User and Identity Management for Alps",
+CUG 2026, sections 4, 4.1 and 5.2 — on-behalf-of, single-project binding, inherited
+validity period, automatic deprovisioning, optional scope reduction, and the accountability
+argument are all stated there. TODO(verify): "not enabled by default" is the one claim
+neither the paper nor docs.cscs.ch/accounts/account-create/ makes explicitly; the docs page
+documents the request and the template but never says the feature is off until asked for. -->
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/accounts/' -->
 <div class="audience">PIs and deputies</div>
@@ -286,7 +339,6 @@ The next slide is the one nobody expects: you can use a model without running a 
 </div>
 
 <!--
-SAY:
 - A quick inventory, because most people do not know what they already have.
 - By default your project gets compute on both clusters, Clariden and Bristen.
 - And it gets project storage, the store area, which the whole project shares.
@@ -485,7 +537,7 @@ All the rules: **docs.cscs.ch/platforms/mlp/**
 - The project stays active ninety more days, for data only. Then it closes.
 - Out of credit early? The low partition, about two months of your budget.
 - Every number here is on that one page. Take a photo of it.
-- Next: that is the project. The rest is getting in.
+- Next: that is the project, start to finish. Here is where to read the detail.
 DOCS: docs.cscs.ch/platforms/mlp/policies/
 -->
 
@@ -503,59 +555,6 @@ of 90 days for data retrieval". That the end date stops COMPUTE while the projec
 stays active comes from Andrea, not from the page. It is the distinction the timeline now
 makes, so it is worth getting written down — see notes/docs-gaps.md. -->
 
----
-<!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/accounts/account-create/' -->
-<div class="audience all">Everyone</div>
-
-# A service account runs the work you are not there for
-
-Your own account is for the work you do yourself. Automation needs a different kind.
-
-<div class="cols">
-<div>
-
-- A **user account** is a person — interactive work, and it can sit in several projects
-- A **service account** runs a workload **on behalf of** a person — pipelines, scheduled jobs, anything unattended
-- It is **bound to one project** and inherits its validity period — project ends, account closed
-- It can be **scoped down**: fewer entitlements than the person who asked for it
-
-</div>
-<div class="card">
-
-### How to get one
-
-Not enabled by default. The **PI** opens a Service Desk ticket explaining the use case: what it is for, expected usage, who is responsible, and for how long.
-
-Once approved, a **Service Account** entry appears under **Team** in the portal.
-
-</div>
-</div>
-
-<div class="accent">
-
-Not a shared login, and not your password in a script. It is an identity of its own, so the audit trail still says who did what.
-
-</div>
-
-<!--
-- One more kind of account, and it is the one people improvise badly.
-- Your own account is you. It is for interactive work, and it can sit in several projects.
-- A service account runs work on behalf of a person: a pipeline, a scheduled job, anything that runs when nobody is watching.
-- It belongs to one project only, and it is closed automatically when that project ends.
-- It can also be given less than you have. Fewer filesystem entitlements, a smaller role. A leaked credential then costs less.
-- It is not enabled by default. The PI opens a Service Desk ticket and explains the use case: what for, how much, who is responsible, for how long.
-- After approval a Service Account entry appears under Team in the portal.
-- If you used a secondary account in the past, this is what replaces it. Those had no multi-factor and no clear owner.
-- Next: where to read more.
-DOCS: docs.cscs.ch/accounts/account-create/
--->
-
-<!-- Sourced from Ceriani et al., "Transitioning User and Identity Management for Alps",
-CUG 2026, sections 4, 4.1 and 5.2 — on-behalf-of, single-project binding, inherited
-validity period, automatic deprovisioning, optional scope reduction, and the accountability
-argument are all stated there. TODO(verify): "not enabled by default" is the one claim
-neither the paper nor docs.cscs.ch/accounts/account-create/ makes explicitly; the docs page
-documents the request and the template but never says the feature is off until asked for. -->
 ---
 <!-- _class: ref -->
 
