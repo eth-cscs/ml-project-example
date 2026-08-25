@@ -97,7 +97,7 @@ TODO(verify): two things the preview does not settle.
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/guides/storage/' -->
 <div class="audience all">Everyone</div>
 
-# NVMe for reading data, HDD for writing checkpoints
+# NVMe for training data, HDD for writing checkpoints
 
 The three scratch filesystems are built from different hardware. Match the workload.
 
@@ -105,8 +105,6 @@ The three scratch filesystems are built from different hardware. Match the workl
 <div class="card">
 
 ### `iopsstor` — NVMe
-
-Use it for:
 
 - Training and validation datasets read **frequently and non-sequentially**
 - **Many small, random** I/O operations
@@ -118,8 +116,6 @@ Cleaned after **14 days**.
 
 ### `capstor` — HDD
 
-Use it for:
-
 - **Model checkpoints**
 - Outputs involving **large, contiguous** I/O
 
@@ -130,12 +126,10 @@ Cleaned after **30 days**.
 
 ### `ritom` — VAST over NFS
 
-Use it for:
-
 - Many ranks writing **one shared file** — collective MPI-IO, parallel HDF5
-- Checkpoints from many ranks into **few files**
+- Checkpoints from many ranks into **few files** — little benefit for file-per-rank
 
-Little benefit for file-per-rank I/O.
+Cleaned after **30 days**.
 
 </div>
 </div>
@@ -153,11 +147,16 @@ Nothing on scratch survives. Shared project data goes on the **store** or on **`
 - Get those two backwards and your training is slower for no reason at all.
 - Ritom is VAST. It is the one for parallel writes into a shared file: collective MPI-IO, parallel HDF5, checkpoints from many ranks into few files.
 - Little benefit for file-per-rank. If you use it, read the tuning settings in the storage guide first.
-- Its cleanup is thirty days too, though that is not documented yet.
+- Its cleanup is thirty days, the same as capstor. That is not on the documentation page yet.
 - And when a job ends, move what you care about to project storage.
 - Next: how much have you actually used?
 DOCS: docs.cscs.ch/guides/storage/ · docs.cscs.ch/platforms/mlp/ (Scratch Usage Recommendations)
 -->
+
+<!-- TODO(verify): ritom's "Cleaned after 30 days" is Andrea's, not the documentation's —
+the storage preview still says the policy "is being finalised". It is on the slide because
+the other two cards state theirs, and a silent third card claims something worse than a
+wrong number: that ritom is never cleaned. Confirm and get it written into the page. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/storage/filesystems/' -->

@@ -22,8 +22,11 @@ What is only here, and not yet on `docs.cscs.ch`:
   **Goes live on 26 August 2026, after the maintenance** — the day of the session. That
   timing is Andrea's, not the page's.
 - **Ritom scratch** — "On Clariden, a further scratch path is available on Ritom (a VAST
-  file system) at `/ritom/scratch/cscs/$USER`." Its cleanup policy "is being finalised",
-  which is why module 2 says so on the slide rather than inventing a number.
+  file system) at `/ritom/scratch/cscs/$USER`." The page says its cleanup policy "is being
+  finalised". Andrea says it is **30 days**, the same as capstor, and the slide now states
+  that: with the other two cards naming their cleanup, a card that stayed silent read as
+  though ritom had none, which is the one wrong conclusion to leave an audience with. The
+  number is his, not the page's — carry it into the docs when the preview merges.
 - The scratch usage recommendations, and the instruction to move results to the project
   store after a job "for example with `rclone` on the `xfer` queue".
 
