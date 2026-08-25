@@ -19,7 +19,7 @@ CUT IF LATE: Cut the Alps/vClusters slide. Say it in one sentence over the two-c
 
 - Welcome. This is the Alps technical training.
 - One hour of presentation, then thirty minutes of open discussion.
-- We are five people from CSCS. Each of us takes one part.
+- Two of us from CSCS. I take the first half, Fawzi takes the worked example.
 - We are not going to teach you everything. There is not time.
 - We are going to build you a map, so you know where to look next.
 - Next: First, what is the machine you are all using?

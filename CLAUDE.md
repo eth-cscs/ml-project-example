@@ -15,7 +15,9 @@ Material for the **Alps technical training** session that CSCS delivers at the
 
 - Slot: **90 minutes**, scheduled around 13:30 (may shift slightly).
 - Structure: **~60 min presentation + ~30 min open discussion / Q&A**.
-- The session is delivered by several CSCS people; each owns one module (see §5).
+- The session is delivered by **two** people: **Andrea** takes modules 0 to 2, **Fawzi**
+  takes module 3, and they close together. There is therefore exactly **one hand-over**
+  in the hour, at T+32 — treat it as the moment to protect (see §5).
 - It sits two days before the **CSCS User Day (Friday 28 August 2026)** — deliberately
   reuse and cross-reference User Day material instead of duplicating it, and end by
   pointing the audience there.

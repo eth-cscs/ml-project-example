@@ -22,8 +22,8 @@ One Swiss AI project, from "we need compute" to a model that is trained and bein
 The invented personas that used to carry this — a PI and a PhD student — were dropped on
 24 August. They did two jobs and neither is theirs any more: the audience marker in the
 corner of every slide says who a slide is for, and module 3 is a real worked example,
-which is a far stronger thread than two people who do not exist. With several presenters,
-characters also have to be maintained by everyone or they read as inconsistent.
+which is a far stronger thread than two people who do not exist. Characters also have to
+be maintained by both speakers or they read as inconsistent.
 
 Every module should still be able to say where we are in the story. Just say it in the
 second person.
@@ -32,11 +32,11 @@ second person.
 
 | # | Module | Budget | Owner | Slides | Drafted | Status |
 |---|---|---|---|---|---|---|
-| 0 | Welcome — Alps, the ML Platform, what this hour covers | 5 min | TBD | `slides/00-intro.md` | 6 | scaffold |
+| 0 | Welcome — Alps, the ML Platform, what this hour covers | 5 min | **Andrea** | `slides/00-intro.md` | 6 | scaffold |
 | 1 | **Project lifecycle and access** — request, portal, invites, what a project comes with, inference, budget, first login | **14 min** | **Andrea** | `slides/01-project-access.md` | 14 | **on budget** |
-| 2 | Data and storage — mount points, the three scratches, project store, `datacache`, inodes, moving data in | 13 min | TBD | `slides/02-data-storage.md` | 8 | scaffold |
-| 3 | **A concrete ML use case** — one worked example, raw data to a trained model | **30 min** | Fawzi + owners per subsection | `slides/03-ml-use-case.md` | 19 | restructured, two placeholders |
-| 4 | Wrap-up — support, User Day (28 Aug), what we did not cover | 3 min | TBD | `slides/04-wrapup.md` | 4 | scaffold |
+| 2 | Data and storage — mount points, the three scratches, project store, `datacache`, inodes, moving data in | 13 min | **Andrea** | `slides/02-data-storage.md` | 8 | scaffold |
+| 3 | **A concrete ML use case** — one worked example, raw data to a trained model | **30 min** | **Fawzi** | `slides/03-ml-use-case.md` | 19 | restructured, two placeholders |
+| 4 | Wrap-up — support, User Day (28 Aug), what we did not cover | 3 min | **both** | `slides/04-wrapup.md` | 4 | scaffold |
 | — | Open discussion | 25 min | all | — | — | — |
 | — | Backup, shown on request only | — | — | `slides/05-backup.md` | 7 | HPC Console block done |
 
@@ -125,6 +125,25 @@ noticing, because nothing failed and the page count never changed.
 
 `make check` cannot catch it. After editing `handout/quickstart.md`, look at the bottom
 of `build/quickstart.pdf` and confirm the last section is whole.
+
+## Who speaks when
+
+Two speakers, not five.
+
+| | Modules | Runs | Minutes |
+|---|---|---|---|
+| **Andrea** | 0, 1, 2 — intro, access, storage | T+00 → T+32 | 32 |
+| **Fawzi** | 3 — the worked example | T+32 → T+62 | 30 |
+| both | 4 — wrap-up, then the discussion | T+62 → | 3 + discussion |
+
+So there is exactly **one hand-over**, at T+32, and it is the only timing commitment
+either of you makes to the other. Inside your own block the pre-agreed cuts are yours to
+spend as you like: if module 1 runs long, take it out of module 2. Running past T+32
+takes the time from Fawzi instead, and he cannot get it back.
+
+Thirty-two consecutive minutes is a long stretch for one voice. The audience marker and
+the invitation to interrupt both help; so does the fact that module 2 opens with a
+different kind of slide.
 
 ## Before the session: two documentation merges
 

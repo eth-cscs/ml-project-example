@@ -2,7 +2,7 @@
 """Generate the run sheet: when each module should start, and what to cut if late.
 
 Marp's presenter view already shows elapsed time. What it cannot know is whether that
-elapsed time is good or bad. With several presenters sharing a 90-minute slot, the useful
+elapsed time is good or bad. With two presenters sharing a 90-minute slot, the useful
 number is not "23 minutes have passed" but "you should have handed over at 22". The
 presentation aims for about 60 and whatever is left of the 90 becomes the discussion, so
 overrunning a little costs discussion time rather than breaking anything.
@@ -107,10 +107,16 @@ def main() -> int:
         "",
         "## If you are running late",
         "",
-        "Check the timer at your own hand-off, not at the end. A module that overruns "
-        "steals from the next presenter, who has no way to get it back. Each module has "
-        "one pre-agreed cut, so the decision is made now, cold, and not on stage with "
-        "forty people waiting:",
+        "Two speakers means one hand-over that matters. Andrea has modules 0 to 2 and "
+        "Fawzi has module 3, so the moment to protect is the start of module 3.",
+        "",
+        "Inside your own block, a cut is free: if module 1 runs long, take it out of "
+        "module 2 and nobody else is affected. Crossing the hand-over is different — "
+        "that time comes out of the other speaker, who cannot get it back. Check the "
+        "clock at the hand-over, not at the end.",
+        "",
+        "Each module has one pre-agreed cut, decided now and cold rather than on stage "
+        "with forty people waiting:",
         "",
     ]
     for m, _, _ in rows:
