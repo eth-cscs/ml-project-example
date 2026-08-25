@@ -324,7 +324,7 @@ curl -X POST https://api.inference.cscs.ch/v1/chat/completions \
 
 > "The credit for the inference resource is taken from your project's credit."
 
-**There is no project-level cap.** A PI who wants a ceiling on inference has to ask for one by Service Desk ticket.
+**There is no project-level cap.** To get one, the PI opens a Service Desk ticket.
 
 </div>
 </div>
