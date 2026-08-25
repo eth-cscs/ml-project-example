@@ -6,6 +6,21 @@ file under `assets/screenshots/` with the filename given, then replace the
 
 Capture at 2x on a 16:9 window so the image still reads on a projector.
 
+## Both module 1 captures are done
+
+Neither used a purpose-built demo project, so read the note under each one before
+recapturing. The advice below still stands for modules 2 to 4.
+
+### Real people are in the Team capture
+
+`portal-team-tab.png` comes from the test project `grtest3`, whose members are real CSCS
+colleagues with real addresses. **The email column is blurred**, because this deck is
+published to a public GitHub Pages site and their addresses would be scrapeable from it.
+Names, usernames and roles are left readable — the slide is about the roles column.
+
+If you recapture, either blur the same column or build the demo project below, which
+avoids the question entirely.
+
 ## Set up a demo project first
 
 Everything below is easier, and better, if there is a **dedicated demo project** in the
@@ -23,7 +38,7 @@ One thing a demo project **cannot** give you: a consumption history. See capture
 
 | # | Filename | Source | View to capture |
 |---|---|---|---|
-| 1 | `portal-team-tab.png` | demo project | The **Team** tab with the roles column visible and legible — one project administrator and one project member. Slide: "The portal is where the project lives". That slide now also names the **Resources** and **Usage** views, so if the left navigation is visible in the same capture, all the better. |
+| 1 | ~~`portal-team-tab.png`~~ | — | **Done.** Captured 25 August 2026 from the test project `grtest3`. Email column blurred — see below. |
 | 2 | ~~`portal-consumption.png`~~ | — | **Done.** Captured 25 August 2026, on the slide. See below for what changed. |
 | 3 | `portal-invite-dialog.png` | demo project | The **Invite Users** dialog with the role dropdown open, so the three role names are readable. Optional — use it if slide "Adding someone takes one email address" feels too abstract on the day. |
 | 4 | ~~`user-account-sign-key.png`~~ | — | **No longer needed.** Key signing came off the slides on 25 August; it is handout-only now. |

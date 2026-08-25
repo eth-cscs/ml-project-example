@@ -99,9 +99,9 @@ CSCS — re-check them the week before, they change per call. -->
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/accounts/' -->
 <div class="audience all">Everyone</div>
 
-# Your account lives as long as one project does
+# Your user account lives as long as one project does
 
-An account can belong to several projects. It closes only when the last one closes.
+There are two kinds of account here. This one is a **person**, and it can sit in several projects.
 
 <div class="cols">
 <div>
@@ -117,10 +117,9 @@ Administrators and managers **invite people** and **assign roles**.
 </div>
 <div class="card">
 
-### One account, many projects
+### One user account, many projects
 
-- Your **email address** identifies you — one address, one account
-- **Institutional addresses only** — and always the same one
+- **Institutional address only**, and always the **same one**
 - Open while **at least one** project is open
 - It closes with the **last** project you are on
 - A later invitation **re-enables** the same account
@@ -128,13 +127,20 @@ Administrators and managers **invite people** and **assign roles**.
 </div>
 </div>
 
+<div class="accent">
+
+Your email address **is** your identity. A different address gives you a **second account**, not access to your first.
+
+</div>
+
 <!--
 - Three words the portal uses. Project administrator is the PI, project manager is the deputy, project member is everyone else.
 - Only the first two invite people and set roles.
 - Now the important part, and I will say it slowly.
 - Your email address is your identity. One address, one account, and institutional addresses only.
-- Always use the same one. A different address gives you a second account, not access to your old one.
-- An account can belong to several projects, and stays open while one of them is open.
+- Always use the same one. A different address does not get you back into your old account. It gives you a second one.
+- If you have changed institution, or you were invited on a different address, talk to us. Do not just accept with the new one.
+- A user account can belong to several projects, and stays open while one of them is open.
 - It closes with the last project you are on. What happens at a project end date comes later, with the budget.
 - Good news: a later invitation switches the same account back on.
 - Next: that is an account with a person behind it. There is a second kind without one.
@@ -212,19 +218,16 @@ documents the request and the template but never says the feature is off until a
 <div class="cols-narrow">
 <div>
 
-- Log in with your CSCS account and MFA. Pick your **organisation**, then the **project**
-- **Team** — everyone on the project and their role
-- **Invitations** — where you add people
-- **Resources** — what the project was granted, and where a PI adds an inference resource
-- **Usage** — what has been spent, project-wide and inside each resource
+- Log in with MFA, then pick your **organisation** and your **project**
+- **Project dashboard** — the credit, and what it has spent
+- **Resources** — what the project was granted, and where a PI adds **inference**
+- **Team** — who is on the project, with **Invitations** and **Service accounts** beside it
+- **Audit logs** — what changed, and who changed it
 
 </div>
-<div class="shot">
+<div class="screenshot">
 
-**SCREENSHOT**
-
-`portal.cscs.ch` — project page with the Team tab open, roles column visible.
-Anonymise real names.
+![The portal showing a project. A header card with the project name and its start and end dates, a row of four tabs — Project dashboard, Resources, Team, Audit logs — and the Team card open on Active, beside Invitations and Service accounts. The table lists each member with their username, their role in the project and a role expiration column.](../assets/screenshots/portal-team-tab.png)
 
 </div>
 </div>
@@ -232,16 +235,28 @@ Anonymise real names.
 <!--
 - If you are a PI and you have never opened this, the next few minutes are the ones to stay awake for.
 - This is a tour, not a tutorial. One sentence per step.
-- Log in — the same login as every other CSCS web application — then pick your organisation and your project.
-- Then four things, and most PIs have seen none of them.
-- Team: everyone on the project and what they can do. That is the question you email us about most.
-- Invitations: where you add people, and we will do that on the next slide.
-- Resources: what the project was actually granted. This is also where you add an inference resource.
-- Usage: what has been spent, for the project as a whole and inside each resource. There is a slide on that shortly.
-- Look at the roles column here.
+- Log in with the same account as every other CSCS web application, then pick your organisation and your project.
+- The header tells you the two dates that matter: when the project started and when it ends.
+- Then four tabs, and most PIs have seen none of them.
+- Project dashboard is the credit and what you have spent. There is a slide on that shortly.
+- Resources is what the project was actually granted. It is also where you add an inference resource.
+- Team is who is on the project. Look at the roles column.
+- Next to Active you have Invitations, where you add people, and Service accounts.
+- Audit logs is the record of what changed and who changed it.
 - Next: your team is listed, but the new student is not on it yet. Let us add them.
-DOCS: docs.cscs.ch/accounts/ (portal section)
+DOCS: docs.cscs.ch/accounts/
 -->
+
+<!-- Screenshot captured 25 August 2026 from the test project grtest3. The email column is
+deliberately blurred: those are real colleagues and this deck is published to a public
+GitHub Pages site. To use the unblurred capture, re-crop the original without the
+GaussianBlur paste — see the commit that added this file.
+
+TODO(verify): the tab names are read straight off the capture, which is why the old
+"Invitations" and "Usage" bullets are gone — neither is a tab. What is NOT verified is
+what "Project dashboard" and "Audit logs" contain; the descriptions above are inferred
+from their names and from where the consumption panels most likely live. Click both and
+correct the two bullets. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/accounts/' -->
