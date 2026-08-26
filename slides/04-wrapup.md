@@ -41,9 +41,9 @@ An hour is an hour. These exist, and we have slides on them if you ask.
 ---
 <div class="audience all">Everyone</div>
 
-# Three places to get help, in order
+# Two places to get help, in order
 
-<div class="cols-3">
+<div class="cols">
 <div class="card">
 
 ### 1. The docs
@@ -62,13 +62,6 @@ Everything in this hour came from there. Search it first.
 For accounts, quotas, keys, anything broken.
 
 </div>
-<div class="card">
-
-### 3. Us
-
-The ML Platform drop-in sessions, and the next 30 minutes.
-
-</div>
 </div>
 
 <div class="accent">
@@ -78,10 +71,10 @@ The ML Platform drop-in sessions, and the next 30 minutes.
 </div>
 
 <!--
-- Three places, in this order.
+- Two places, in this order.
 - Docs first. Everything in this hour came from docs.cscs.ch, and you saw the link every time.
 - Service desk for anything broken, or anything about your account.
-- And us. The drop-in sessions, and right now.
+- And us, right now, for the rest of the session.
 - The red bar is the User Day, this Friday. If today was a map, that is the territory.
 - Go. Same people, much more time.
 - Next: over to you.

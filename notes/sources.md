@@ -194,7 +194,10 @@ linked Google Drive documents that were not read.
 
 ## ML Platform drop-in repository
 
-`~/Development/GitHub/ml-platform-drop-in` — Andrea's bi-weekly drop-in sessions.
+`~/Development/GitHub/ml-platform-drop-in` — Andrea's drop-in sessions. **The sessions
+are not running at the moment** (Andrea, 26 August 2026), which is why the wrap-up no
+longer offers them. The repository is still the source of the theme and of the
+`service-desk@cscs.ch` address, so it stays cited here.
 Public at `github.com/candrea85/ml-platform-drop-in`.
 
 **Reused here:**
