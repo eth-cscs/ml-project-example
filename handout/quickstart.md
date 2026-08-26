@@ -128,7 +128,7 @@ Every project is granted a credit in **GPU hours**, spent as your jobs run. You 
 | Below the minimal | the credit between your usage and the minimal is **lost** |
 | Between minimal and expected | the unused credit **rolls over** to the following months |
 | Above the expected | no problem — you run at lower priority while you are ahead |
-| Out of credit before the end | the `low` partition, capped at the equivalent of **two months** of your budget |
+| Out of credit before the end | the `low` partition, capped at the equivalent of **one month** of your budget |
 | End date | compute stops; the project stays active **90 more days** for data retrieval, then closes |
 
 ## 12. Tunnel to a service running on a compute node

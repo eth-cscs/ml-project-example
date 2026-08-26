@@ -424,7 +424,7 @@ Every project gets a credit in GPU hours, spent as your jobs run. Each month has
 
 <div class="accent">
 
-Out of credit before the end? The `low` partition, capped at two months of your budget.
+Out of credit before the end? The `low` partition, capped at one month of your budget.
 All the rules: **docs.cscs.ch/platforms/mlp/**
 
 </div>
@@ -437,7 +437,7 @@ All the rules: **docs.cscs.ch/platforms/mlp/**
 - Middle: under, but above minimal, so the rest rolls over.
 - Right: below minimal, and the red box is credit that does not come back.
 - Then the timeline. The end date stops compute, and ninety days of grace follow, for data only.
-- Out of credit early? The low partition, about two months of your budget.
+- Out of credit early? The low partition, about one month of your budget.
 - Take a photo of this slide.
 - Not on the slide, but say it: burning the budget and getting nothing out of it is worse than under-consuming.
 - Next: here is where to read the detail.

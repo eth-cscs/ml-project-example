@@ -128,7 +128,9 @@ asks for them:
 - **HPC Console, in depth** — drafted, 5 slides, about 5 minutes. Ready. Note the console
   itself is *not* backup: module 3 covers it in one slide. This is the deeper version.
 - Kubernetes — not written
-- Post-training and RLHF workflows — not written
+- Post-training and RLHF — no longer a backup topic: module 3 covers it, so it came off
+  the wrap-up's "what we did not cover" list on 26 August. The module 3 slide is still a
+  placeholder at the time of writing.
 - Advanced multi-node scaling — not written
 - GPU-efficiency deep dive — not written
 

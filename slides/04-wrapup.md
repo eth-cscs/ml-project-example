@@ -27,30 +27,14 @@ CUT IF LATE: Cut nothing. If you are late here, you are late into the discussion
 
 An hour is an hour. These exist, and we have slides on them if you ask.
 
-<div class="cols">
-<div>
-
-- **Post-training and RLHF workflows**
 - **Advanced multi-node scaling**
 - **GPU efficiency, in depth**
 - **The HPC Console, in depth** — you saw it in module 3; there is more
 
-</div>
-<div class="card">
-
-### Ask in the next 30 minutes
-
-We have backup slides for every line on the left.
-
-If two of you want the same one, we will show it.
-
-</div>
-</div>
-
 <!--
-- Four things we left out on purpose. They all matter to somebody here.
+- Three things we left out on purpose. They all matter to somebody here.
 - On Kubernetes: it is for specific partners, and the docs say it is not available for normal users on Alps.
-- We have a backup slide for each. Ask in the discussion and we will put it up.
+- The HPC Console one is written, and it goes deeper than what you saw. Ask for it in the discussion.
 - Next: where to get help.
 -->
 

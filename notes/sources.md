@@ -251,6 +251,12 @@ one sentence that explains the whole portal story if somebody asks in the discus
 Also useful as scale context: roughly 14k managed users, 3–4k active, ~4k projects,
 growth driven largely by AI workloads.
 
+## The `low` partition cap
+
+Andrea, 26 August 2026: the `low` partition is capped at the equivalent of **one month** of
+the project budget, not two. The slide, its speaker note and the handout said two until
+that morning. No CSCS page states the figure either way — see notes/docs-gaps.md.
+
 ## The consumption panels — `portal.cscs.ch`, 24 August 2026
 
 Two panels went live on 24 August 2026, two days before the session:
