@@ -49,11 +49,16 @@ pptx: $(BUILD)/deck.pptx
 html: $(BUILD)/deck.html
 pdf:  $(BUILD)/deck.pdf
 
-$(BUILD)/deck.pptx: $(DECK) $(THEME)
+# PowerPoint renders speaker notes at 12pt, which is unreadable at a glance on stage.
+# Nothing upstream can change it, so the size is set after the file exists. The step is
+# optional: without python-pptx it prints a hint and the build carries on.
+$(BUILD)/deck.pptx: $(DECK) $(THEME) tools/enlarge-notes.py
 	$(MARP) $(MARP_FLAGS) -o $@ -- $(DECK)
+	@python3 tools/enlarge-notes.py $@
 
-$(BUILD)/deck.html: $(DECK) $(THEME)
+$(BUILD)/deck.html: $(DECK) $(THEME) tools/enlarge-notes.py
 	$(MARP) $(MARP_FLAGS) -o $@ -- $(DECK)
+	@python3 tools/enlarge-notes.py $@
 
 $(BUILD)/deck.pdf: $(DECK) $(THEME)
 	$(MARP) $(MARP_FLAGS) --pdf --pdf-notes -o $@ -- $(DECK)

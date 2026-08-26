@@ -17,11 +17,11 @@ You are in, with an empty home directory. Where do two terabytes of training dat
 START AT T+15:00. Check the presenter timer now.
 CUT IF LATE: Cut "Project storage is what you asked for in the proposal". The mount-point table already shows it — say the default quota in one line.
 
-- You are in — the handout got you there — with an empty home directory on Clariden.
-- His first real question is where to put his data.
-- Getting this wrong is the most expensive mistake on this platform.
-- Wrong filesystem means slow training. Or deleted data.
-- Next: There are four places, and they are not interchangeable.
+- You are in, with an empty home directory on Clariden.
+- Your first real question is where to put your data.
+- This is the most expensive mistake on the platform.
+- The wrong filesystem means slow training, or deleted data.
+- Next: six places, and they are not interchangeable.
 -->
 
 ---
@@ -51,47 +51,16 @@ Putting data in the wrong one is the most common and most expensive mistake here
 - Six mount points, in three groups: home, scratch, project.
 - Home is small. Fifty gigabytes, for code and configuration.
 - Three scratch filesystems. The next slide says which is for what.
-- Two project areas: the store, which is backed up, and datacache, which is not.
-- Now the cleanup column, because this is the one that hurts people.
-- It is not age, it is last access. A file nobody reads for fourteen days on iopsstor is deleted. Thirty days on capstor.
-- So a dataset you keep reading survives. A checkpoint you wrote and forgot does not.
-- Deleted, not archived. And there are no backups on scratch.
-- Ritom is thirty days too, but that is not in the documentation yet.
-- The model to remember: scratch is yours and is not backed up. Store belongs to the project and is backed up.
+- Two project areas: the store is backed up, datacache is not.
+- Now the cleanup column. This is the one that hurts people.
+- It is not age, it is last access. Fourteen days on iopsstor, thirty on capstor.
+- A dataset you keep reading survives. A checkpoint you wrote and forgot does not.
+- Deleted, not archived. There are no backups on scratch.
+- The model to remember: scratch is yours and not backed up. Store is the project's and is backed up.
 - Next: which scratch, for what?
 DOCS: docs.cscs.ch/storage/filesystems/ · docs.cscs.ch/platforms/mlp/
 -->
 
-<!-- Verified against cscs-docs-preview.svc.cscs.ch/442, both /storage/filesystems/ and
-/platforms/mlp/, quoting them directly:
-  home     "There is no cleanup policy on Home"; 50 GB and 500,000 inodes; daily
-           snapshots of the last seven days in $HOME/.snapshot; tape backups "currently
-           being implemented"; retained three months after your last project finishes.
-  iopsstor "Files ... that have not been accessed in 14 days are automatically deleted."
-  capstor  "Files ... that have not been accessed in 30 days are automatically deleted."
-           150 TB, 1 million inodes, soft quota with a two-week grace period.
-           "There are no backups on Scratch."
-  store    "There is no cleanup policy on Store"; "the three most recent copies of every
-           file backed up to tape every 24 hours"; quota from the initial resource
-           request; retained three months after the project ends.
-  ritom    the preview says the cleanup policy "is being finalised". Per Andrea it is
-           30 days, the same as capstor. The slide states 30 days; the documentation
-           does not, so it must be said out loud.
-Note the criterion is LAST ACCESS, not age or modification time.
-
-TODO(verify): THIS SLIDE'S FOOTER DOES NOT YET BACK IT. docs.cscs.ch/storage/filesystems/
-is live but lists only Home, the two Lustre scratches and Store — no ritom, no datacache.
-Both exist solely in the /442 preview. Until that merges, anyone who follows the citation
-finds a page that does not mention two of the six rows. Re-check on the morning of the
-session; if the merge has not happened, say so out loud rather than letting somebody
-discover it afterwards. (Ritom itself IS live-documented, but on
-docs.cscs.ch/guides/storage/, not on the filesystems page.)
-
-TODO(verify): two things the preview does not settle.
- 1. The iopsstor scratch quota is not stated anywhere. Find it, or leave it off.
- 2. The preview labels ritom "(Clariden only)" and says "On Clariden, the cleanup policy
-    ... is being finalised". Andrea says it is NOT mounted only on Clariden, so the slide
-    drops that qualifier. This is a documentation error, not a gap — fix the page. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/guides/storage/' -->
@@ -142,21 +111,15 @@ Nothing on scratch survives. Shared project data goes on the **store** or on **`
 
 <!--
 - All three are called scratch, but they are different hardware.
-- iopsstor is NVMe, good at IOPS. Put your dataset there — the thing you read constantly, in random order.
-- capstor is spinning disk, for large sequential writes. Put your checkpoints there.
-- Get those two backwards and your training is slower for no reason at all.
-- Ritom is VAST. It is the one for parallel writes into a shared file: collective MPI-IO, parallel HDF5, checkpoints from many ranks into few files.
-- Little benefit for file-per-rank. If you use it, read the tuning settings in the storage guide first.
-- Its cleanup is thirty days, the same as capstor. That is not on the documentation page yet.
-- And when a job ends, move what you care about to project storage.
-- Next: how much have you actually used?
+- iopsstor is NVMe. Put your training data there — the thing you read constantly, in random order.
+- capstor is spinning disk, for large sequential writes. Checkpoints go there.
+- Get those two backwards and your training is slower for no reason.
+- Ritom is VAST, for many ranks writing into one shared file. Read the tuning settings first.
+- When a job ends, move what you care about to project storage.
+- Next: how much have you actually got?
 DOCS: docs.cscs.ch/guides/storage/ · docs.cscs.ch/platforms/mlp/ (Scratch Usage Recommendations)
 -->
 
-<!-- TODO(verify): ritom's "Cleaned after 30 days" is Andrea's, not the documentation's —
-the storage preview still says the policy "is being finalised". It is on the slide because
-the other two cards state theirs, and a silent third card claims something worse than a
-wrong number: that ritom is never cleaned. Confirm and get it written into the page. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/storage/filesystems/' -->
@@ -194,13 +157,13 @@ This is why the proposal asks for a data footprint. Storage is not elastic.
 </div>
 
 <!--
-- Project storage is the only place that is neither small nor temporary.
-- The quota is not negotiable after the fact. It is what you asked for in the proposal.
-- Small projects get a terabyte by default. Large projects get no default at all, you state it.
-- It is backed up to tape, three copies, every 24 hours. Scratch is not.
-- And at the end, three months, then it goes.
-- That connects back to module 1: this is why we ask for a data footprint up front.
-- Next: And from today there is a second project area, which is new.
+- The only place that is neither small nor temporary.
+- The quota is what you asked for in the proposal. It is not negotiable afterwards.
+- Small projects get a terabyte. Large projects get no default at all.
+- Backed up to tape, three copies, every day. Scratch is not.
+- At the end you get three months, then it goes.
+- This is why module 1 asks for a data footprint up front.
+- Next: from today there is a second project area.
 DOCS: docs.cscs.ch/storage/filesystems/
 -->
 
@@ -244,25 +207,18 @@ Project-level like the store, but **not backed up**, like scratch. And nothing i
 </div>
 
 <!--
-- This one is new, from today, so nobody here has used it.
-- Start from the problem. Until today a dataset the whole team reads had two bad homes.
-- Scratch is fast, but it is per user and it is deleted after fourteen days.
-- Project store is shared and durable, but medium performance, so random reads are slow.
+- This one is new, from today. Nobody here has used it.
+- The problem first. A dataset the whole team reads had two bad homes.
+- Scratch is fast, but per user, and deleted after fourteen days.
+- The store is shared and durable, but slow for random reads.
 - So teams kept a copy each and re-staged it every two weeks.
-- datacache is the third option. Fast NVMe, shared by the project, and never cleaned automatically.
-- Two warnings. It is not backed up. And nothing is deleted for you, so the project manages its own space.
-- It is not created by default. Your PI opens a Service Desk ticket with the use case, the space and the inodes.
+- datacache is the third option. Fast NVMe, shared by the project, never cleaned.
+- Two warnings. Not backed up, and nothing is deleted for you.
+- Not created by default. Your PI opens a Service Desk ticket.
 - Next: now get the data in.
 DOCS: docs.cscs.ch/platforms/mlp/
 -->
 
-<!-- TODO(verify): THIS SLIDE'S FOOTER DOES NOT YET BACK IT. The live
-docs.cscs.ch/platforms/mlp/ does not mention datacache at all.
-datacache is documented only on the preview at
-cscs-docs-preview.svc.cscs.ch/442/platforms/mlp/ and goes live on 26 August after the
-maintenance. Confirm on the morning of the session that it is actually available — if
-the maintenance slips, this slide says "from today" and would be wrong on stage.
-Re-point the DOCS line once the page is merged. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/storage/transfer/' -->
@@ -314,34 +270,19 @@ srun rsync -av $1 $2
 </div>
 
 <!--
-- Never move terabytes from a login node. Two directions, two tools, and a third route that works from both.
-- From outside CSCS, use Globus. It handles restarts, which matters when the transfer takes hours.
-- Between CSCS filesystems, use the xfer partition. It is a Slurm partition dedicated to this.
-- The point of xfer is that you are not doing it on a login node, where you would be hurting everybody else.
-- On the right, the thing people do not know: rclone is often much faster than rsync, because it works in parallel.
-- Two flag sets, one for many small files, one for a few big ones.
-- Give them the concrete number: a one terabyte directory from store to scratch takes about five minutes. Roughly three gigabytes a second.
-- Start with those values and raise the parallelism gradually, watching the effect on the metadata servers.
-- Last line: we also have object storage, and it speaks S3. The endpoint is rgw dot cscs dot ch.
-- Any S3 client works with it, and rclone is one, so the same tool moves data between a bucket and the filesystems.
-- Next: What about data that has to outlive the project?
+- Never move terabytes from a login node.
+- From outside, use Globus. It handles restarts, which matters over hours.
+- Between our filesystems, use the xfer partition. Not a login node, where you hurt everybody else.
+- On the right, the thing people do not know: rclone is much faster than rsync, because it runs in parallel.
+- Two flag sets. Many small files, or a few big ones.
+- The number to give them: one terabyte from store to scratch in about five minutes.
+- Raise the parallelism gradually and watch the metadata servers.
+- Last line: we also have object storage, and it speaks S3, at rgw dot cscs dot ch.
+- rclone is an S3 client too, so the same tool moves data between a bucket and the filesystems.
+- Next: what about data that has to outlive the project?
 DOCS: docs.cscs.ch/storage/transfer/ · docs.cscs.ch/storage/object/
 -->
 
-<!-- TODO(verify): the transfer guidance and the rclone flags come from the preview
-cscs-docs-preview.svc.cscs.ch/442/storage/transfer/. Re-check once merged. The job script is the
-documented one with its `command=` indirection inlined into the `srun` — same job, three
-lines shorter. The flags are verbatim except `--progress`, dropped from both: it prints a live
-counter, which is worth nothing in a batch job whose output goes to a log file.
-
-The S3 line, added at Fawzi's request on 25 August 2026: docs.cscs.ch/storage/object/ does
-document the service — "CSCS offers a public cloud object storage service, based on the
-Ceph Object Gateway. The service can be accessed from S3-compatible clients", endpoint
-https://rgw.cscs.ch, path-style URLs. TODO(verify): two things it does NOT say. That you
-reach it with rclone from the xfer queue is Fawzi's, not the page's — docs.cscs.ch/storage/
-transfer/ covers only Globus and xfer between filesystems. And the object page opens with
-"This page is currently incomplete and it is being updated following recent developments",
-so re-read it before the session in case the endpoint or the access story has moved. -->
 
 ---
 <!-- _class: ref -->
@@ -380,10 +321,9 @@ After every job, move the results off scratch.
 </div>
 
 <!--
-- I will not read this slide out.
-
-- Three rules. Home is for code. Scratch is yours and gets cleaned. The project areas are shared and do not.
+- I will not read this out. Three rules.
+- Home is for code. Scratch is yours and gets cleaned. The project areas are shared and do not.
 - Of the two project areas, only the store is backed up.
-- And the habit: after every job, move results off scratch.
-- Next: you know where your data goes. Now you need software that can read it.
+- The habit: after every job, move results off scratch.
+- Next: now you need software that can read it.
 -->

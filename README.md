@@ -65,6 +65,16 @@ make M=01 module   # build one module on its own, for rehearsal
 
 Requires Node.js — `npx` fetches Marp — and a Chromium that Marp can drive.
 
+Optionally `pip install python-pptx`. With it, `make pptx` sets the speaker notes to 20pt
+instead of PowerPoint's 12pt, which is the difference between glancing at them and reading
+them. Without it the build says so and carries on. The HTML presenter view is enlarged
+either way.
+
+Nothing in `slides/` should contain an HTML comment that is not a speaker note or a Marp
+directive: Marp turns every other comment into a presenter note, so a `TODO` in the source
+ends up on stage next to the lines you have to say. Open questions and provenance live in
+[`notes/open-questions.md`](notes/open-questions.md).
+
 ## Working in this repository
 
 Read [`CLAUDE.md`](CLAUDE.md) first. It is the brief: language policy, content rules,

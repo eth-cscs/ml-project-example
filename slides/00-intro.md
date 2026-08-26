@@ -18,11 +18,11 @@ START AT T+00:00. Check the presenter timer now.
 CUT IF LATE: Cut the Alps/vClusters slide. Say it in one sentence over the two-cluster slide.
 
 - Welcome. This is the Alps technical training.
-- One hour of presentation, then thirty minutes of open discussion.
-- Two of us from CSCS. I take the first half, Fawzi takes the worked example.
-- We are not going to teach you everything. There is not time.
-- We are going to build you a map, so you know where to look next.
-- Next: First, what is the machine you are all using?
+- About an hour from us, then open discussion.
+- Two of us from CSCS. I take the first part, Fawzi the worked example.
+- We cannot teach you everything today.
+- We want to leave you a map, so you know where to look next.
+- Next: one practical thing before we start.
 -->
 
 ---
@@ -58,20 +58,15 @@ Try the commands tomorrow, not now. They are all on the handout.
 </div>
 
 <!--
-- One practical thing before we start.
-- Today is a maintenance day. Systems may be down or degraded.
-- So if you try to log in during this hour and it does not work, that is expected. It is not your key and it is not you.
-- We planned for it. Everything you will see is a screenshot or a recording. No live demos.
-- That was going to be true anyway. Conference wifi and MFA on stage are a bad combination.
-- Ask your questions as they come. We will answer, and we can show you for real afterwards or at the User Day on Friday.
-- One upside worth mentioning: this maintenance is what delivers the new datacache storage area. Module 2 will show you what it is for.
-- Next: So, what is the machine you are all using?
+- Today is a maintenance day. Systems may be down or slow.
+- If your login fails during this hour, that is expected. Not your key, not you.
+- So no live demos. Everything you see is a screenshot.
+- Conference wifi and MFA on stage are a bad pair anyway.
+- The upside: this maintenance is what delivers the new datacache area. Module 2 shows it.
+- Ask questions as they come. We can show you for real afterwards, or at the User Day on Friday.
+- Next: what is the machine you are all using?
 -->
 
-<!-- TODO(verify): confirm the exact maintenance window and which services are affected
-before the session — the clusters, the portal, JupyterLab and the docs may not all be
-down at the same time, or at all. If only some are affected, name them here rather than
-saying "systems". If the maintenance moves, this slide comes out. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/alps/' -->
@@ -111,12 +106,12 @@ Everything in this hour is the **ML Platform**. Other platforms do some of it di
 </div>
 
 <!--
-- Alps is the research infrastructure. One physical machine, many logical clusters.
-- Those logical clusters are called vClusters. They are tailored per community.
+- Alps is one physical machine with many logical clusters.
+- The logical ones are called vClusters, tailored per community.
 - On top of them CSCS runs three platforms. You are on the Machine Learning Platform.
-- This matters for one reason: when you search the documentation, the answer often depends on the platform.
-- Everything we say today is the ML Platform. If you read a page about the HPC Platform, some of it will not apply to you.
-- Next: So what is on the ML Platform?
+- This matters when you search the docs: the answer often depends on the platform.
+- Everything today is the ML Platform.
+- Next: so what is on the ML Platform?
 DOCS: docs.cscs.ch/alps/
 -->
 
@@ -158,10 +153,10 @@ Data processing, development and x86 workloads. **Test and development**, best e
 <!--
 - The ML Platform gives you compute, storage and expertise.
 - Two clusters, and people mix them up.
-- Clariden is Grace-Hopper, GH200. It is the main system. Production runs go here.
-- Bristen is A100, smaller. Data processing, development, x86 work.
-- Bristen is best effort. Read the red bar out loud, it is the docs talking about themselves.
-- Next: Here is what we are going to cover in the next hour.
+- Clariden is GH200. The main system. Production runs go here.
+- Bristen is A100 and smaller. Data processing, development, x86 work.
+- Bristen is best effort. Read the red bar out loud — that is the docs talking.
+- Next: what we cover in the next hour.
 DOCS: docs.cscs.ch/platforms/mlp/ · /clusters/clariden/ · /clusters/bristen/
 -->
 
@@ -198,15 +193,15 @@ There is a **handout**. Every command is on it.
 </div>
 
 <!--
-- The hour is one story: one project, from "we need compute" to a model that is trained and being used.
-- We follow it in order, and every step is something you will actually type.
-- Four modules. The third is the centre of the hour: one worked example, start to finish.
-- Those times are rough. The third one can run to forty minutes if you keep us honest, and the discussion takes what is left.
-- Then open discussion for whatever is left, which is honestly the part we want most.
-- One thing we actually mean: interrupt us. If something does not make sense, say so then and there, not at the end.
-- We would rather answer three good questions and drop a slide than get through everything and lose you at minute ten.
-- Two practical things. Every slide says in the corner who it is for. And there is a handout with every command, so do not type.
-- Next: Module 1. How do you get a project at all?
+- One story: from "we need compute" to a model people are using.
+- Four modules, in order. The third is the centre: one worked example.
+- The times are rough. Module three can run to forty minutes.
+- The discussion takes what is left, and that is the part we want most.
+- Please interrupt us. Say it when it happens, not at the end.
+- We would rather answer three good questions and drop a slide.
+- Every slide says in the corner who it is for.
+- There is a handout with every command on it, so do not type.
+- Next: how do you get a project at all?
 -->
 
 ---
@@ -237,9 +232,7 @@ The deck is a **signpost**. The documentation is the destination.
 </div>
 
 <!--
-- I will not read this slide out.
-
-- Four links. They are all on docs.cscs.ch.
+- Four links, all on docs.cscs.ch. I will not read them out.
 - This deck is a signpost, not a manual.
 - Next: hand over to module 1.
 -->

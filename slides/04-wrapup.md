@@ -16,8 +16,8 @@ START AT T+55:00. Check the presenter timer now.
 CUT IF LATE: Cut nothing. If you are late here, you are late into the discussion, and that is fine.
 
 - That is the hour. One project, from nothing to a trained model.
-- Three minutes on where to go next, then the floor is yours for thirty.
-- Next: What we did not cover.
+- Two minutes on where to go next, then the floor is yours.
+- Next: what we did not cover.
 -->
 
 ---
@@ -48,11 +48,10 @@ If two of you want the same one, we will show it.
 </div>
 
 <!--
-- Four things we deliberately left out. They all exist and they all matter to somebody in this room.
-- If somebody asks about Kubernetes: it is only for specific partners, and the documentation says it is not available for normal users on Alps.
-- We have backup slides for each. If you want one, say so in the discussion and we will put it up.
-- The HPC Console one goes deeper than the slide you already saw.
-- Next: Where to get help.
+- Four things we left out on purpose. They all matter to somebody here.
+- On Kubernetes: it is for specific partners, and the docs say it is not available for normal users on Alps.
+- We have a backup slide for each. Ask in the discussion and we will put it up.
+- Next: where to get help.
 -->
 
 ---
@@ -96,18 +95,14 @@ The ML Platform drop-in sessions, and the next 30 minutes.
 
 <!--
 - Three places, in this order.
-- Docs first. Genuinely — everything in this hour came from docs.cscs.ch, and we showed you the links every time.
-- Service desk for anything broken or anything about your account.
+- Docs first. Everything in this hour came from docs.cscs.ch, and you saw the link every time.
+- Service desk for anything broken, or anything about your account.
 - And us. The drop-in sessions, and right now.
-- Look at RED BAR.
-- And the User Day, this Friday, two days from now. If today was a map, that is the territory.
-- Go. It is the same people and much more time.
-- Next: Open the discussion. Ask them what they are working on — do not just ask "any questions?".
+- The red bar is the User Day, this Friday. If today was a map, that is the territory.
+- Go. Same people, much more time.
+- Next: over to you.
 -->
 
-<!-- TODO(verify): confirm the User Day date, venue and registration link, and add the
-link here. Also confirm whether the ML Platform drop-in sessions are still running and
-on what cadence before promising them from the stage. -->
 
 ---
 <!-- _class: divider -->

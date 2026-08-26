@@ -13,8 +13,6 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 
 Post-training · multi-node scaling · GPU efficiency · the HPC Console
 
-<!--
--->
 
 ---
 <!-- _class: divider -->
@@ -155,9 +153,6 @@ The shareable per-job URL is the feature people keep. External dashboards such a
 - Next: Where to find it.
 -->
 
-<!-- PLACEHOLDER: the CUG deck has approved screenshots of all four views. Whoever
-presents this should pull two of them in — the dashboard and the job detail with the
-shareable URL — rather than showing this as a bullet list. -->
 
 ---
 <!-- _class: ref -->
@@ -205,9 +200,3 @@ Open source as **`firecrest-ui`**.
 
 Post-training and RLHF · advanced multi-node scaling · GPU efficiency in depth
 
-<!--
-PLACEHOLDER. These four were listed in CLAUDE.md as backup topics but have no slides yet.
-If the discussion asks for one and there is nothing to show, say so plainly and offer to
-follow up by email or at the User Day on Friday. Do not improvise a technical answer at
-the whiteboard in front of this audience.
--->

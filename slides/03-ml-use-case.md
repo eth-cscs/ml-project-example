@@ -161,9 +161,7 @@ You have raw data and no model yet. This is the step most people skip.
 DOCS: docs.cscs.ch/services/inference/api/
 -->
 
-<!-- TODO(verify): the inference API is documented; using it for data vetting and
-training-set preparation is our suggestion, not something docs.cscs.ch recommends.
-Keep it framed as a suggestion. -->
+
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/access/firecrest/' -->
 <span class="tag">Set up your workflow</span>
@@ -383,10 +381,6 @@ uenv run pytorch/v2.8.0:v1 -- python train.py  # or one command, then exit
 DOCS: docs.cscs.ch/software/uenv/
 -->
 
-<!-- Verified against docs.cscs.ch/software/uenv/ and /software/uenv/using/: images are
-always referenced as name/version:tag, `uenv image find` is shown with an argument,
-`uenv run` takes `--` before the command. The versions and their clusters come from the
-Versioning table on docs.cscs.ch/software/ml/pytorch/. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/software/container-engine/' -->
@@ -565,15 +559,6 @@ Build on top of a base image that most suits your use case.
 DOCS: docs.cscs.ch/software/ml/pytorch/ · docs.cscs.ch/software/container-engine/
 -->
 
-<!-- TODO(verify): the PR dropped com.hooks.aws_ofi_nccl.variant = "cuda12" from the
-annotations block, keeping only .enabled. Ask Alberto whether the variant is no longer
-needed or whether this was a simplification — if it is still required, the slide is
-missing a line that decides whether multi-node training is fast.
-
-TODO(verify): the exact import command (enroot / podman / the CSCS-recommended
-route) was not captured and is NOT stated on the container-engine overview page. Module 3
-owner: find it, quote it verbatim, and put it on this slide. Without a real command this
-slide is advice, not instruction. -->
 
 ---
 <!-- _footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · docs.cscs.ch/software/container-engine/' -->
@@ -627,13 +612,7 @@ DOCS: docs.cscs.ch/software/container-engine/
 
 </div>
 
-<!--
-PLACEHOLDER. Andrea and Fawzi have not settled whether serving a model you trained
-yourself goes through the inference service or through a Slurm job on the cluster.
-Do not improvise this on stage: if it is still open on the day, say it is coming and
-point at the tutorials.
-- Next: Post-training.
--->
+
 ---
 
 <span class="tag">Post-training</span>
@@ -648,12 +627,7 @@ point at the tutorials.
 
 </div>
 
-<!--
-PLACEHOLDER. Nothing written yet. Fine-tuning, RLHF and evaluation would live here.
-The ML tutorials cover fine-tuning already, so the cheapest version of this slide is a
-pointer at docs.cscs.ch/tutorials/ml/.
-- Next: One last thing, and it is not on Alps.
--->
+
 ---
 
 <span class="tag">Kubernetes</span>
@@ -690,10 +664,7 @@ Because people ask, and because the answer is not "no" — it is "yes, through a
 - Next: Where to read more.
 -->
 
-<!-- TODO(verify): this is Andrea's, not the documentation's. Nothing on docs.cscs.ch
-describes a Swiss AI Kubernetes cluster. Confirm Imanol's full name and the right way
-to reach him before the session — "managed by Imanol" is not something a stranger in
-the audience can act on. -->
+
 ---
 
 <!-- _class: ref -->
