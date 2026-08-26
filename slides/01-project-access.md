@@ -124,14 +124,17 @@ Your email address **is** your identity. A different address gives you a **secon
 </div>
 
 <!--
-- Three words the portal uses: administrator is the PI, manager is the deputy, member is everyone else.
+- I expect everyone here already has a user account at CSCS.
+- There is a second kind of account too, and it comes on the next slide.
+- A user account is a person. It is for the work you do yourself, with a username, a password and MFA.
+- One account can be in several projects, and it stays active while at least one of them is active.
+- Inside a project there are three roles.
+- Administrator is the PI, manager is the deputy, member is everyone else.
 - Only the first two invite people and set roles.
 - Now the important part, slowly.
-- Your email address is your identity. One address, one account, institutional only.
-- A different address does not get you back in. It gives you a second account.
-- Changed institution? Talk to us. Do not just accept on the new address.
-- One account can sit in several projects, and stays open while one of them is open.
-- A later invitation switches the same account back on.
+- Every account is identified by one email address, and that address is unique.
+- So if you invite someone who already has an account, but on a different address, you create a second account for them.
+- Always use the same address.
 - Next: that account has a person behind it. There is a second kind without one.
 DOCS: docs.cscs.ch/accounts/
 -->
