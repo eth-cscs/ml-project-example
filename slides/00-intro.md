@@ -14,9 +14,6 @@ footer: 'Alps technical training · Swiss AI Initiative Annual Meeting 2026 · d
 Where your project runs, and what we are about to walk through.
 
 <!--
-START AT T+00:00. Check the presenter timer now.
-CUT IF LATE: Cut the Alps/vClusters slide. Say it in one sentence over the two-cluster slide.
-
 - Welcome. This is the Alps technical training.
 - About an hour from us, then open discussion.
 - Two of us from CSCS. I take the first part, Fawzi the worked example.
