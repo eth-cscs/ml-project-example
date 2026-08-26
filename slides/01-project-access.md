@@ -175,15 +175,15 @@ Its own username, and an **API key** instead of a password. No MFA — it does n
 </div>
 
 <!--
-- The second kind, and the one people improvise badly.
-- It runs work on behalf of a person: a pipeline, a scheduled job, anything unattended.
-- It belongs to one project, and closes when that project ends.
-- The team runs it together, on a shared team address, so notifications reach the team.
-- Not enabled by default. The PI opens a Service Desk ticket with the use case.
+- A service account is another kind of account, and it is not a user account.
+- It is there to run automatic workloads.
+- Unlike a user account, it is bound to a single project and follows that project's lifecycle.
+- It is normally shared by the project team: a CI/CD pipeline, an automation script.
+- It is registered on a shared team address, so the notifications reach the team.
+- It is not available by default. The PI asks for it with a Service Desk ticket.
 - Then a Service Account entry appears under Team in the portal.
-- The red line is the part people picture wrongly.
-- Its own username, no password, an API key. No multi-factor, because it never logs in like you.
-- If you used a secondary account before, this replaces it.
+- Authentication is different too. No password and no MFA, the way your own account works.
+- It has its own username and an API key, and that key is what reaches the HPC resources.
 - Next: let us open the portal.
 DOCS: docs.cscs.ch/accounts/account-create/
 -->
