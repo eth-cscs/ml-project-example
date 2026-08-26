@@ -25,12 +25,10 @@ START AT T+05:00. Check the presenter timer now.
 CUT IF LATE: Cut "What a Swiss AI project comes with" — the inference slide carries the point.
 
 - Most of you know this part already, so this is a quick pass, not a tutorial.
-- But a few things are new, and those are worth ten minutes.
+- But a few things are new, and those interesting to know.
 - In broad terms: how you get access to a project, how you manage the team and its resources, and how you watch the usage.
 - There is something here for PIs and something for ordinary users.
-- The corner of each slide tells you which one it is for.
-- Accounts, MFA and SSH keys are on the handout, not on a slide. Take one.
-- If something is new to you, or not clear, stop me and ask.
+- If something is new to you, or not clear, stop us and ask.
 - Next: how do you get a project at all?
 -->
 
@@ -78,9 +76,9 @@ The 4th call for large projects is open right now — **3 August to 14 September
 - Small: up to thirty-two thousand GPU hours, six months, reviewed all year.
 - Large: five hundred thousand and up, twelve months, and it starts only in January or July.
 - Miss a call and you wait six months.
-- The storage row is the one people forget. Large gets none unless the proposal says so.
+- The storage row is the one people forget.
 - Bring three things to a large proposal: measured GPU hours, expected efficiency, data footprint.
-- A weak large proposal is usually made smaller, not rejected.
+- A weak large proposal could be made smaller.
 - The next call closes on the fourteenth of September.
 - Next: you have a project. What is an account?
 DOCS: docs.cscs.ch/platforms/mlp/ · swiss-ai.org/compute-grants
