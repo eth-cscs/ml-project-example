@@ -24,12 +24,13 @@ Getting a project, adding your team, managing its resources, and watching the bu
 START AT T+05:00. Check the presenter timer now.
 CUT IF LATE: Cut "What a Swiss AI project comes with" — the inference slide carries the point.
 
-- About ten minutes. This is the plumbing part.
-- Most of it is for PIs and deputies: the project, the team, the resources, the budget.
-- Four slides are for everybody. The corner of each slide tells you which.
-- If the admin part is not your job, read your email. I will not be offended.
+- Most of you know this part already, so this is a quick pass, not a tutorial.
+- But a few things are new, and those are worth ten minutes.
+- In broad terms: how you get access to a project, how you manage the team and its resources, and how you watch the usage.
+- There is something here for PIs and something for ordinary users.
+- The corner of each slide tells you which one it is for.
 - Accounts, MFA and SSH keys are on the handout, not on a slide. Take one.
-- Please interrupt me.
+- If something is new to you, or not clear, stop me and ask.
 - Next: how do you get a project at all?
 -->
 
