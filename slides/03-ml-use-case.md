@@ -214,24 +214,10 @@ DOCS: docs.cscs.ch/access/firecrest/ · eth-cscs.github.io/firecrest-v2/
 
 `jupyter-clariden.cscs.ch` — you pick the nodes, the time, the project and the environment.
 
-<div class="cols-narrow">
-<div>
-
 - One URL per cluster: **`jupyter-clariden.cscs.ch`**
 - The spawner form asks for node type and count, wall time, **project account**, and **uenv or container image**
 - It runs on a compute node, so it spends project credit while it is open
 - Startup should be under a few minutes
-
-</div>
-<div class="shot">
-
-**SCREENSHOT**
-
-The JupyterHub spawner options form on `jupyter-clariden.cscs.ch`, with the environment
-and account fields visible.
-
-</div>
-</div>
 
 <!--
 - If you would rather not think about sbatch, this is the way in.

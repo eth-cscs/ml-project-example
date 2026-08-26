@@ -6,6 +6,13 @@ file under `assets/screenshots/` with the filename given, then replace the
 
 Capture at 2x on a 16:9 window so the image still reads on a projector.
 
+## Nothing is outstanding
+
+There is no `<div class="shot">` placeholder left in the deck. The two module 1 captures
+were taken on 25 August, and the JupyterLab spawner placeholder came off the slide on
+26 August rather than being filled. Everything below is history and advice for the next
+edition, not a list of work to do.
+
 ## Both module 1 captures are done
 
 Neither used a purpose-built demo project, so read the note under each one before

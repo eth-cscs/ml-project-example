@@ -178,8 +178,8 @@ Its own username, and an **API key** instead of a password. No MFA — it does n
 - A service account is another kind of account, and it is not a user account.
 - It is there to run automatic workloads.
 - Unlike a user account, it is bound to a single project and follows that project's lifecycle.
-- It is normally shared by the project team: a CI/CD pipeline, an automation script.
-- It is registered on a shared team address, so the notifications reach the team.
+- It is normally used for a CI/CD pipeline, or an automation script.
+- It is shared by the project team, on a shared team address.
 - It is not available by default. The PI asks for it with a Service Desk ticket.
 - Then a Service Account entry appears under Team in the portal.
 - Authentication is different too. No password and no MFA, the way your own account works.
