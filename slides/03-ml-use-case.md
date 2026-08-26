@@ -497,7 +497,7 @@ DOCS: docs.cscs.ch/software/ml/pytorch/
 <div class="cols-3">
 <div class="card">
 
-### Alps Extended Images
+### [Alps Extended Images](https://docs.cscs.ch/software/alps-extended-images/)
 
 CSCS-curated ML/AI images, specifically customized for Alps.
 
@@ -557,8 +557,8 @@ DOCS: docs.cscs.ch/software/ml/pytorch/ · docs.cscs.ch/software/container-engin
 
 - **No NCCL hook** — multi-node training falls back and crawls
 - **Dataset on the wrong scratch** — random reads from spinning disk
-- **Imported image on home** — quickly eats into 50 GB quota
-- **Rebuilding the image every job** — import once, then reuse it
+- **Imported image in the wrong place** — quota on home (50GB), no striping in several places
+- **Rebuilding the image on every job** — import once, then reuse it
 
 </div>
 <div class="card">
@@ -586,33 +586,24 @@ DOCS: docs.cscs.ch/software/container-engine/
 
 ---
 
-<span class="tag">Serving at scale</span>
+# Reinforcement learning example
+
+- https://github.com/eth-cscs/alps-extended-images/blob/main/Alps-Images/apps/verl/example/train-gsm8k-apertus-8B.sh
+
+---
+<span class="tag">Serving your model</span>
 
 <div class="audience all">Everyone</div>
 
 # Serving your own model
 
-<div class="accent">
-
-**Placeholder — still to be decided.** Whether this is the inference service or a Slurm job is an open question for the presenters.
-
-</div>
-
-
----
-
-<span class="tag">Post-training</span>
-
-<div class="audience all">Everyone</div>
-
-# After the first training run
+- [servingdev.swissai.svc.cscs.ch](https://servingdev.swissai.svc.cscs.ch)
+- [github.com/swiss-ai/model-launch](https://github.com/swiss-ai/model-launch)
 
 <div class="accent">
 
-**Placeholder — content still to be written.**
 
 </div>
-
 
 ---
 
