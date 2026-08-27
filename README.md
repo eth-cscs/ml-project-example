@@ -1,18 +1,8 @@
 # Alps technical training — Swiss AI Initiative Annual Meeting 2026
 
-> ## ⚠️ Work in progress — draft
->
-> This repository is being written for a session that has **not happened yet**
-> (Wednesday 26 August 2026). Nothing here is final.
->
-> - Modules 0 and 2 to 5 are **scaffolding**, not finished material. They were drafted
->   from `docs.cscs.ch` so that no module owner starts from a blank page. Their voice is
->   generic and several slides are marked `PLACEHOLDER`.
-> - Slides carrying `TODO(verify)` contain claims that are **correct but not yet
->   traceable to public documentation** — there are 16 of them, listed in
->   [`notes/docs-gaps.md`](notes/docs-gaps.md).
-> - Some figures come from a **documentation preview** that has not been merged into
->   `docs.cscs.ch` yet, and may change.
+
+> This repository has been written for the Swiss AI Initiative Annual meeting of 
+> (Wednesday 26 August 2026).
 >
 > Do not cite anything from this repository as CSCS guidance.
 > [`docs.cscs.ch`](https://docs.cscs.ch) is the authority.
@@ -40,7 +30,7 @@ Press `p` in the deck for presenter view: speaker notes, next slide and a timer.
 | 0 | Alps, the ML Platform, and the next hour | 5 min | scaffold |
 | 1 | Project lifecycle and access | 14 min | on budget |
 | 2 | Data and storage | 13 min | scaffold |
-| 3 | A concrete ML use case | 30 min | restructured, two subsections still placeholders |
+| 3 | A concrete ML use case | 30 min | Uenv, Containers, Workflow, RL example |
 | 4 | Where to go from here | 3 min | scaffold |
 | — | Backup, shown on request | — | HPC Console block ready |
 
