@@ -19,7 +19,7 @@ documentation is* for the next step they personally have to take.
 
 The built deck is published from `main` on every push:
 
-**→ [View the slides](https://eth-cscs.github.io/2026-swissai-yearly-meeting/)**
+**→ [View the slides](https://eth-cscs.github.io/2026-swiss-ai-yearly-meeting/)**
 
 Press `p` in the deck for presenter view: speaker notes, next slide and a timer.
 
