@@ -588,6 +588,7 @@ DOCS: docs.cscs.ch/software/container-engine/
 
 # Reinforcement learning example
 
+- use the extended image example with verl
 - https://github.com/eth-cscs/alps-extended-images/blob/main/Alps-Images/apps/verl/example/train-gsm8k-apertus-8B.sh
 
 ---
@@ -597,12 +598,12 @@ DOCS: docs.cscs.ch/software/container-engine/
 
 # Serving your own model
 
+- to test, and use it, not to provide service
 - [servingdev.swissai.svc.cscs.ch](https://servingdev.swissai.svc.cscs.ch)
 - [github.com/swiss-ai/model-launch](https://github.com/swiss-ai/model-launch)
 
 <div class="accent">
-
-
+submit a job on alps to make a model available, you can use FirecREST for it.
 </div>
 
 ---
