@@ -49,7 +49,9 @@ make html       # self-contained HTML, press "p" for presenter view
 make pdf        # PDF, notes as annotations
 make handout    # the one-page A4 cheat sheet
 make runsheet   # timing sheet: when each module starts, what it cuts if late
-make check      # slide count and speaking time against the 60-minute ceiling
+make public     # the same deck with the speaker notes stripped
+make site       # build/site/ — exactly what gets published, and nothing else
+make check      # slide count, speaking time, and no notes in build/site/
 make M=01 module   # build one module on its own, for rehearsal
 ```
 
@@ -64,6 +66,25 @@ Nothing in `slides/` should contain an HTML comment that is not a speaker note o
 directive: Marp turns every other comment into a presenter note, so a `TODO` in the source
 ends up on stage next to the lines you have to say. Open questions and provenance live in
 [`notes/open-questions.md`](notes/open-questions.md).
+
+### What is published, and what is not
+
+The speaker notes are written for the person on stage — the running order, the timings,
+the "cut this if late" decisions — and they are not published. `make public` assembles
+the deck a second time from the same sources with the notes stripped, rather than trying
+to remove them from three finished outputs: notes reach the HTML presenter view, the
+PowerPoint notes pane and the PDF annotations by three separate routes, and three
+removals are three chances to miss one.
+
+`make site` then copies the handful of files that may go out into `build/site/`, which is
+what CI publishes. It is a list, not a sweep: `build/` also holds the assembled source,
+the run sheet and the deck *with* notes, and publishing the directory wholesale is how
+all three ended up on a public URL. `make check` fails if a speaker note is found in
+`build/site/`.
+
+Note that `slides/*.md` in this public repository still contain the notes in plain text.
+Stripping them from the published site keeps them out of what a reader is handed; it does
+not make them unreadable to someone who opens the repository.
 
 ## Working in this repository
 

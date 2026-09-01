@@ -4,6 +4,8 @@
 #   make pptx      PowerPoint, with Marpit presenter notes in the speaker-notes pane
 #   make html      self-contained HTML; press "p" for the built-in presenter view
 #   make pdf       PDF with the speaker notes attached as annotations
+#   make public    the same deck with the speaker notes removed
+#   make site      build/site/ — exactly what may be published, and nothing else
 #   make handout   handout/quickstart.md -> build/quickstart.pdf
 #   make M=01 module   build one module on its own (fast rehearsal loop)
 #   make serve     live-reloading preview of the full deck
@@ -34,7 +36,15 @@ MARP_FLAGS  := --allow-local-files --html --theme $(THEME)
 SLIDES      := $(sort $(wildcard slides/[0-9]*.md))
 DECK        := $(BUILD)/deck.md
 
-.PHONY: all pptx html pdf handout module serve clean check runsheet footers
+# The public deck is a second assembly of the same sources with the speaker notes
+# stripped, not a post-processing of the first: notes reach the HTML, the PDF annotations
+# and the PowerPoint notes pane by three different routes, and removing them from three
+# outputs is three chances to miss one.
+PUBLIC_DECK := $(BUILD)/deck-public.md
+PUBLIC      := $(BUILD)/public
+SITE        := $(BUILD)/site
+
+.PHONY: all pptx html pdf public site handout module serve clean check runsheet footers
 
 all: pptx html pdf
 
@@ -44,6 +54,10 @@ $(THEME): $(THEME_SRC) $(wildcard assets/logos/*) tools/inline-assets.py
 $(DECK): $(SLIDES) tools/assemble.py
 	@mkdir -p $(BUILD)
 	python3 tools/assemble.py $(SLIDES) -o $@
+
+$(PUBLIC_DECK): $(SLIDES) tools/assemble.py
+	@mkdir -p $(BUILD)
+	python3 tools/assemble.py --no-notes $(SLIDES) -o $@
 
 pptx: $(BUILD)/deck.pptx
 html: $(BUILD)/deck.html
@@ -62,6 +76,32 @@ $(BUILD)/deck.html: $(DECK) $(THEME) tools/enlarge-notes.py
 
 $(BUILD)/deck.pdf: $(DECK) $(THEME)
 	$(MARP) $(MARP_FLAGS) --pdf --pdf-notes -o $@ -- $(DECK)
+
+# The deck as it goes out: no speaker notes anywhere, and no --pdf-notes.
+public: $(PUBLIC)/deck.html $(PUBLIC)/deck.pdf $(PUBLIC)/deck.pptx
+
+$(PUBLIC)/deck.html: $(PUBLIC_DECK) $(THEME)
+	@mkdir -p $(PUBLIC)
+	$(MARP) $(MARP_FLAGS) -o $@ -- $(PUBLIC_DECK)
+
+$(PUBLIC)/deck.pptx: $(PUBLIC_DECK) $(THEME)
+	@mkdir -p $(PUBLIC)
+	$(MARP) $(MARP_FLAGS) -o $@ -- $(PUBLIC_DECK)
+
+$(PUBLIC)/deck.pdf: $(PUBLIC_DECK) $(THEME)
+	@mkdir -p $(PUBLIC)
+	$(MARP) $(MARP_FLAGS) --pdf -o $@ -- $(PUBLIC_DECK)
+
+# What gets published, listed rather than swept up. build/ also holds the assembled
+# source, the run sheet and the deck with notes; publishing the directory wholesale is
+# how all three ended up on a public URL. Adding a file here is a decision someone makes
+# on purpose.
+site: public handout
+	@rm -rf $(SITE) && mkdir -p $(SITE)
+	cp web/index.html $(SITE)/index.html
+	cp $(PUBLIC)/deck.html $(PUBLIC)/deck.pdf $(PUBLIC)/deck.pptx $(SITE)/
+	cp $(BUILD)/quickstart.pdf $(SITE)/
+	@python3 tools/no-notes.py $(SITE)
 
 # Build a single module: make M=01 module
 module: $(THEME)
@@ -91,6 +131,9 @@ check:
 # It looks correct locally, so only a check catches it.
 	@test ! -f $(BUILD)/deck.html || ! grep -q 'src="\.\./' $(BUILD)/deck.html || \
 	  { echo 'check: deck.html links an image outside build/ — it will 404 on Pages'; exit 1; }
+# Speaker notes must not reach anything published. Checked on the built site, not on the
+# sources, because that is where the mistake would actually be.
+	@test ! -d $(SITE) || python3 tools/no-notes.py $(SITE)
 
 # Each slide's footer carries the docs page it came from, derived from its DOCS: line.
 # Edit the DOCS line in the speaker notes, then run this — never edit a footer by hand.

@@ -40,18 +40,21 @@ jobs:
       - name: Locate Chrome
         run: echo "CHROME_PATH=$(which google-chrome || which chromium-browser)" >> "$GITHUB_ENV"
 
-      - name: Build slides, handout and run sheet
+      - name: Build everything, including what stays internal
         run: make all handout runsheet
 
-      - name: Add the landing page
-        run: cp web/index.html build/index.html
+      - name: Assemble the public site
+        run: make site
 
-      - name: Report the timing budget
+      - name: Report the timing budget, and refuse notes in the site
         run: make check
 
+      # build/site only. Publishing build/ wholesale is what put the assembled source,
+      # the run sheet and the deck's speaker notes on a public URL: everything the deck
+      # had ever built came along, because nobody listed what should not.
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: build
+          path: build/site
 
   deploy:
     needs: build

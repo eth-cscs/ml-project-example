@@ -16,7 +16,17 @@ alt text on a blank slide. The PDF hides the problem too, because Chromium reads
 at render time. Inlining here makes the HTML genuinely self-contained, which is what the
 Makefile has always claimed it was.
 
+With ``--no-notes`` the speaker notes are removed as well. Marp writes presenter notes
+as HTML comments, which means they travel into every output: the HTML embeds them for the
+presenter view, ``--pdf-notes`` attaches them as annotations, and PowerPoint gets them in
+the notes pane. That is what you want on stage and not what you want on a public link —
+the notes carry the running order, the timings and the "cut this if late" decisions.
+Marp *directives* are HTML comments too, so they are matched by name and kept; anything
+unrecognised is treated as a note and dropped, because failing towards dropping is the
+only safe direction here.
+
 Usage: python3 tools/assemble.py slides/00-intro.md slides/01-... -o build/deck.md
+       python3 tools/assemble.py --no-notes ... -o build/deck-public.md
 """
 
 from __future__ import annotations
@@ -32,6 +42,35 @@ FRONT_MATTER_DELIM = "---"
 
 # ![alt](path) — but not ![alt](https://...) or an already-inlined data: URI.
 MARKDOWN_IMAGE = re.compile(r"(!\[[^\]]*\]\()(?!\w+:)([^)\s]+)(\))")
+
+HTML_COMMENT = re.compile(r"<!--(.*?)-->", re.S)
+
+# Every Marp directive, global and per-slide. A comment is kept only if every line in it
+# names one of these; everything else is a speaker note. The list is the whole contract:
+# a directive missing from it gets dropped and the slide visibly breaks, which is a
+# failure you see. The reverse — a note mistaken for a directive — is a failure you
+# publish.
+DIRECTIVES = {
+    "marp", "theme", "style", "headingdivider", "paginate", "header", "footer", "class",
+    "backgroundcolor", "backgroundimage", "backgroundposition", "backgroundrepeat",
+    "backgroundsize", "color", "size", "transition", "math", "lang",
+}
+DIRECTIVE_LINE = re.compile(r"^\s*_?([A-Za-z][A-Za-z0-9]*)\s*:")
+
+
+def is_directive(comment: str) -> bool:
+    """True if the comment is Marp configuration rather than a speaker note."""
+    lines = [line for line in comment.splitlines() if line.strip()]
+    if not lines:
+        return False
+    return all((match := DIRECTIVE_LINE.match(line)) is not None
+               and match.group(1).lower() in DIRECTIVES for line in lines)
+
+
+def strip_notes(body: str) -> str:
+    """Drop every speaker note, keeping Marp directives."""
+    return HTML_COMMENT.sub(
+        lambda m: m.group(0) if is_directive(m.group(1)) else "", body)
 
 
 def inline_images(body: str, source: pathlib.Path) -> str:
@@ -66,6 +105,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("sources", nargs="+", type=pathlib.Path)
     parser.add_argument("-o", "--output", required=True, type=pathlib.Path)
+    parser.add_argument("--no-notes", action="store_true",
+                        help="drop the speaker notes: for anything published publicly")
     args = parser.parse_args()
 
     missing = [str(p) for p in args.sources if not p.is_file()]
@@ -85,6 +126,7 @@ def main() -> int:
         # No provenance comment here on purpose: Marp turns every non-directive HTML
         # comment into a presenter note, so a "source:" marker would land in the
         # speaker-notes pane of the first slide of each module.
+        body = strip_notes(body) if args.no_notes else body
         bodies.append(inline_images(body.strip(), source))
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -92,7 +134,8 @@ def main() -> int:
     parts.append(f"\n\n{FRONT_MATTER_DELIM}\n\n".join(bodies))
     args.output.write_text("\n".join(parts) + "\n", encoding="utf-8")
 
-    print(f"assemble.py: wrote {args.output} from {len(args.sources)} module(s)")
+    kept = "without speaker notes" if args.no_notes else "with speaker notes"
+    print(f"assemble.py: wrote {args.output} from {len(args.sources)} module(s), {kept}")
     return 0
 
 
